@@ -2,7 +2,7 @@
 
 ### Overview
 
-The Aligned SUV (Start-Up Visa) Platform aims to be a comprehensive web application designed to facilitate and streamline the application process for applicants interested in Canada's Start-Up Visa program. The platform caters to multiple user roles, including Anonymous Users (Anon), Admins, and Applicants. It offers a range of features and functionalities to ensure a smooth and efficient application journey.
+The Aligned SUV (Start-Up Visa) Platform aims to be a comprehensive web application designed to facilitate and streamline the application process for applicants interested in Start-Up Visa program. The platform caters to multiple user roles, including Anonymous Users (Anon), Admins, and Applicants. It offers a range of features and functionalities to ensure a smooth and efficient application journey.
 
 ### Other info
 
