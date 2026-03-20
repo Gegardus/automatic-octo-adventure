@@ -1,0 +1,53 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', inquiry_steps_applicant_education_records_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'About you' %>
+  <%= render_details_list list: %w[first_name last_name email phone date_of_birth].map { |attr| [attr.humanize, current_user.send(attr)] } %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Applicant detail' do %>
+    <div class="flex">
+      <%= link_to "Edit", [:edit, :inquiry_steps, :applicant_detail], class: 'btn-secondary mr-2' %>
+    </div>
+  <% end %>
+
+  <%= render_details_list list: %w[pronouns country_of_origin country_of_application native_language linkedin_url tell_us_about_yourself current_address marital_status].map { |attr| [attr.humanize, current_user.applicant_detail.send(attr)] } %>
+  <% if current_user.applicant_detail.language_test_result_file.attached? %>
+    <h3 class="text-m mt-6 font-bold mb-4">Language test result file</h3>
+    <%= render 'active_storage/blobs/blob', blob: current_user.applicant_detail.language_test_result_file.blob %>
+  <% end %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Other applicants' do %>
+    <div class="flex">
+      <%= link_to "Add another applicant", new_inquiry_steps_other_applicant_path, class: 'btn-secondary mr-2' %>
+    </div>
+  <% end %>
+  <% other_applicants = @inquiry.suv_application.applicants.where.not(id: current_user.id) %>
+  <%= render_table other_applicants do %>
+    <%= table_head do %>
+      <%= table_header 'First name' %>
+      <%= table_header 'Last name' %>
+      <%= table_header 'Email' %>
+    <% end %>
+    <%= table_body do %>
+      <% other_applicants.each do |applicant| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= applicant.first_name %>
+          <% end %>
+          <%= table_column do %>
+            <%= applicant.last_name %>
+          <% end %>
+          <%= table_column do %>
+            <%= applicant.email %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

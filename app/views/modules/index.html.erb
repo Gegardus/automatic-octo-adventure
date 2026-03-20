@@ -1,0 +1,41 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Modules', header_classes: 'text-sm sm:text-2xl' do %>
+    <% mentor_request = current_user.suv_application.mentor_request %>
+    <% if mentor_request.nil? %>
+      <%= button_to 'Request mentor', applicant_mentor_requests_path, class: 'btn-primary mr-2' %>
+    <% else  %>
+      <%= link_to "Mentors", applicant_mentor_path, class: 'text-blue-600' %>
+    <% end %>
+
+  <% end %>
+
+  <%= render 'application_progress/progress_percentage_bar', progress_percentage: @application_modules.progress_percentage %>
+  <%= link_to "View progress", application_progress_path, class: 'text-yellow-500' %>
+
+  <% implemented_modules_for_accordion = ApplicationModules::MODULES.map do |application_module_name|
+      application_module = @application_modules.send("#{application_module_name}_steps")
+      module_completed = application_module.completed?
+      {
+        title: application_module.title,
+        content: render_steps(
+          steps: application_module.all_steps,
+          current_step: application_module.current_available_step,
+          step_links: application_module.all_steps.map { |step| module_step_path_for(application_module_name, step.step_name) },
+          disabled: module_completed
+        ),
+        active: @application_modules.module_active?(application_module_name),
+        status: status_badge_for_module(application_module_name, module_completed)
+      }
+    end
+  %>
+  <%= render_accordion(implemented_modules_for_accordion + [
+    { title: 'Module 4: Market Research', content: 'Coming Soon!' },
+    { title: 'Module 5: Product / Service Design', content: 'Coming Soon!' },
+    { title: 'Module 6: Technology', content: 'Coming Soon!' },
+    { title: 'Module 7: The Business Model', content: 'Coming Soon!' },
+    { title: 'Module 8: Target Market', content: 'Coming Soon!' },
+    { title: 'Module 9: Financial Planning, Financial Workbooks', content: 'Coming Soon!' },
+    { title: 'Module 10: Fundraising', content: 'Coming Soon!' },
+    { title: 'Module 11: Online Presence, Sales & Marketing', content: 'Coming Soon!' }
+  ]) %>
+<% end %>

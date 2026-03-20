@@ -1,0 +1,40 @@
+# frozen_string_literal: true
+
+require 'application_system_test_case'
+
+class <%= class_name.pluralize %>Test < ApplicationSystemTestCase
+  test 'adding <%= human_name.downcase %>' do
+    # given_signed_in_as
+    visit root_path
+
+    click_link '<%= plural_table_name.humanize %>'
+
+    click_link 'New <%= human_name %>'
+
+    <% attributes.each do |attribute| -%>
+fill_in '<%= attribute.name.humanize %>', with: '<%= attribute.default %>'
+    <% end -%>
+
+    click_button 'Create <%= human_name %>'
+
+    assert_success_alert '<%= human_name %> was successfully created'
+  end
+
+  test 'updating <%= human_name.downcase %>' do
+    # given_signed_in_as
+    visit root_path
+
+    click_link '<%= plural_table_name.humanize %>'
+    click_link 'View', match: :first
+
+    click_link 'Edit'
+
+    <% attributes.each do |attribute| -%>
+fill_in '<%= attribute.name.humanize %>', with: '<%= attribute.default %>'
+    <% end -%>
+
+    click_button 'Update <%= human_name %>'
+
+    assert_success_alert '<%= human_name %> was successfully updated'
+  end
+end

@@ -1,0 +1,14 @@
+<%= render_grid columns: :three do %>
+  <%= f.text_field :degree_type %>
+  <%= f.text_field :institution_name %>
+  <%= f.text_field :concentration %>
+<% end %>
+<%= render_grid do %>
+  <%= f.date_field :start_date %>
+  <%= f.date_field :end_date %>
+  <%= f.collection_radio_buttons :graduated, [[true, 'Yes'], [false, 'No']], :first, :last %>
+<% end %>
+
+<div class="flex flex-start">
+  <div><%= f.submit %></div>
+</div>

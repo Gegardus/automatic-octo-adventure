@@ -1,0 +1,20 @@
+<%= render_centered_content heading: 'Sign in to your account' do %>
+  <%= render "devise/shared/links" %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f| %>
+    <div class="space-y-6">
+      <%= f.email_field :email %>
+      <%= f.password_field :password %>
+
+      <div class="flex items-center justify-between">
+        <%= f.check_box :remember_me %>
+
+        <div class="text-sm">
+          <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium" %>
+        </div>
+      </div>
+      <%= f.submit "Log in", class: "btn-primary w-full" %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,72 @@
+<%= f.collection_radio_buttons :existing_business_idea, [[true, 'Yes'], [false, 'No']], :first, :last, class: 'js-reload-turbo-frame-on-change mt-0.5', label: 'Do you have an idea/business in mind or business that is operational?' %>
+<% if inquiry.existing_business_idea? %>
+  <%= render_grid do %>
+    <%= f.text_field :position, label: 'What is/will be your designation in the company?' %>
+    <%= f.collection_radio_buttons :company_founder, [[true, 'Yes'], [false, 'No']], :first, :last, label: 'Are you a founder in the company?' %>
+    <%= f.text_field :founders_count, label: 'How many founders does the company have?' %>
+    <%= f.text_field :founders_connection, label: 'If you are multiple founders, how did you get acquinted?' %>
+    <%= f.text_field :team_members_info, label: "Please list all team members' name, roles & responsibilities" %>
+    <div>
+      <%= f.select :business_industry, [
+          'Agritech',
+          'Education',
+          'Cybersecurity',
+          'NFTs',
+          'Cleantech',
+          'Fintech',
+          'IoT (Internet of Things)',
+          'AI & Machine Learning',
+          'Food & Beverage',
+          'Hospitality',
+          'Blockchain',
+          'Gaming',
+          'Consumer Goods',
+          'Health Wellness & Safety',
+          'Cryptocurrency (VR & AR)',
+          'E-commerce & RetailTech',
+          'Transportation',
+          'Construction',
+          'Other (please specify)'
+        ], { include_blank: 'Please Select', label: 'What is the industry the business/idea operates in?', class: 'js-reload-turbo-frame-on-change', required: true } %>
+      <% if f.object.other_business_industry? %>
+        <%= f.text_field :other_business_industry %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.text_area :idea_description, label: "Describe the idea in 100 words or less" %>
+  <%= render_grid do %>
+    <%= f.text_field :unique_selling_proposition, label: 'What is your value proposition or unique selling proposition?' %>
+    <%= f.text_field :problem_solved, label: 'What problem are you solving?' %>
+    <%= f.text_field :solution_users, label: 'Who will benefit from the solution?' %>
+    <%= f.text_field :target_customers, label: 'Who are your customers?' %>
+  <% end %>
+  <%= f.collection_radio_buttons :business_stage, Inquiry::BUSINESS_STAGES.map { |stage| [stage, stage.humanize] }, :first, :last, label: 'At what stage is your business currently?' %>
+  <%= render_grid do %>
+    <%= f.text_field :product_description, label: 'Describe the product or the service' %>
+    <%= f.text_field :main_features, label: 'Specify the minimum of 3 key features of the product or service' %>
+    <%= f.text_field :money_to_invest, label: 'How much money are you willing to invest in this business?' %>
+    <%= f.text_field :innovation_description, label: 'How is the idea or business innovative?' %>
+  <% end %>
+  <%= f.text_field :partner_investment, label: 'Are you looking for investment from partners, VC firms or angel investors? (If yes, specify type of investment)' %>
+  <%= f.text_field :competitors, label: 'Have you looked into any competitors? Describe your competition' %>
+  <%= f.text_field :revenue_source, label: 'How will the business/idea generate revenue?' %>
+<% else %>
+  <%= render_grid do %>
+    <%= f.select :area_of_expertise,
+      ['Mathematics', 'Economics', 'Computer Science', 'Law', 'Drama', 'Literature', 'Commerce', 'Chemistry', 'Humanities', 'Art', 'Engineering', 'English', 'Science', 'Psychology', 'Sociology', 'Environmental science', 'Social science', 'Geography', 'History', 'Physics', 'Philosophy', 'Physical education', 'Accounting', 'Biology', 'Music'],
+      { label: 'What is your area of expertise? (Choose up to 5)' },
+      { multiple: true }
+    %>
+
+    <%= f.select :which_industries_excite_you,
+      ['Transportation', 'Manufacturing', 'Marketing', 'Aerospace', 'Forestry', 'Retail', 'Financial services', 'Utilities', 'Media', 'Chemical industry', 'Construction', 'Finance', 'Energy industry', 'Accounting', 'Software industry', 'Health care', 'Entertainment', 'Telecommunications', 'Hospitality industry', 'Logistics', 'Real Estate', 'Automobile Engineering', 'Hospitality', 'Trade', 'Artificial Intelligence'],
+      { label: 'Which industries excite you? (Choose up to 5)' },
+      { multiple: true }
+    %>
+    <%= f.text_area :strengths, label: 'What are your professional strengths?' %>
+    <%= f.text_area :weaknesses, label: 'What are your weaknesses?' %>
+  <% end %>
+  <%= f.text_area :business_idea, label: 'Share at least one business idea that intrigues you?' %>
+  <%= f.text_area :problem_to_solve, label: 'What are some problems you see around the world you want to solve? What is the biggest crisis facing humanity in your opinion?' %>
+<% end %>

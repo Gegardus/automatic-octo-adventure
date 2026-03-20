@@ -1,0 +1,34 @@
+<%= render_table applicant_skills do %>
+  <%= table_head do %>
+    <%= table_header 'Description' %>
+    <%= table_header 'Proficiency level' %>
+    <%= table_header 'Skill type' %>
+    <%= table_header 'Certification' %>
+    <% if show_actions %>
+      <%= table_header 'Actions', class: 'text-right' %>
+    <% end %>
+  <% end %>
+  <%= table_body do %>
+    <% applicant_skills.each do |applicant_skill| %>
+      <%= table_row do %>
+        <%= table_column do %>
+          <%= applicant_skill.description %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_skill.proficiency_level %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_skill.skill_type %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_skill.certification %>
+        <% end %>
+        <% if show_actions %>
+          <%= table_column(class: 'text-right') do %>
+            <%= link_to 'View', inquiry_steps_applicant_skill_path(applicant_skill), aria: { label: "View #{applicant_skill.description}"}, class: 'btn-secondary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

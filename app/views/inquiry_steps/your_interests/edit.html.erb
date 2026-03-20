@@ -1,0 +1,10 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Your interest' %>
+  <%= form_with model: @inquiry, url: inquiry_steps_your_interest_path do |f| %>
+    <%= render 'partials/form_errors', resource: @inquiry %>
+    <turbo-frame id="your_interest">
+      <%= render 'fields', f: f, inquiry: @inquiry %>
+      <%= f.submit 'Save' %>
+    </turbo-frame>
+  <% end %>
+<% end %>

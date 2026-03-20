@@ -1,0 +1,11 @@
+<%= render_grid do %>
+  <div>
+    <h2 class="text-m font-bold mb-4">Online Registration Document</h2>
+    <%= render 'active_storage/blobs/blob', blob: suv_application.online_registration_document.blob %>
+  </div>
+
+  <div>
+    <h2 class="text-m font-bold mb-4">Bank Account Document</h2>
+    <%= render 'active_storage/blobs/blob', blob: suv_application.bank_account_document.blob %>
+  </div>
+<% end %>

@@ -1,0 +1,61 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', immigration_modules_path(section: 'legal'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Canadian Startup Ecosystem' %>
+  <%= render_title title: "Overview", size: "xl" %>
+  <%= render_paragraph content: "Canada's startup scene is both #{content_tag(:strong, 'vibrant')} and #{content_tag(:strong, 'diverse')}. Key cities, including Toronto, Vancouver, Montreal, and Calgary, have solidified their positions as global innovation hubs, supporting startups across a range of sectors." %>
+  <%= render_title title: "Growth Industries", size: "xl" %>
+  <%= render_unordered_list(items: [
+    content_tag(:strong, "Tech and AI:") + " Toronto, often dubbed the " + link_to("Silicon Valley of the North", "https://theedgeleaders.com/silicon-valley-of-the-north-canadas-tech-industry/", class: "text-blue-600", target: "_blank", rel: "noopener noreferrer") + " and Montreal have become global centers for artificial intelligence and tech innovations.",
+    content_tag(:strong, "Cleantech:") + " Vancouver is leading the way in sustainable technology and green energy solutions.",
+    content_tag(:strong, "Biotech & Health:") + " Cities like Ottawa and Toronto are making strides in biotechnology, medical research, and healthtech startups.",
+    content_tag(:strong, "AgTech:") + " The prairies, especially regions in Saskatchewan and Manitoba, are pioneering agricultural technology innovations."
+  ]) %>
+
+  <%= render_title title: "Notable Startups", size: "xl" %>
+  <%= render_paragraph content: "Companies like #{link_to('Shopify', 'https://www.shopify.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')} (e-commerce), #{link_to('Kik', 'https://www.kik.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')} (messaging app), and #{link_to('Wattpad', 'https://www.wattpad.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')} (writing community) have showcased Canada's potential on the world stage." %>
+  <%= render_title title: "Supportive Infrastructure", size: "xl" %>
+  <%= render_title title: "Incubators & Accelerators", size: "sm" %>
+  <%= render_unordered_list(items: [
+    link_to('DMZ (Toronto)', 'http://dmz.to/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+    link_to('Techstars (Toronto)', 'https://www.techstars.com/startups', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+    link_to('NEXT Canada', 'https://nextcanada.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')
+  ]) %>
+
+  <%= render_title title: "Funding", size: "sm" %>
+  <%= render_paragraph content: 'Besides venture capital, Canada provides numerous grants to fuel startup growth, such as:' %>
+  <%= render_unordered_list(items: [
+      link_to('IRAP (Industrial Research Assistance Program)', 'https://nrc.canada.ca/en/support-technology-innovation/about-nrc-industrial-research-assistance-program', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+      link_to('Mitacs', 'https://www.mitacs.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+      link_to('Sustainable Development Technology Canada (SDTC)', 'https://www.sdtc.gc.ca/en', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')
+  ]) %>
+
+  <%= render_title title: "Networking", size: "lg" %>
+  <%= render_title title: "Events", size: "sm" %>
+  <%= render_unordered_list(items: [
+      link_to('Startupfest (Montreal)', 'https://www.startupfestival.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+      link_to('Collision (Toronto)', 'https://collisionconf.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')
+  ]) %>
+
+  <%= render_title title: "Communities", size: "sm" %>
+  <%= render_unordered_list(items: [
+      link_to('Startup Canada', 'https://www.startupcan.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+      link_to('The C100 (for Canadians in Silicon Valley)', 'https://thec100.org/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer'),
+      "Local community groups like #{link_to('Startup Vancouver', 'https://www.startupcan.ca/community/startup-vancouver/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}"
+  ]) %>
+
+  <%= render_title title: "Talent", size: "sm" %>
+  <%= render_paragraph content: 'Home to world-class institutions like the University of Toronto, University of Waterloo, and McGill University, Canada continuously supplies the startup ecosystem with fresh, skilled talent. Programs like the ' +
+                           link_to('Global Talent Stream', 'https://www.canada.ca/en/employment-social-development/services/foreign-workers/global-talent-stream.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') +
+                           ' also make it easier for Canadian startups to recruit internationally.' %>
+  <%= render_paragraph content: link_to('Canadian National Industry Organizations', 'https://www.canada.ca/en/environment-climate-change/corporate/transparency/briefing-materials/corporate-book/national-industry-organizations.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+
+  <%= render_grid do %>
+    <div>
+      <p class="text-sm font-bold mb-4">Immigration to Canada</p>
+      <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: '6Wc2ljGJcPo') %>
+    </div>
+  <% end %>
+<% end %>

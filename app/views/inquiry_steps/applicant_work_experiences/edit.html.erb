@@ -1,0 +1,8 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Edit Applicant work experience' %>
+
+  <%= form_with(model: @applicant_work_experience, url: [:inquiry_steps, @applicant_work_experience]) do |f| %>
+    <%= render 'partials/form_errors', resource: @applicant_work_experience %>
+    <%= render 'fields', f: f %>
+  <% end %>
+<% end %>

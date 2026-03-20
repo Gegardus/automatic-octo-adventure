@@ -1,0 +1,15 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Mentor" %>
+
+  <% if @mentor_request.mentors.any? %>
+    <% @mentor_request.mentors.each do |mentor| %>
+      <%= render_details_list list: %w[full_name email phone date_of_birth].map { |key,| [key.humanize,  mentor.send(key)]}, class_names: 'border-b border-solid border-gray-200 p-4 mb-4 mt-4' %>
+    <% end %>
+  <% else %>
+    <div class="text-base font-bold mb-4">
+      Awaiting Mentor
+    </div>
+  <% end %>
+
+  <turbo-frame id="comments" src="<%= conversation_comment_path(@mentor_request.conversation) %>"/>
+<% end %>

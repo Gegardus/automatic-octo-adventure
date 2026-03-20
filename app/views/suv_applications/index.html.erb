@@ -1,0 +1,36 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Teams' %>
+
+  <%= render_table @suv_applications do %>
+    <%= table_head do %>
+      <%= table_header 'Team' %>
+      <%= table_header 'Inquiry Status' %>
+      <%= table_header 'Applicants' %>
+      <%= table_header 'Mentors' %>
+      <%= table_header 'Actions', class: 'text-right' %>
+    <% end %>
+    <%= table_body do %>
+      <% @suv_applications.each do |suv_application| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= suv_application.team_name %>
+          <% end %>
+          <%= table_column do %>
+            <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium <%= class_for_status_badge(suv_application.inquiry.status) %>">
+              <%= suv_application.inquiry.status.humanize %>
+            </span>
+          <% end %>
+          <%= table_column do %>
+            <%= suv_application.applicant_names %>
+          <% end %>
+          <%= table_column do %>
+            <%= suv_application.mentors.map(&:full_name).join(', ') %>
+          <% end %>
+          <%= table_column(class: 'text-right') do %>
+            <%= link_to 'View', suv_application, aria: { label: "View #{suv_application.id}"}, class: 'btn-primary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

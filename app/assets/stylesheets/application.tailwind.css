@@ -1,0 +1,89 @@
+@import "fonts.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .btn {
+    @apply rounded-md px-5 border-2 py-2.5 text-sm font-bold transition;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    @apply btn;
+    background-color: #fbe268;
+    border-color: #fbe268;
+    color: #333333;
+    &:hover {
+      background-color: #e0c55c;
+    }
+  }
+
+  .btn-secondary {
+    @apply btn;
+    color: #333333;
+    border-color: #fbe268;
+    &:hover {
+      background-color: #fbe268;
+    }
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 hover:bg-red-600 border-red-600;
+  }
+
+  a {
+    color: #333333;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .Alert--danger {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .Alert--success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .Alert--info {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .Alert--warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+}
+
+.steps-min-h-remaining {
+  min-height: calc(100vh - 200px);
+}
+
+.navItemLabel {
+  font-size: 8px !important;
+  text-align: center;
+}
+
+.mb-0 {
+  margin-bottom: 0px !important;
+}
+
+.quick-assessment-card-grid {
+  @apply gap-x-5 gap-y-5 flex-wrap justify-center items-center;
+  display: flex;
+}
+
+.assessment-card {
+  width: 280px;
+  height: 265px;
+}
+
+.black-border {
+  border: 2px solid #999999;
+}
+
+.blue-links a {
+  @apply text-blue-500;
+}

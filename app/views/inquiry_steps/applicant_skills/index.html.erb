@@ -1,0 +1,10 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', edit_inquiry_steps_additional_informations_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Applicant skills' do %>
+    <%= link_to 'New Applicant skill', new_inquiry_steps_applicant_skill_path, class: 'btn-secondary' %>
+  <% end %>
+  <%= render 'inquiry_steps/applicant_skills/table', applicant_skills: current_user.applicant_skills, show_actions: true %>
+<% end %>

@@ -1,0 +1,11 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', inquiry_steps_applicant_skills_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Applicant work experiences' do %>
+    <%= link_to 'New Applicant work experience',new_inquiry_steps_applicant_work_experience_path, class: 'btn-secondary' %>
+  <% end %>
+
+  <%= render 'inquiry_steps/applicant_work_experiences/table', applicant_work_experiences: @applicant_work_experiences, show_actions: true %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'New Applicant education record' %>
+
+  <%= form_with(model: @applicant_education_record, url: inquiry_steps_applicant_education_records_path) do |f| %>
+    <%= render 'partials/form_errors', resource: @applicant_education_record %>
+    <%= render 'fields', f: f %>
+  <% end %>
+<% end %>

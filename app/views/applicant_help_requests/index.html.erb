@@ -1,0 +1,7 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Applicant Help Requests" do %>
+     <%= link_to 'New help request', new_applicant_help_request_path, class: "btn-primary" %>
+  <% end %>
+
+  <%= render 'all_help_requests' %>
+<% end %>

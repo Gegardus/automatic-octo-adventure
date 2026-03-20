@@ -1,0 +1,6 @@
+consult_request:
+  details: Suggestions on tax policy
+  suv_application: fitpal_application
+  conversation: fitpal_help_request_conversation
+  module_name: immigration
+  module_section: legal

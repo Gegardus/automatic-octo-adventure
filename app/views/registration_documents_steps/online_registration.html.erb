@@ -1,0 +1,33 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': registration_document_step_path(section: 'online_registration') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Online registration' %>
+  <%= render_title title: "Business Registration Online – What you can do", size: "xl" %>
+  <%= render_paragraph content: "Find out what you can do online to setup some of your business requirements" %>
+  <%= render_title title: "What you can do", size: "lg pt-6" %>
+  <%= render_paragraph content: "You can use Business Registration Online (BRO) to:" %>
+  <%= render_unordered_list(items: ["get a business number (BN)", "register for some types of program account", "link to other business online registries for some provincial programs, such as Ontario and Nova Scotia"]) %>
+  <%= render_paragraph content: "If you want to register as a non-resident business, go to " + content_tag(:a, 'Non-Resident Business Number and Account Registration Web Form.', href: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/registering-your-business/non-resident-business-number-account-registration-web-form.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+  <%= render_title title: "CRA program accounts you can register for using BRO", size: "lg pt-6" %>
+  <%= render_paragraph content: "If you have a BN, you can use BRO to register for program accounts. If you just received a BN and are in BRO, without leaving, you can register for the following types of program account:" %>
+  <%= render_unordered_list(items: ["corporation income tax", "GST/HST", "payroll deductions", "import-export", "registered charity", "information returns", "underused housing tax"]) %>
+  <%= render_paragraph content: "For information about other CRA program accounts that are not found in BRO, go to " + content_tag(:a, 'CRA program accounts.', href: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/changes-your-business/adding-accounts-your-business-number-bn.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+
+  <%= render_paragraph content: "Source: " + content_tag(:a, 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/registering-your-business/business-registration-online-overview.html', href: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/registering-your-business/business-registration-online-overview.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+  <%= form_with(model: @suv_application, url: registration_document_step_path(section: 'online_registration'), method: :patch) do |f| %>
+    <%= render_grid do %>
+      <%= f.file_field :online_registration_document, required: !@suv_application.online_registration_document.attached? %>
+      <% if @suv_application.online_registration_document.attached? %>
+        <div class="max-w-sm">
+          <h3 class="mb-2 block text-sm font-medium leading-6 text-gray-900 text-base mb-4 4">Current upload</h3>
+          <%= render 'active_storage/blobs/blob', blob: @suv_application.online_registration_document.blob %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+
+<% end %>

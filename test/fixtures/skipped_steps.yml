@@ -1,0 +1,19 @@
+jim_applicant_detail_skipped:
+  user: jim
+  step_name: applicant_detail
+  module_name: pre_incubation
+
+jim_applicant_education_record_skipped:
+  user: jim
+  step_name: applicant_education_record
+  module_name: pre_incubation
+
+jim_applicant_work_experience_skipped:
+  user: jim
+  step_name: applicant_work_experience
+  module_name: pre_incubation
+
+jim_applicant_skills_skipped:
+  user: jim
+  step_name: applicant_skill
+  module_name: pre_incubation

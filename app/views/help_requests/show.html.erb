@@ -1,0 +1,18 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: @help_request.details do %>
+    <%= link_to 'Edit', edit_help_request_path(@help_request), class: 'btn-primary mr-2' %>
+  <% end %>
+  <% if @help_request.admin %>
+    <div class="text-lg font-bold mb-4">
+      Admin: <%= @help_request.admin.full_name %>
+    </div>
+  <% end %>
+
+  <p class="text-lg font-bold mb-2">Applicants</p>
+  <% @help_request.suv_application.applicants.each do |applicant| %>
+    <p class="text-base mb-6"><%= applicant.full_name %></p>
+    <%= render_details_list list: %w[email phone date_of_birth].map {|key, _| [key.humanize,  applicant.send(key)]} %>
+  <% end %>
+
+   <turbo-frame id="comments" src="<%= conversation_comment_path(@help_request.conversation) %>"/>
+<% end %>

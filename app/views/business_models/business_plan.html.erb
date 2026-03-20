@@ -1,0 +1,330 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', business_models_path(section: 'getting_started_with_business_plan'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Business Plan' %>
+
+  <%= render_paragraph content: "Now that you have completed these exercises, let's begin building your business plan. You will find a template for a business plan and sample answers for each section of the business plan below:" %>
+  <%= render_paragraph content: "Here's a concise version of the business plan template:" %>
+
+  <% how_to_register_a_business_plan_template_items = [
+    {
+      title: "1. Executive Summary",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Business Name and Location:") + " Where and what is your business?",
+        content_tag(:strong, "Mission and Vision Statements:") + " Your company's purpose and future outlook.",
+        content_tag(:strong, "Product or Service Overview:") + " What are you offering?",
+        content_tag(:strong, "Summary of Objectives:") + " Key goals and aims.",
+        content_tag(:strong, "Brief Market Overview:") + " A snapshot of your target market."
+      ]),
+      active: true
+    },
+    {
+      title: "2. Business Description",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Nature of the Business:") + " What's the business's primary focus?",
+        content_tag(:strong, "Legal Structure:") + " The legal format of your business (e.g., LLC, corporation).",
+        content_tag(:strong, "Business History:") + " Past achievements and milestones.",
+        content_tag(:strong, "Industry Background:") + " Current state of your industry."
+      ])
+    },
+    {
+      title: "3. Products or Services",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Description:") + " Detailed look at what you're selling.",
+        content_tag(:strong, "Unique Selling Points:") + " What makes your offering special?",
+        content_tag(:strong, "Pricing Strategy:") + " How you'll price your product/service",
+        content_tag(:strong, "Lifecycle:") + " Stages of your product's existence.",
+        content_tag(:strong, "R&D:") + " Efforts to improve or innovate."
+      ])
+    },
+    {
+      title: "4. Market Analysis",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Target Market:") + " Who you're selling to.",
+        content_tag(:strong, "Market Size:") + " The total potential customers.",
+        content_tag(:strong, "Market Trends:") + " Current patterns in your market.",
+        content_tag(:strong, "Market Share:") + " Your piece of the pie.",
+        content_tag(:strong, "Customer Preferences:") + " What your customers like and dislike.",
+        content_tag(:strong, "Competitor Analysis:") + " A look at your main competitors."
+      ])
+    },
+    {
+      title: "5. Marketing and Sales Strategies",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Marketing Strategy:") + " How you'll promote your business.",
+        content_tag(:strong, "Sales Model:") + " How you'll get your product to customers.",
+        content_tag(:strong, "Sales Tactics:") + " Techniques to boost sales.",
+        content_tag(:strong, "Sales Structure:") + " Organization of your sales team.",
+        content_tag(:strong, "Sales Activities:") + " Day-to-day sales operations."
+      ])
+    },
+    {
+      title: "6. Management and Organization",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Management Overview:") + " Key leadership roles.",
+        content_tag(:strong, "Organizational Structure:") + " Company hierarchy.",
+        content_tag(:strong, "Roles/Responsibilities:") + " Duties for each position.",
+        content_tag(:strong, "Ownership:") + " Who holds stakes in the business.",
+        content_tag(:strong, "Board/Advisory:") + " External advisors or directors."
+      ])
+    },
+    {
+      title: "7. Operational Plan",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Supply Chain (if applicable):") + " How you get resources for your product/service.",
+        content_tag(:strong, "Production Workflow:") + " Steps to produce your offering.",
+        content_tag(:strong, "Facilities:") + " Physical locations of operations.",
+        content_tag(:strong, "Equipment/Technology:") + " Tools vital to your business.",
+        content_tag(:strong, "Quality Control:") + " Ensuring the best product/service."
+      ])
+    },
+    {
+      title: "8. Financial Plan",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Start-up Capital:") + " Initial funds needed.",
+        content_tag(:strong, "Budgets:") + " Expected incomes and expenses."
+      ])
+    }
+  ] %>  
+
+  <%= render_accordion(how_to_register_a_business_plan_template_items) %>
+
+  <%= render_paragraph content: 'Use this template to fill in your answers for each section. Customize the template to fit your specific business needs.' %>
+  <%= render_title title: "Sample Business Plan", size: "xl" %>
+  <%= render_paragraph content: 'To help explain how to build your business plan, we have created a short, sample business plan using the previously shared template for an e-commerce platform looking to launch in Canada.' %>
+  <%= render_paragraph content: '*Note: this is a summarized version of the business plan and does not contain the logic behind decisions, which will be expected from a detailed version of a business plan that you will need to develop for your business.' %>
+  
+  <% how_to_register_a_business_plan_sample_items = [
+    {
+      title: "1. Executive Summary",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Business Name and Location:") + " ShopHaven, based in Toronto.",
+        content_tag(:strong, "Mission and Vision Statements:") + " Revolutionizing online shopping for Canadians. Aiming to be Canada's top e-commerce platform by 2030.",
+        content_tag(:strong, "Product or Service Overview:") + " Online marketplace for diverse products.",
+        content_tag(:strong, "Summary of Objectives:") + " Gain 100K users in year one.",
+        content_tag(:strong, "Brief Market Overview:") + " Growing demand for online retail in Canada."
+      ])
+    },
+    {
+      title: "2. Business Description",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Nature of the Business:") + " Online retail platform..",
+        content_tag(:strong, "Legal Structure:") + " LLC.",
+        content_tag(:strong, "Business History:") + " New startup by industry veterans.",
+        content_tag(:strong, "Industry Background:") + " E-commerce saw 30% growth in Canada last year.."
+      ])
+    },
+    {
+      title: "3. Products or Services",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Description:") + " Platform selling electronics, apparel, home goods.",
+        content_tag(:strong, "Unique Selling Points:") + " 2-hour delivery in major cities.",
+        content_tag(:strong, "Pricing Strategy:") + " Competitive pricing with membership discounts.",
+        content_tag(:strong, "Lifecycle:") + " New platform, aiming for continual feature updates.",
+        content_tag(:strong, "R&D:") + " Team working on AR shopping experience."
+      ])
+    },
+    {
+      title: "4. Market Analysis",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Target Market:") + " Urban Canadians, ages 18-45.",
+        content_tag(:strong, "Market Size:") + " 20 million potential users.",
+        content_tag(:strong, "Market Trends:") + " Increased demand for fast delivery.",
+        content_tag(:strong, "Market Share:") + " Aiming for 10% of urban e-commerce by year three.",
+        content_tag(:strong, "Customer Preferences:") + " Quality, speed, variety.",
+        content_tag(:strong, "Competitor Analysis:") + " Major competitors are Amazon and Walmart."
+      ])
+    },
+    {
+      title: "5. Marketing and Sales Strategies",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Marketing Strategy:") + " Social media campaigns and influencer partnerships.",
+        content_tag(:strong, "Sales Model:") + " Direct-to-consumer via platform.",
+        content_tag(:strong, "Sales Tactics:") + " Flash sales and loyalty programs.",
+        content_tag(:strong, "Sales Structure:") + " In-house sales team targeting vendors.",
+        content_tag(:strong, "Sales Activities:") + " Onboarding top local brands."
+      ])
+    },
+    {
+      title: "6. Management and Organization",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Management Overview:") + " CEO with 10 years in e-commerce.",
+        content_tag(:strong, "Organizational Structure:") + " CEO, CTO, COO, Sales, Marketing, Support.",
+        content_tag(:strong, "Roles/Responsibilities:") + " Defined by department objectives.",
+        content_tag(:strong, "Ownership:") + " 3 co-founders with equal shares.",
+        content_tag(:strong, "Board/Advisory:") + " Seeking industry experts."
+      ])
+    },
+    {
+      title: "7. Operational Plan",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Supply Chain (if applicable):") + " Partnering with local logistics companies.",
+        content_tag(:strong, "Production Workflow:") + " Continuous software development.",
+        content_tag(:strong, "Facilities:") + " Main office in Toronto, server farms in Ontario.",
+        content_tag(:strong, "Equipment/Technology:") + " Web servers, user data analytics tools.",
+        content_tag(:strong, "Quality Control:") + " Rigorous software testing and user feedback loops."
+      ])
+    },
+    {
+      title: "8. Financial Plan",
+      content: render_unordered_list(items: [
+        content_tag(:strong, "Start-up Capital:") + " CAD 2 million from angel investors.",
+        content_tag(:strong, "Budgets:") + " Year 1: 60% development, 30% marketing, 10% operations."
+      ])
+    }
+  ] %>
+
+  <%= render_accordion(how_to_register_a_business_plan_sample_items) %>
+
+  <%= render_paragraph content: 'This sample business plan provides a brief overview of how to structure your business plan using the provided template. Customize the template to fit your specific business needs and ensure that your detailed version includes the logic behind your decisions.' %>
+
+  <%= render_title title: "Your Business Plan", size: "xl" %>
+
+  <%= form_with model: @business_model, url: business_model_path(section: 'business_plan'), method: :patch, class: 'pl-7 mt-6' do |f| %>
+
+    <%= render_title title: 'Executive Summary', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :business_name_and_location, label: 'Business Name and Location:', required: true  %>
+      <%= f.text_field :mission_and_vision_statement, label: 'Mission and Vision Statements:', required: true  %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :products_or_service_overview, label: 'Product or Service Overview:', required: true  %>
+      <%= f.text_field :objectives_summary, label: 'Summary of Objectives:', required: true  %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :market_brief_overview, label: 'Brief Market Overview:Nature of the Business:', required: true  %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Business Description', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :business_nature, label: 'Nature of the Business:', required: true %>
+      <%= f.text_field :legal_structure, label: 'Legal Structure:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :business_history, label: 'Business History:', required: true %>
+      <%= f.text_field :industry_background, label: 'Industry Background:', required: true %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Products or Services', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :products_or_services_description, label: 'Description:', required: true  %>
+      <%= f.text_field :unique_selling_point, label: 'Unique Selling Points:', required: true  %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :pricing_strategy, label: 'Pricing Strategy:', required: true  %>
+      <%= f.text_field :lifecycle, label: 'Lifecycle:', required: true  %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :research_and_development, label: 'R&D:', required: true  %>
+    <% end %>
+  
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Market Analysis', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :target_market, label: 'Target Market:', required: true %>
+      <%= f.text_field :market_size, label: 'Market Size:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :market_trends, label: 'Market Trends:', required: true%>
+      <%= f.text_field :market_share, label: 'Market Share:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :customer_preference, label: 'Customer Preferences:', required: true %>
+      <%= f.text_field :competitor_analysis, label: 'Competitor Analysis:', required: true %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Marketing and Sales Strategies', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :marketing_strategy, label: 'Marketing Strategy:', required: true %>
+      <%= f.text_field :sales_model, label: 'Sales Model:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :sales_tactics, label: 'Sales Tactics:', required: true %>
+      <%= f.text_field :sales_structure, label: 'Sales Structure:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :sales_activities, label: 'Sales Activities:', required: true %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Management and Organization', size: "base" %>
+  
+    <%= render_grid do %>
+      <%= f.text_field :management_overview, label: 'Management Overview:', required: true %>
+      <%= f.text_field :organizational_structure, label: 'Organizational Structure:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :responsibilities, label: 'Roles/Responsibilities:', required: true %>
+      <%= f.text_field :ownership, label: 'Ownership:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :advisory, label: 'Board/Advisory:', required: true %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Operational Plan', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :supply_chain, label: 'Supply Chain:', required: true %>
+      <%= f.text_field :production_workflow, label: 'Production Workflow:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :facilities, label: 'Facilities:', required: true %>
+      <%= f.text_field :technology, label: 'Equipment/Technology:', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :quality_control, label: 'Quality Control:', required: true %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+    <%= render_title title: 'Financial Plan', size: "base" %>
+
+    <%= render_grid do %>
+      <%= f.text_field :start_up_capital, label: 'Start-up Capital:', required: true %>
+      <%= f.text_field :budgets, label: 'Budgets:', required: true %>
+    <% end %>
+
+    <%= render_title title: "Additional Questions", size: "xl" %>
+
+    <%= render_grid do %>
+      <%= f.text_area :revenue_generation_timeline, label: 'When do you foresee your product/service becoming revenue-generating? (i.e. 18 months)', required: true %>
+      <%= f.text_area :startup_fees, label: 'Will you have to pay any monthly/semi-annual/annual fees for your start-up? If so, what are they?', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_area :marketing_approach, label: "What's your approach to marketing and the channels you'll utilize to reach clients?", required: true %>
+      <%= f.text_area :hiring_strategy, label: 'What is your hiring strategy? Is development going to be done in-house or outsourced?', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_area :marketing_contractors, label: 'Do you intend to employ staff or use contractors for your marketing activities?', required: true %>
+      <%= f.text_area :hiring_forecast, label: 'Can you share a 5-year hiring forecast based on your current projections?', required: true %>
+
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_area :pricing_structure, label: 'How have you structured your pricing and revenue sources? What are they?', required: true %>
+      <%= f.text_area :sales_anticipation, label: 'When do you anticipate your company to start making sales?', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_area :target_audience, label: 'Who are your primary target audience and clients? How do you intend to attract them?', required: true %>
+      <%= f.text_area :ip_protection, label: 'Do you need to protect any Intellectual Property? If yes, how & when do you plan to get it done?', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_area :break_even_point, label: 'At what point do you predict the company will reach its break-even point?', required: true %>
+      <%= f.text_area :ownership_structure, label: 'How is ownership divided, and how much capital has each applicant invested?', required: true %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_area :milestone_timeline, label: 'Share a timeline for your key milestone. (i.e. When will the solution or app be ready?)', required: true %>
+      <%= f.text_area :management_compensation, label: 'For the management team, will compensation be through dividends or set salaries?', required: true %>
+    <% end %>
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

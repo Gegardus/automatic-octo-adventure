@@ -1,0 +1,47 @@
+<div class="flex h-screen w-16 nav flex-col justify-between border-e bg-white print:hidden">
+  <div>
+    <div class="inline-flex h-16 w-16 items-center justify-center">
+      <span class="grid h-10 w-10 place-content-center">
+        <%= link_to root_path, aria: { label: 'Home' } do %>
+          <%= image_tag '/logo_icon.png', class: 'h-8 w-auto' %>
+        <% end %>
+      </span>
+    </div>
+
+    <div class="border-t border-gray-100">
+      <ul class="space-y-1 border-t border-gray-100 pt-4 text-center">
+        <%= render_nav_link(path: current_user_path, icon: 'user', label: 'Profile') %>
+
+        <% if current_user&.admin? %>
+          <%= render_nav_link(label: 'Carousel', path: edit_home_carousel_path, icon: 'photo') %>
+          <%= render_nav_link(label: 'Resources', path: resources_path, icon: 'clipboard-document-list') %>
+          <%= render_nav_link(label: 'Users', path: users_path, icon: 'user-group') %>
+          <%= render_nav_link(label: 'Teams', path: suv_applications_path, icon: 'book-open') %>
+          <%= render_nav_link(label: 'Mentor requests', path: mentor_requests_path, icon: 'grid') %>
+          <%= render_nav_link(label: 'Help requests', path: help_requests_path, icon: 'question-mark') %>
+          <%= render_nav_link(label: 'Skipped steps', path: skipped_steps_path, icon: 'skip-icon') %>
+        <% end %>
+
+        <% if current_user&.applicant? %>
+          <%= render_nav_link(label: 'Modules', path: modules_path, icon: 'grid') %>
+          <%= render_nav_link(label: 'Resources', path: applicant_resources_path, icon: 'clipboard-document-list') %>
+          <% if current_user.inquiry&.approved? %>
+            <%= render_nav_link(label: 'Help requests', path: applicant_help_requests_path, icon: 'question-mark') %>
+          <% end %>
+        <% end %>
+
+        <% if current_user&.mentor? %>
+          <%= render_nav_link(label: 'Teams', path: suv_applications_path, icon: 'book-open') %>
+          <%= render_nav_link(label: 'Mentor requests', path: mentor_requests_path, icon: 'grid') %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white flex justify-center">
+    <%= button_to destroy_user_session_path, method: :delete, form: { class: "w-full flex justify-center" }, class: "group relative flex flex-col justify-center items-center rounded px-2 py-1.5 text-gray-500" do %>
+      <%= render_svg 'logout', class: 'h-6 w-6' %>
+      <span class="text-xs mt-1 navItemLabel">Log out</span>
+    <% end %>
+  </div>
+</div>

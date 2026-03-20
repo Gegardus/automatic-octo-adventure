@@ -1,0 +1,11 @@
+<ul class="list-disc pl-7 mt-4">
+  <% items.each do |item| %>
+    <li class="mb-2 text-sm">
+      <% if item.is_a?(Hash) && item[:url].present? %>
+        <a href="<%= item[:url] %>" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer"><%= raw(item[:text]) %></a>
+      <% else %>
+        <%= raw(item) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

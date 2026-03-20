@@ -1,0 +1,26 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': responsiveness_assessments_path }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Responsiveness assessment' %>
+  <%= form_with model: @responsiveness_assessment, url: responsiveness_assessments_path, method: :patch do |f| %>
+    <%= render 'partials/form_errors', resource: @responsiveness_assessment %>
+    <%= render_grid do %>
+      <p>Are you more</p>
+      <p>Or more</p>
+    <% end %>
+    <%= f.collection_radio_buttons :is_open, [[true, 'Open'], [false, 'Guarded']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_approachable, [[true, 'Approachable'], [false, 'Distant']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_outgoing, [[true, 'Outgoing'], [false, 'Reserved']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_intuitive, [[true, 'Intuitive'], [false, 'Logical']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_informal, [[true, 'Informal'], [false, 'Business like']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_warm, [[true, 'Warm'], [false, 'Cool']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_casual, [[true, 'Casual'], [false, 'Formal']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_animated, [[true, 'Animated'], [false, 'Controlled']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_random, [[true, 'Random'], [false, 'Focused']], :first, :last, label: ''  %>
+    <%= f.collection_radio_buttons :is_unstructured, [[true, 'Unstructured'], [false, 'Systematic']], :first, :last, label: ''  %>
+
+    <%= f.submit 'Save', class: "hidden" %>
+  <% end %>
+<% end %>

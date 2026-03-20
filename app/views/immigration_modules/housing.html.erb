@@ -1,0 +1,151 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', immigration_modules_path(section: 'education'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Housing & Travelling' %>
+
+  <%= render_title title: 'Renting', size: 'xl' %>
+  <%= render_paragraph content: 'Major cities like Toronto and Vancouver have higher rental rates. Research neighborhoods for the best fit in terms of budget and amenities.' %>
+  <%= render_paragraph content: content_tag(:strong, "Average Renting Prices in Big Cities (as per 2022 reports).") + content_tag(:em, " Please note this is an estimate and prices vary based on location, amenities, real estate developers & more") %>
+
+  <%= render_grid columns: :three do %>
+    <div>
+      <%= render_title title: 'Toronto', size: 'base' %>
+      <%= render_unordered_list(items: [ '1-bedroom: CAD $2,000 - $2,600/month',  '2-bedroom: CAD $2,500 - $3,000/month',  '3-bedroom: CAD $3,200 - $4,500/month' ]) %>
+    </div>
+
+    <div>
+      <%= render_title title: 'Vancouver', size: 'base' %>
+      <%= render_unordered_list(items: [ '1-bedroom: CAD $1,900 - $2,200/month',  '2-bedroom: CAD $2,400 - $2,900/month',  '3-bedroom: CAD $3,000 - $4,300/month' ]) %>
+    </div>
+
+    <div>
+      <%= render_title title: 'Montreal', size: 'base' %>
+      <%= render_unordered_list(items: [ '1-bedroom: CAD $1,300 - $1,600/month',  '2-bedroom: CAD $1,600 - $2,100/month',  '3-bedroom: CAD $2,000 - $2,800/month' ]) %>
+    </div>
+  <% end %>
+
+  <%= render_title title: 'Buying', size: 'xl' %>
+  <%= render_paragraph content: 'If you are looking to buy, the Canadian Real Estate Association (CREA) provides insights on current market trends.' %>
+
+  <%= render_title title: 'Leasing Requirements', size: 'sm' %>
+  <%= render_unordered_list(items: [
+     'Proof of Income: A job or consistent income source is typically required to show that you can pay rent.',
+     'Credit Check: Most landlords will request a credit check to evaluate your financial reliability.',
+     'References: Previous landlords or employers might be contacted to vouch for your reliability.',
+     "Deposit: A security deposit (often equivalent to one month's rent) is usually required upfront.",
+     'Co-Signer/Guarantor: If you don’t have a credit history in Canada or a consistent income, you may need a co-signer to lease an apartment. This person guarantees payment should you default.'
+  ]) %>
+
+  <p class="text-sm font-bold mb-6 mt-6">Videos on finding a home for rent or purchase</p>
+  <%= render_grid(class: 'mb-6') do %>
+   <div>
+     <p class="text-sm mb-6">Finding a Home</p>
+     <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: 'Q9EZ0z8FceY') %>
+   </div>
+   <div>
+     <p class="text-sm mb-6">Buying a Home</p>
+     <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: 'JmwHAiqETkg') %>
+   </div>
+  <% end %>
+
+  <%= render_title title: 'Transport System', size: 'xl' %>
+
+  <%= render_title title: 'Modes of Transport', size: 'base' %>
+  <%= render_paragraph content: 'Canada boasts a diverse range of public transport options including:' %>
+  <%= render_unordered_list(items: ['Buses', 'Light rail transits', 'Subways (often referred to as "metros" in some cities)', 'Ferries', 'Commuter trains']) %>
+
+  <%= render_title title: 'Fare Systems', size: 'base' %>
+
+  <%= render_grid columns: :four do %>
+    <div>
+      <%= render_title title: 'Ticketing', size: 'sm' %>
+      <%= render_paragraph content: "Major cities often have electronic ticketing systems that offer tap-and-go services, such as Toronto's PRESTO card or Vancouver's Compass card." %>
+    </div>
+
+    <div>
+      <%= render_title title: 'Fare Zones', size: 'sm' %>
+      <%= render_paragraph content: 'In several cities, public transport fares are determined by zones. The farther you travel, the more zones you cross, and the higher the fare.' %>
+    </div>
+
+    <div>
+      <%= render_title title: 'Fare Types', size: 'sm' %>
+      <%= render_paragraph content: 'Most transit systems offer a variety of fare types, including:' %>
+      <%= render_unordered_list(items: ['Single-use tickets', 'Day passes', 'Monthly passes', 'Discounted fares for seniors, youths, and children']) %>
+    </div>
+    <div>
+      <%= render_title title: 'Pricing', size: 'sm' %>
+      <%= render_paragraph content: 'Typical adult fares for single rides generally range from CAD $3 to CAD $4. However, the exact amount varies based on the city and the type of transport.' %>
+    </div>
+  <% end %>
+
+
+
+  <%= render_title title: 'Driving in Canada', size: 'xl' %>
+  <%= render_title title: 'Licenses', size: 'base' %>
+  <%= render_paragraph content: "New residents may transfer their existing license but often need to pass a test. Each province/territory has its own transportation department, like Ontario's Ministry of Transportation." %>
+
+  <%= render_title title: 'Insurance', size: 'base' %>
+  <%= render_paragraph content: 'Mandatory for all drivers, with rates varying based on the province, driving history, and car model.' %>
+
+  <%= render_title title: 'Licensing System', size: 'base' %>
+
+  <%= render_grid columns: :three do %>
+    <div>
+      <%= render_title title: 'G1 License', size: 'sm' %>
+      <%= render_paragraph content: "This is the beginner's permit. It's a written test on road rules and signs. You can take the test at age 16. After passing, you must wait 12 months before taking the G2 test, but this can be reduced to 8 months if you take a certified driver training course." %>
+    </div>
+    <div>
+      <%= render_title title: 'G2 License', size: 'sm' %>
+      <%= render_paragraph content: 'After the waiting period post-G1, you can take the G2 test, which is a road test. With a G2, you can drive without another experienced driver in the car.' %>
+    </div>
+    <div>
+      <%= render_title title: 'G License', size: 'sm' %>
+      <%= render_paragraph content: '12 months after the G2, you can take the G test, a more advanced road test. Once passed, you have a full license.' %>
+    </div>
+  <% end %>
+
+  <%= render_title title: 'Estimated Costs', size: 'base' %>
+  <%= render_unordered_list(items: [ 'G1 Written Test: CAD $158.25 (includes 1 attempt at G2)',  'G2 Driving Test: CAD $53.75',  'G Driving Test: CAD $89.25' ]) %>
+  <%= render_paragraph content: content_tag(:strong, "Prices are subject to change") + "." %>
+
+  <%= render_title title: 'Buying Cars', size: 'xl' %>
+  <%= render_paragraph content: 'There are numerous dealerships, both new and used. CarGurus and AutoTrader are popular websites for buying and selling vehicles.' %>
+  <%= render_paragraph content: 'Car prices vary based on factors such as make, model, year, mileage, and condition. It’s wise to research thoroughly before making a purchase.' %>
+
+  <%= render_grid do %>
+    <div>
+      <%= render_title title: 'Used Cars', size: 'base' %>
+      <%= render_paragraph content: "Websites like " +
+                                   "#{link_to('Autotrader.ca', 'http://autotrader.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')} or " +
+                                   "#{link_to('Kijiji', 'https://www.kijiji.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')} can provide listings. Additionally, used car dealerships are spread across cities." %>
+    </div>
+    <div>
+      <%= render_title title: 'New Cars', size: 'base' %>
+      <%= render_paragraph content: 'Brand dealerships offer new cars, often with financing options.' %>
+    </div>
+
+
+  <% end %>
+  <%= render_title title: 'Financing', size: 'base' %>
+  <%= render_paragraph content: 'Many dealerships offer financing options, both for new and used cars. There are also third-party financial institutions that provide car loans.' %>
+  <%= render_title title: 'DriveTest', size: 'base' %>
+  <%= render_paragraph content: 'This is the organization responsible for scheduling and administering all road tests in Ontario. They operate DriveTest Centres across the province where individuals can apply for, renew, and upgrade their licenses.' %>
+  <%= render_unordered_list(items: [
+    "#{link_to('Drive Test', 'https://drivetest.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}",
+    "#{link_to('Get a G driver’s licence: new drivers', 'https://www.ontario.ca/page/get-g-drivers-licence-new-drivers#section-9', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}"
+  ]) %>
+
+  <%= render_grid(class: 'mt-6') do %>
+    <div>
+      <p class="text-base mb-6">Part 1</p>
+      <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: 'gmzVeIXx-Uo') %>
+    </div>
+    <div>
+      <p class="text-base mb-6">Part 2</p>
+      <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: 'whoHgdG4DzM') %>
+    </div>
+  <% end %>
+
+<% end %>

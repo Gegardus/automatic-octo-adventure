@@ -1,0 +1,61 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', immigration_modules_path(section: 'housing'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Legal, Federal & Taxation System' %>
+  <%= render_title title: "Federal Institutions", size: "xl" %>
+  <%= render_unordered_list(items: [
+    link_to('Parliament of Canada', 'https://www.parl.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': The national legislative body consisting of the House of Commons and the Senate. It is responsible for enacting federal laws.',
+    link_to('Governor General of Canada', 'https://www.gg.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': The federal vice regal representative of the Canadian monarch (currently Queen Elizabeth II). They give royal assent to laws and perform ceremonial duties.',
+    link_to('Bank of Canada', 'https://www.bankofcanada.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': The country\'s central bank, which oversees monetary policy, issues currency, and manages the government\'s public debt and foreign exchange reserves.',
+    link_to('Canada Revenue Agency (CRA)', 'https://www.canada.ca/en/revenue-agency.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': The federal agency responsible for administering tax laws, collecting taxes, and overseeing various social and economic benefit and incentive programs.',
+    link_to('Statistics Canada', 'https://www.statcan.gc.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': Provides statistical information and analysis about Canada\'s economic and social structure.'
+  ]) %>
+
+  <%= render_title title: "Interesting Laws in Canada", size: "xl" %>
+  <%= render_unordered_list(items: [
+    link_to('Official Bilingualism', 'https://lop.parl.ca/sites/PublicWebsite/default/en_CA/ResearchPublications/201155E', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': Both English and French have equal status in federal law, Parliament, and federal courts.',
+    link_to('Right to Water', 'https://laws-lois.justice.gc.ca/eng/acts/C-11/index.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Canada recognizes access to safe, clean drinking water as a human right, especially highlighted by commitments to resolving water issues in Indigenous communities.',
+    link_to('Medical Assistance in Dying (MAID)', 'https://www.justice.gc.ca/eng/cj-jp/ad-am/bk-di.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - MAID is legal in Canada, given strict criteria and conditions to ensure voluntary and informed decisions.',
+    link_to('Apology Act', 'https://www.ontario.ca/laws/statute/09a03', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - In some Canadian provinces, apologies are not admissible in court, meaning that saying "I\'m sorry" cannot be used as evidence of liability or guilt.',
+    link_to('Hate Speech Laws', 'https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/committees/inan-jan-28-2021/inan-section-35-consitution-act-1982-background-jan-28-2021.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Canada has strict laws against hate propaganda and activities that promote hatred against any identifiable group.',
+    link_to('Aboriginal Rights', 'https://www.canada.ca/en/department-justice/news/2021/06/government-of-canada-takes-action-to-protect-canadians-against-hate-speech-and-hate-crimes.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Section 35 of the Canadian Constitution recognizes and affirms Aboriginal rights, leading to unique laws and treaties with Indigenous peoples.',
+    link_to('Privacy Laws', 'https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Canada is known for its stringent privacy laws, like the Personal Information Protection and Electronic Documents Act (PIPEDA), which governs how businesses collect, use, and disclose personal information.',
+    link_to("Quebec's Civil Law", 'https://www.legisquebec.gouv.qc.ca/en/document/cs/CCQ-1991', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Unlike the rest of Canada, which follows common law, Quebec uses civil law based on the French system for its provincial matters.',
+    link_to('Criminal Code', 'https://laws-lois.justice.gc.ca/eng/acts/c-46/index.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Unique crimes are outlined in Canada\'s Criminal Code, such as "causing a disturbance" or the prohibited act of "pretending to practice witchcraft".',
+    link_to('Pet Protection Laws', 'https://humanecanada.ca/our-work/focus-areas/animals-and-the-law/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - In some provinces, there are specific laws protecting pets left unattended in cars under conditions that might harm the animal.',
+    link_to('Cannabis Legalization', 'https://www.canada.ca/en/health-canada/topics/cannabis.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - Canada became the second country in the world (after Uruguay) to legalize recreational cannabis use at a national level in 2018.',
+    link_to('Migratory Birds Convention Act', 'https://laws-lois.justice.gc.ca/eng/acts/m-7/FullText.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ' - It\'s illegal in Canada to disturb or destroy nests or eggs of migratory birds.'
+  ]) %>
+
+
+  <%= render_title title: "Taxation System", size: "xl" %>
+  <%= render_title title: "Types of Taxes", size: "sm" %>
+  <%= render_unordered_list(items: [
+    "Federal Taxes: Governed by the Canada Revenue Agency (CRA). Businesses have GST/HST obligations.",
+    "Provincial Taxes: Vary by province. Some provinces have separate sales taxes (e.g., PST in British Columbia)."
+  ]) %>
+  <%= render_title title: "Important Dates", size: "sm" %>
+  <%= render_unordered_list(items: [
+    "Income Tax Filing Dates: For most individuals, the income tax filing deadline is April 30th. If you or your spouse/partner ran a business, the deadline is extended to June 15th. However, any taxes owed should still be paid by April 30th to avoid interest."
+  ]) %>
+
+  <%= render_title title: "Assistance with Taxes", size: "xl" %>
+  <%= render_unordered_list(items: [
+    link_to('Canada Revenue Agency (CRA)', 'https://www.canada.ca/en/revenue-agency.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': Provides guidance, resources, and various tools to help individuals and businesses file their taxes correctly. The CRA also offers a volunteer program called the Community Volunteer Income Tax Program (CVITP) where eligible individuals with a modest income and simple tax situation can get their taxes done for free.',
+    link_to('CPA Canada', 'https://www.canada.ca/en/revenue-agency.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ': Chartered Professional Accountants of Canada offers resources and can guide individuals/businesses to licensed professionals for tax services.',
+    'H&R Block and TurboTax: Examples of paid services that offer in-person and online assistance for tax preparation.'
+  ]) %>
+
+  <%= render_title title: "Business Registration", size: "xl" %>
+  <%= render_paragraph content: "New businesses should be registered either federally or provincially, depending on their operating scope." %>
+
+  <%= render_grid do %>
+    <div>
+      <p class="text-xl font-bold mb-4">TAX credits for newcomers</p>
+      <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: '4ReOc7htBno') %>
+    </div>
+  <% end %>
+  <%= render_paragraph content: "#{content_tag(:em, 'Please consult your mentor to schedule a meeting with a tax lawyer for specific concerns regarding your venture.')}" %>
+<% end %>

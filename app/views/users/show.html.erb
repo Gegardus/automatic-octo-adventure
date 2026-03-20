@@ -1,0 +1,11 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "#{@user.first_name} #{@user.last_name}" do %>
+    <% unless current_user == @user %>
+      <div class="flex">
+        <%= button_to @user.account_active ? 'Deactivate' : 'Activate' , user_path(@user, user: { account_active: !@user.account_active }), method: :patch, class: { 'btn-primary': !@user.account_active, 'btn-danger': @user.account_active }  %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= render_details_list list: %w[first_name last_name email role phone date_of_birth account_active].map {|key, _| [key.humanize, key == 'account_active' ? display_yes_no(@user.send(key)) : @user.send(key)]} %>
+<% end %>

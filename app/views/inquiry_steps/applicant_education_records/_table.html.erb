@@ -1,0 +1,42 @@
+<%= render_table applicant_education_records do %>
+  <%= table_head do %>
+    <%= table_header 'Degree type' %>
+    <%= table_header 'Institution name' %>
+    <%= table_header 'Start date' %>
+    <%= table_header 'End date' %>
+    <%= table_header 'Concentration' %>
+    <%= table_header 'Graduated' %>
+    <% if show_actions %>
+      <%= table_header 'Actions', class: 'text-right' %>
+    <% end %>
+  <% end %>
+  <%= table_body do %>
+    <% applicant_education_records.each do |applicant_education_record| %>
+      <%= table_row do %>
+        <%= table_column do %>
+          <%= applicant_education_record.degree_type %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_education_record.institution_name %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_education_record.start_date %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_education_record.end_date %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_education_record.concentration %>
+        <% end %>
+        <%= table_column do %>
+          <%= display_yes_no(applicant_education_record.graduated) %>
+        <% end %>
+        <% if show_actions %>
+          <%= table_column(class: 'text-right') do %>
+            <%= link_to 'View', inquiry_steps_applicant_education_record_path(applicant_education_record), aria: { label: "View #{applicant_education_record.concentration}"}, class: 'btn-secondary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

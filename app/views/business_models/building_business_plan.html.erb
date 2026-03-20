@@ -1,0 +1,356 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', business_models_path(section: 'business_plan'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Building your business plan' %>
+
+  <%= render_paragraph content: "To help build your business plan, we will share three tools that will help you think more deeply about your business and plot things out visually. The following are the three tools that are widely used and considered excellent exercises to help you outline your business plan:" %>
+  <% links = [
+    link_to('Business Model Canvas', '#business_model_canvas', class: 'text-blue-600 hover:underline'),
+    link_to('SWOT Analysis', '#swot_analysis', class: 'text-blue-600 hover:underline'),
+    link_to('PORTER’s Five Forces', '#porters_five_forces', class: 'text-blue-600 hover:underline')
+  ] %>
+
+  <%= render_unordered_list(items: links) %>
+
+  <%= render_paragraph content: "Throughout this step, we will be helping you complete these exercises that will ultimately help you create a strong business plan for your launch in Canada." %>
+  <%= render_title title: "Business Model Canvas", size: "xl", id: 'business_model_canvas' %>
+
+  <%= render_paragraph content: "The Business Model Canvas is a strategic management tool that provides a visual framework for developing, describing, and analyzing a business's value proposition, infrastructure, customers, and finances. Its benefits include offering a concise overview of the business on a single page, promoting focused and streamlined thinking, and enabling easy adaptability and iteration as the business evolves. This canvas is particularly useful for start-ups and entrepreneurs as it facilitates a quick pivot, ensuring alignment with market demands." %>
+  <% collection = [
+    { section: 'Key Partners', questions: ['1. Who are our main partners and suppliers?', '2. What are the motivations behind our partnerships?'] },
+    { section: 'Key Activities', questions: ['1. What are the key activities required to deliver our value proposition?', '2. What activities are essential for our distribution channels, customer relationships, revenue streams, etc.?'] },
+    { section: 'Value Proposition', questions: ['1. What value do we deliver to our customers?', '2. Which problems are we solving for them?', '3. What are the product/service features that cater to our customers\' needs?'] },
+    { section: 'Customer Relationships', questions: ['1. What type of relationship do our customers expect us to establish with them?', '2. How are these relationships integrated with the rest of our business model?'] },
+    { section: 'Customer Segments', questions: ['1. For whom are we creating value?', '2. Who are our primary customers?'] },
+    { section: 'Key Resources', questions: ['1. What assets are essential to our business?', '2. Which resources are crucial for our value proposition, distribution channels, customer relationships, etc.?'] },
+    { section: 'Channels', questions: ['1. How do we reach our customers?', '2. Through which interaction points can our customers experience our value proposition?'] },
+    { section: 'Cost Structure', questions: ['1. What are the primary costs linked to our business model?', '2. Which resources and activities are the most expensive?'] },
+    { section: 'Revenue Streams', questions: ['1. How do we capture value?', '2. How are we generating revenue? (sales, subscription fees, etc.)'] }
+  ] %>
+
+  <%= render_table collection do %>
+    <%= table_head do %>
+      <%= table_header 'Section', class: 'font-bold' %>
+      <%= table_header 'Questions', class: 'font-bold' %>
+    <% end %>
+    <%= table_body do %>
+      <% collection.each do |section| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= content_tag(:strong, section[:section]) %>
+          <% end %>
+          <%= table_column do %>
+            <% section[:questions].each do |question| %>
+              <%= question %><br>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% sections_and_items = [
+    { section: 'Key Partners', items: ['1. Third-party sellers', '2. Delivery and logistics providers', '3. Manufacturers and wholesalers'] },
+    { section: 'Key Activities', items: ['1. E-commerce platform operations', '2. Delivery and logistics management', '3. Customer service and support', '4. Price optimization and sales promotions'] },
+    { section: 'Value Proposition', items: ['1. Wide product selection at competitive prices', '2. Fast & reliable delivery (Prime)', '3. Customer reviews & ratings for informed decisions', '4. Easy return policy and customer service'] },
+    { section: 'Customer Relationships', items: ['1. Personalized shopping experience with recommendations', '2. Self-service platform with user account management', '3. Customer support (chat, email, phone)'] },
+    { section: 'Customer Segments', items: ['1. Individual online shoppers', '2. Amazon Prime members', '3. Third-party sellers using the marketplace'] },
+    { section: 'Key Resources', items: ['1. E-commerce platform and website', '2. Warehouses and fulfillment centers', '3. Customer data and analytics', '4. Inventory management systems'] },
+    { section: 'Channels', items: ['1. E-commerce Website', '2. E-commerce mobile app', '3. E-commerce customer service helpline'] },
+    { section: 'Cost Structure', items: ['1. Fulfillment and shipping costs', '2. Warehousing and storage', '3. E-commerce platform maintenance', '4. Marketing and advertising'] },
+    { section: 'Revenue Streams', items: ['1. Sale of products', '2. Commission from third-party sellers', '3. Membership fees (i.e. Amazon Prime)', '4. Fees for premium services (e.g., faster shipping)'] }
+  ] %>
+
+  <%= render_table sections_and_items do %>
+    <%= table_head do %>
+      <%= table_header 'Section' %>
+      <%= table_header 'Items' %>
+    <% end %>
+    <%= table_body do %>
+      <% sections_and_items.each do |section| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= content_tag(:strong, section[:section]) %>
+          <% end %>
+          <%= table_column do %>
+            <% section[:items].each do |item| %>
+              <%= item %><br>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>  
+
+  <%= render_title title: 'Instructions', size: 'md' %>
+  <%= render_paragraph content: "Now, complete the following Business Model Canvas for your business:" %>
+
+  <%= form_with model: @business_model, url: business_model_path(section: 'building_business_plan'), method: :patch, class: 'pl-7 mt-6' do |f| %>
+
+    <%= render_grid do %>
+      <%= f.text_field :key_partners, label: 'Key Partners', required: true, note: "e.g. Third-party sellers, Delivery and logistics providers, Manufacturers and wholesalers..." %>
+      <%= f.text_field :key_activities, label: 'Key Activities', required: true, note: "e.g. E-commerce platform operations, Delivery and logistics management, Customer service and support, Price optimization and sales promotions..." %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :value_proposition, label: 'Value Proposition', required: true, note: "e.g. Wide product selection at competitive prices, Fast & reliable delivery (Prime), Customer reviews & ratings for informed decisions, Easy return policy and customer service..." %>
+      <%= f.text_field :customer_relationships, label: 'Customer Relationships', required: true, note: "e.g. Personalized shopping experience with recommendations, Self-service platform with user account management, Customer support (chat, email, phone)..." %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :customer_segments, label: 'Customer Segments', required: true, note: "e.g. Individual online shoppers, Amazon Prime members, Third-party sellers using the marketplace..." %>
+      <%= f.text_field :key_resources, label: 'Key Resources', required: true, note: "e.g. E-commerce platform and website, Warehouses and fulfillment centers, Customer data and analytics, Inventory management systems..." %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :channels, label: 'Channels', required: true, note: "e.g. E-commerce Website, E-commerce mobile app, E-commerce customer service helpline..." %>
+      <%= f.text_field :cost_structure, label: 'Cost Structure', required: true, note: "e.g. Fulfillment and shipping costs, Warehousing and storage, E-commerce platform maintenance, Marketing and advertising..." %>
+    <% end %>
+    <%= render_grid do %>
+      <%= f.text_field :revenue_streams, label: 'Revenue Streams', required: true, note: "e.g. Sale of products, Commission from third-party sellers, Membership fees (i.e. Amazon Prime), Fees for premium services (e.g., faster shipping)..." %>
+    <% end %>
+
+    <%= render_paragraph content: "If you have any questions, please reach out to your mentor and they will guide you through the process." %>
+
+    <%= f.file_field :share_canvas_learnings, label: 'Share your learnings from the Business Model Canvas exercise!', required: true %>
+
+
+    <%= render_title title: "SWOT Analysis", size: "xl", id: 'swot_analysis' %>
+    <%= render_paragraph content: "A SWOT analysis is a strategic planning tool used to evaluate an organization's Strengths, Weaknesses, Opportunities, and Threats. It helps in identifying internal and external factors that are favorable or unfavorable to achieving specific objectives. By understanding these four elements, organizations can leverage their strengths, improve weaknesses, capitalize on opportunities, and mitigate potential threats." %>
+    <%= render_title title: "SWOT Framework:", size: "base" %>
+
+    <% sections_and_items = [
+      {
+        section: 'Positive',
+        internal: ['Strengths:', '- Core competencies', '- Competitive advantages', '- Resources (human, financial, etc.)', '- Brand recognition'],
+        external: ['Opportunities:', '- Market trends', '- Changes in regulations', '- Technological advancements', '- Potential partnerships']
+      },
+      {
+        section: 'Negative',
+        internal: ['Weaknesses:', '- Skill gaps', '- Limited resources', '- Outdated technology', '- Poor brand reputation'],
+        external: ['Threats:', '- Competitor actions', '- Changing consumer preferences', '- Economic downturns', '- Regulatory changes']
+      }
+    ] %>
+
+    <%= render_table sections_and_items do %>
+      <%= table_head do %>
+        <%= table_header '' %>
+        <%= table_header 'Internal', class: 'font-bold' %>
+        <%= table_header 'External', class: 'font-bold' %>
+      <% end %>
+      <%= table_body do %>
+        <% sections_and_items.each do |section| %>
+          <%= table_row do %>
+            <%= table_column do %>
+              <%= content_tag(:strong, section[:section]) %>
+            <% end %>
+            <%= table_column do %>
+              <% section[:internal].each do |item| %>
+                <%= item %><br>
+              <% end %>
+            <% end %>
+            <%= table_column do %>
+              <% section[:external].each do |item| %>
+                <%= item %><br>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>  
+
+    <%= render_paragraph content: 'This matrix provides a clear visualization of where an organization stands, and helps in identifying areas to focus on for strategic planning, decision-making &amp; value creation.' %>
+
+    <% sections_and_items = [
+      {
+        section: 'Positive',
+        internal: [
+          'Strengths:',
+          '- Vast product selection',
+          '- Strong brand recognition',
+          '- Advanced logistics and fulfillment centers',
+          '- Prime membership loyalty and benefits',
+          '- Robust technological infrastructure'
+        ],
+        external: [
+          'Opportunities:',
+          '- Expansion into emerging markets',
+          '- Incorporating newer technologies (like AR/VR) for enhanced shopping experience',
+          '- Developing private label brands',
+          '- Potential partnerships with local sellers'
+        ]
+      },
+      {
+        section: 'Negative',
+        internal: [
+          'Weaknesses:',
+          '- Margins can be thin due to competitive pricing',
+          '- Potential for counterfeit products on platform',
+          '- Challenges in managing third-party sellers',
+          '- Dependence on third-party sellers for vast product selection',
+          '- Periodic public relations challenges related to worker conditions'
+        ],
+        external: [
+          'Threats:',
+          '- Rising competition, especially from localized e-commerce platforms',
+          '- Regulatory challenges in different countries',
+          '- Potential cybersecurity threats',
+          '- Economic downturns affecting consumer spending'
+        ]
+      }
+    ] %>
+
+    <%= render_title title: "Example of a SWOT Analysis for Amazon's E-commerce Platform:", size: 'md' %>
+
+    <%= render_table sections_and_items do %>
+      <%= table_head do %>
+        <%= table_header '' %>
+        <%= table_header 'Internal', class: 'font-bold' %>
+        <%= table_header 'External', class: 'font-bold' %>
+      <% end %>
+      <%= table_body do %>
+        <% sections_and_items.each do |section| %>
+          <%= table_row do %>
+            <%= table_column do %>
+              <%= content_tag(:strong, section[:section]) %>
+            <% end %>
+            <%= table_column do %>
+              <% section[:internal].each do |item| %>
+                <%= item %><br>
+              <% end %>
+            <% end %>
+            <%= table_column do %>
+              <% section[:external].each do |item| %>
+                <%= item %><br>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render_title title: 'Instructions',  size: 'md' %>
+    <%= render_paragraph content: 'Now, conduct a SWOT Analysis for your business:' %>
+
+    <% sections_and_items = [
+      {
+        section: 'Positive',
+        internal: [
+          f.text_area(:strengths, note: "e.g. Core competencies...", required: true)
+        ],
+        external: [
+          f.text_area(:opportunities, note: "e.g. Core competencies...", required: true)
+        ]
+      },
+      {
+        section: 'Negative',
+        internal: [
+          f.text_area(:weaknesses, note: "e.g. Skill gaps...", required: true)
+        ],
+        external: [
+          f.text_area(:threats, note: "e.g. Skill gaps...", required: true)
+        ]
+      }
+    ] %>
+
+    <%= render_table sections_and_items do %>
+      <%= table_head do %>
+        <%= table_header '' %>
+        <%= table_header 'Internal', class: 'font-bold' %>
+        <%= table_header 'External', class: 'font-bold' %>
+      <% end %>
+      <%= table_body do %>
+        <% sections_and_items.each do |section| %>
+          <%= table_row do %>
+            <%= table_column do %>
+              <%= content_tag(:strong, section[:section]) %>
+            <% end %>
+            <%= table_column do %>
+              <% section[:internal].each do |item| %>
+                <%= item %><br>
+              <% end %>
+            <% end %>
+            <%= table_column do %>
+              <% section[:external].each do |item| %>
+                <%= item %><br>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render_paragraph content: 'If you have any questions, please reach out to your mentor and they will guide you through the process.' %>
+    <%= f.file_field :share_swot_learnings, label: 'Share your learnings from the SWOT Analysis exercise!', required: true  %>
+
+    <%= render_title title: "PORTER's Five Forces", size: "xl", id: 'porters_five_forces' %>
+    <%= render_paragraph content: "Now we are going to look at Porter's Five Forces, a framework developed by Michael E. Porter of Harvard Business School. It's a tool used to analyze the competitive environment within an industry, making it easier to understand the industry's strengths and weaknesses and how profits might be maximized." %>
+    <%= render_paragraph content: 'The five forces are:' %>
+
+    <% porters_five_forces_analysis = [
+      {
+        force: 'Threat of New Entrants',
+        explanation: "This force examines how easily or not new competitors can enter the market. Barriers to entry might include high initial investment requirements, economies of scale of existing businesses, brand loyalty of consumers, and regulatory challenges."
+      },
+      {
+        force: 'Bargaining Power of Buyers',
+        explanation: "If buyers are powerful, they can demand lower prices or higher product quality, which can affect an industry's profitability. Factors affecting buyer power include the number of buyers in the market, the importance of each individual buyer to the business, and how much it would cost a buyer to switch from one company to another."
+      },
+      {
+        force: 'Bargaining Power of Suppliers',
+        explanation: "Powerful suppliers can drive up the prices of raw materials and services. Factors influencing supplier power include the scarcity of the resource they supply, the number of suppliers in the industry, the importance of each individual supplier to the business, and the cost for the company to switch from one supplier to another."
+      },
+      {
+        force: 'Threat of Substitute Products or Services',
+        explanation: "This force looks at the potential for the company's customers to switch to an alternative product or service. If there are many substitute products in the industry, it can reduce profitability."
+      },
+      {
+        force: 'Rivalry Among Existing Competitors',
+        explanation: "Intense competition between existing firms in an industry can erode profits. This rivalry can be influenced by factors such as industry growth rate, the number of competitors, the degree of differentiation between products, and the level of fixed costs."
+      }
+    ] %>
+
+    <%= render_table porters_five_forces_analysis do %>
+      <%= table_head do %>
+        <%= table_header 'Forces' %>
+        <%= table_header 'Explanation' %>
+      <% end %>
+      <%= table_body do %>
+        <% porters_five_forces_analysis.each do |force| %>
+          <%= table_row do %>
+            <%= table_column do %>
+              <%= force[:force] %>
+            <% end %>
+            <%= table_column do %>
+              <%= force[:explanation] %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%= render_title title: 'Instructions', size: 'md' %>
+    <%= render_paragraph content: "Now, conduct a Porter's Five Forces Analysis for your business:" %>
+
+    <%= render_grid do %>
+      <%= render_title title: 'Forces', size: 'base' %>
+      <%= render_title title: 'Explanation', size: 'base' %>
+    <% end %>
+
+    <%= custom_hr_tag %>
+
+    <%= render_grid do %>
+      <%= f.text_field :new_entrants_threat, label: 'Threat of New Entrants', note: "e.g. Moderate to Low...", required: true %>
+      <%= f.text_field :buyers_bargaining_power, label: 'Bargaining Power of Buyers', note: "e.g. High...", required: true %>
+    <% end %>
+    <%= render_grid do %>   
+      <%= f.text_field :suppliers_bargaining_power, label: 'Bargaining Power of Suppliers', note: "e.g. Moderate...", required: true %>
+      <%= f.text_field :substitute_products_or_services_threat, label: 'Threat of Substitute Products or Services', note: "e.g. Moderate...", required: true %>
+    <% end %>
+    <%= render_grid do %>   
+      <%= f.text_field :rivalry_among_existing_competitors, label: 'Rivalry Among Existing Competitors', note: "e.g. High...", required: true %>
+    <% end %>
+    <%= render_paragraph content: 'If you have any questions, please reach out to your mentor and they will guide you through the process.' %>
+    <%= f.file_field :share_forces_learnings, label: "Share your learnings from the PORTER's Five Forces exercise!", required: true  %>
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

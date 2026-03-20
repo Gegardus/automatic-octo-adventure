@@ -1,0 +1,30 @@
+<section class="mb-10">
+  <h2 class="text-lg font-bold mb-4">Applicant</h2>
+  <%= render_details_list list: %w[first_name last_name email phone date_of_birth].map { |attr| [attr.humanize, applicant.send(attr)] } %>
+</section>
+
+<section class="mb-10 mr-5">
+  <h2 class="text-m font-bold mb-4">Applicant details</h2>
+  <% if applicant.applicant_detail.present? %>
+    <%= render_details_list list: %w[pronouns country_of_origin country_of_application native_language linkedin_url tell_us_about_yourself current_address marital_status].map { |attr| [attr.humanize, applicant.applicant_detail.send(attr)] } %>
+    <% if applicant.applicant_detail.language_test_result_file.attached? %>
+      <h3 class="text-m mt-6 font-bold mb-4">Language test result file</h3>
+      <%= render 'active_storage/blobs/blob', blob: applicant.applicant_detail.language_test_result_file.blob %>
+    <% end %>
+  <% end %>
+</section>
+
+<section class="mb-10 mr-5">
+  <h2 class="text-m font-bold mb-4">Education records</h2>
+  <%= render 'inquiry_steps/applicant_education_records/table', applicant_education_records: applicant.applicant_education_records, show_actions: false %>
+</section>
+
+<section class="mb-10 mr-5">
+  <h2 class="text-m font-bold mb-4">Work Expereriences</h2>
+  <%= render 'inquiry_steps/applicant_work_experiences/table', applicant_work_experiences: applicant.applicant_work_experiences, show_actions: false %>
+</section>
+
+<section class="mb-10 mr-5">
+  <h2 class="text-m font-bold mb-4">Skills</h2>
+  <%= render 'inquiry_steps/applicant_skills/table', applicant_skills: applicant.applicant_skills, show_actions: false %>
+</section>

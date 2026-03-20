@@ -1,0 +1,43 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': refining_your_idea_module_path(section: 'value_proposition') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_title title: "Value Proposition", size: "xl pt-6" %>
+  <%= render_paragraph content: "Value proposition is a statement that describes the value that a company or product offers to the customer. It answers the question 'why should the customer buy our product or service?' It includes an explanation of the benefits the customer will receive and why the company is the best choice for them. A value statement implicitly or explicitly tries to answer 'who the product is for', 'what value is being offered' & 'how it will benefit the customer'." %>
+
+  <%= render_title title: "How to create a value proposition for your company?", size: "xl pt-6" %>
+  <%= render_ordered_list(items: [
+    content_tag(:strong, 'Understand Your Target Audience') + ': Start by profiling your ideal customer. What are their needs, desires, and pain points? What motivates them? What are their priorities and preferences?',
+    content_tag(:strong, 'Analyze Your Product or Service') + ': Identify the key features and benefits of your product or service. How does it address the pain points or needs of your target audience?',
+    content_tag(:strong, 'Identify Your Unique Selling Proposition (USP)') + ': What makes your product or service stand out in the marketplace? How is it different or better than the alternatives or competitors?',
+    content_tag(:strong, 'Consider the Emotional Benefits') + ': Beyond the functional benefits, how does your product or service make the customer feel? Does it provide peace of mind, status, joy, or some other emotional benefit?'
+  ]) %>
+
+  <%= render_paragraph content: "Combine your findings from the above steps into a clear, concise statement. This statement should explain how your product meets the customers' needs, how it delivers specific benefits, and why it's the best choice." %>
+
+  <%= render_title title: "Examples", size: "xl pt-6" %>
+  <% items = [
+      "Dropbox (Cloud Storage): 'Your stuff, anywhere.'",
+      "MailChimp (Email Marketing): 'Send better email.'",
+      "Uber (Ride-Sharing): 'Get there.'",
+      "Shopify (E-commerce Platform): 'Your brand, your way.'",
+      "Duolingo (Language Learning App): 'Learn a language for free. Forever.'"
+    ]
+  %>
+  <%= render_unordered_list(items: items) %>
+
+  <%= render_title title: "How to make your value proposition effective and useful?", size: "xl pt-6" %>
+  <%= render_ordered_list(items: [
+    content_tag(:strong, 'Add a visual to emphasize the communication that enhances understanding or adds credibility.'),
+    content_tag(:strong, 'Add a Call-to-action (CTA) to direct customers one next step: \'Try it out risk-free for 30 days!\''),
+    content_tag(:strong, 'Your value proposition should be easily understood in just a few seconds.'),
+    content_tag(:strong, 'Ensure that your value proposition is consistently communicated across all your marketing materials, sales pitches, and customer touchpoints.')
+  ]) %>
+
+  <%= form_with model: @refining_your_idea_module, url: refining_your_idea_module_path(section: 'value_proposition'), method: :patch, class: 'pl-7 mt-6' do |f| %>
+    <%= f.text_area :value_proposition, required: true, maxlength: 300 %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

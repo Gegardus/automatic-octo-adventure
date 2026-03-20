@@ -1,0 +1,28 @@
+@import "./application.tailwind.css";
+@import "actiontext";
+@import "simple_captcha";
+@import "trix/dist/trix";
+
+html {
+  font-family: Montserrat, sans-serif;
+}
+
+input[type="checkbox"] {
+  color: #333333;
+}
+
+.u-sideBySide {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.embedded-youtube iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+}
+
+.PageHeader + p {
+    margin-top: 0 !important;
+}

@@ -1,0 +1,13 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Edit #{@mentor_request.team_name} mentors" %>
+  <%= form_with model: @mentor_request do |f| %>
+    <%= render 'partials/form_errors', resource: @mentor_request %>
+    
+    <%= f.select :mentor_ids,
+      @mentors.map { |mentor| [mentor.full_name, mentor.id] },
+      { prompt: true, required: true, label: 'Mentors' },
+      { multiple: true }
+    %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

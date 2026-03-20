@@ -1,0 +1,79 @@
+government_guidelines_content:
+  record: government_guidelines (Resource)
+  name: content
+  body: "<p>Take a look at the <i>official</i> <a href=\"https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/start-visa.html\">guidelines</a></p>"
+
+regulations_content:
+  record: regulations (Resource)
+  name: content
+  body: "<p>Take a look at the <a href=\"https://www.regulations.gov/\">regulations</a></p><br/><trix-editor><img src='/assets/regulations.png' alt='Image'></trix-editor>"
+
+assertiveness_training_content:
+  record: assertiveness_training (Resource)
+  name: content
+  body: "<p>Prepare for the quick assessment and test your skills <a href=\"https://positivepsychology.com/assertiveness-training/\">training</a></p>"
+
+immigration_statistics_content:
+  record: immigration_statistics (Resource)
+  name: content
+  body: "<p>Get acquaintance with immigration statistics and facts <a href=\"https://www.statista.com/topics/2917/immigration-in-canada/#topicOverview\">statistics</a></p>"
+
+additional_guidelines_1_content:
+  record: additional_guidelines_1 (Resource)
+  name: content
+  body: "<p>Stay informed about Canadian health and safety regulations to ensure the well-being of your workforce. Canadian health and safety guidelines cover a wide range of topics, including workplace hazards, safety protocols, and employee rights. By adhering to these regulations, you can create a safe and productive work environment for your team.</p><p>For more information, visit the official website of the <a href=\"https://www.canada.ca/en/health-canada.html\">Health Canada</a>.</p>"
+
+additional_guidelines_2_content:
+  record: additional_guidelines_2 (Resource)
+  name: content
+  body: "<p>Protect the environment by following Canadian environmental guidelines. These guidelines outline best practices for sustainable living, pollution prevention, and wildlife conservation. Whether you're a business owner, policymaker, or concerned citizen, understanding and implementing these guidelines can contribute to a healthier planet for future generations.</p><p>Learn more about Canadian environmental initiatives on the <a href=\"https://www.canada.ca/en/environment-climate-change.html\">Environment and Climate Change Canada</a> website.</p>"
+
+additional_guidelines_3_content:
+  record: additional_guidelines_3 (Resource)
+  name: content
+  body: "<p>Ensure fair treatment of employees by familiarizing yourself with Canadian employment standards. Canadian employment laws govern various aspects of the employer-employee relationship, including wages, working hours, and termination procedures. By complying with these standards, you can create a supportive work environment that fosters employee satisfaction and productivity.</p><p>For detailed information on Canadian employment laws, visit the <a href=\"https://www.canada.ca/en/employment-social-development.html\">Employment and Social Development Canada</a> website.</p>"
+
+additional_regulations_1_content:
+  record: additional_regulations_1 (Resource)
+  name: content
+  body: "<p>Stay up to date with changes to the Canadian tax code to ensure compliance and minimize financial risk. Canadian tax regulations govern how individuals and businesses report income, claim deductions, and fulfill their tax obligations. By staying informed about tax code updates, you can make informed financial decisions and avoid penalties for non-compliance.</p><p>For the latest updates on Canadian tax regulations, visit the <a href=\"https://www.canada.ca/en/revenue-agency.html\">Canada Revenue Agency</a> website.</p>"
+
+additional_regulations_2_content:
+  record: additional_regulations_2 (Resource)
+  name: content
+  body: "<p>Navigate the complexities of Canadian trade policies to expand your business opportunities and strengthen international partnerships. Canadian trade regulations govern import/export procedures, tariffs, and trade agreements with other countries. By understanding these policies, you can streamline your import/export processes and take advantage of global market trends.</p><p>For comprehensive information on Canadian trade policies, visit the <a href=\"https://www.canada.ca/en/department-finance.html\">Department of Finance Canada</a> website.</p>"
+
+additional_regulations_3_content:
+  record: additional_regulations_3 (Resource)
+  name: content
+  body: "<p>Expand your business horizons by understanding Canadian import and export regulations. These regulations dictate how goods are imported into and exported from Canada, including customs procedures, documentation requirements, and trade restrictions. By complying with these regulations, you can facilitate smooth transactions and minimize the risk of legal issues.</p><p>For detailed guidance on Canadian import/export regulations, visit the <a href=\"https://www.cbsa-asfc.gc.ca/menu-eng.html\">Canada Border Services Agency</a> website.</p>"
+
+additional_assertiveness_training_1_content:
+  record: additional_assertiveness_training_1 (Resource)
+  name: content
+  body: "<p>Enhance your assertiveness skills in the Canadian workplace to communicate effectively and achieve your goals. Assertiveness training teaches you how to express your thoughts, feelings, and needs confidently and respectfully. Whether you're a team leader, manager, or individual contributor, mastering assertiveness can improve your professional relationships and enhance your career prospects.</p><p>Explore assertiveness training programs offered by Canadian organizations and institutions to develop your skills further.</p>"
+
+additional_assertiveness_training_2_content:
+  record: additional_assertiveness_training_2 (Resource)
+  name: content
+  body: "<p>Lead with confidence by integrating assertiveness strategies into your Canadian leadership style. Effective leadership requires clear communication, decisive action, and the ability to motivate and inspire others. Assertiveness training for leaders equips you with the tools and techniques to navigate challenging situations, build trust with your team, and drive organizational success.</p><p>Discover leadership assertiveness workshops and resources tailored to Canadian professionals.</p>"
+
+additional_assertiveness_training_3_content:
+  record: additional_assertiveness_training_3 (Resource)
+  name: content
+  body: "<p>Empower yourself as a Canadian entrepreneur by mastering assertiveness techniques to negotiate deals, resolve conflicts, and advocate for your business interests. Assertiveness is a valuable skill for entrepreneurs, enabling you to assert your vision, make strategic decisions, and build mutually beneficial partnerships. With assertiveness training, you can overcome obstacles, seize opportunities, and achieve entrepreneurial success.</p><p>Explore assertiveness resources designed specifically for Canadian entrepreneurs to unlock your full potential.</p>"
+
+additional_immigration_statistics_1_content:
+  record: additional_immigration_statistics_1 (Resource)
+  name: content
+  body: "<p>Gain insights into immigration trends in Canadian provinces to inform policy decisions and resource allocation. Immigration statistics provide valuable data on population demographics, migration patterns, and economic impacts at the provincial level. By analyzing these trends, policymakers can develop targeted strategies to support newcomers, address labor market needs, and foster social cohesion.</p><p>Explore provincial immigration statistics reports and research publications for comprehensive insights.</p>"
+
+additional_immigration_statistics_2_content:
+  record: additional_immigration_statistics_2 (Resource)
+  name: content
+  body: "<p>Stay informed about Canadian immigration policy updates to navigate the evolving landscape of immigration law and regulations. Immigration policies impact eligibility criteria, application processes, and pathways to permanent residency and citizenship. By staying abreast of policy changes, immigrants, employers, and immigration professionals can make informed decisions and plan for the future.</p><p>For the latest updates on Canadian immigration policies, consult official government sources and trusted immigration advisors.</p>"
+
+additional_immigration_statistics_3_content:
+  record: additional_immigration_statistics_3 (Resource)
+  name: content
+  body: "<p>Understand demographic changes in Canadian immigration to address social, economic, and cultural implications effectively. Demographic data provide insights into the composition of immigrant populations, including age, education, employment status, and country of origin. By analyzing these trends, policymakers, researchers, and community organizations can develop targeted interventions to support immigrant integration and promote diversity and inclusion.</p><p>Explore demographic research studies and reports on Canadian immigration for in-depth analysis and actionable recommendations.</p>"

@@ -1,0 +1,5 @@
+fitpal_mentor_request_conversation:
+  created_at: <%= 1.second.ago %>
+
+fitpal_help_request_conversation:  
+  created_at: <%= 1.second.ago %>

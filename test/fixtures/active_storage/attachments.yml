@@ -1,0 +1,24 @@
+carousel_image_one:
+  name: image_one
+  blob: carousel_image_one_blob
+  record: first_carousel (HomeCarousel)
+
+carousel_image_two:
+  name: image_two
+  blob: carousel_image_two_blob
+  record: first_carousel (HomeCarousel)
+
+carousel_image_three:
+  name: image_three
+  blob: carousel_image_three_blob
+  record: first_carousel (HomeCarousel)
+
+bens_online_registration_document:
+  name: online_registration_document
+  blob: bens_online_registration_document_blob
+  record: medical_diagnostic_clinic_application (SuvApplication)
+
+bens_bank_account_document:
+  name: bank_account_document
+  blob: bens_bank_account_document_blob
+  record: medical_diagnostic_clinic_application (SuvApplication)

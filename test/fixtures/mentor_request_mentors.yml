@@ -1,0 +1,7 @@
+fitpal_kali_mentor:
+  mentor_request: fitpal_request
+  mentor: kali
+
+fitpal_alec_mentor:
+  mentor_request: fitpal_request
+  mentor: alec

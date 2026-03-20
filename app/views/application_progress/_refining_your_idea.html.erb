@@ -1,0 +1,3 @@
+<% refining_your_idea_module = applicant.refining_your_idea_module %>
+
+<%= render_details_list list: RefiningYourIdeaModule::ALL_ATTRIBUTES.map { |key| [key.to_s.titleize, refining_your_idea_module.send(key)] } %>

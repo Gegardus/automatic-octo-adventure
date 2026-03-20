@@ -1,0 +1,9 @@
+fitpal_application:
+  team_name: Fitpal team
+
+medical_diagnostic_clinic_application:
+  team_name: Healthcare team
+
+off_boundaries_travel_application:
+  team_name: Travel team
+

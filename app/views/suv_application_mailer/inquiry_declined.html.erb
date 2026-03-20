@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry declined</title>
+  </head>
+  <body>
+    <div style="font-family: Arial, sans-serif;">
+      <p>Hi <%= @applicant.full_name %>,</p>
+      <p>We are extremely sorry and regret to inform you that <%= @suv_application.team_name %> inquiry has been declined.</p>
+      <%= link_to 'View decline reason', edit_inquiry_steps_confirmations_url %>
+    </div>
+  </body>
+</html>

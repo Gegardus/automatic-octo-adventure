@@ -1,0 +1,55 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Users' do %>
+    <%= link_to 'Invite user', new_invitation_path, class: 'btn-primary' %>
+  <% end %>
+  <%= search_form_for @q, builder: AlignedFormBuilder do |f| %>
+    <%= render_grid columns: :four do %>
+      <%= f.text_field :first_name_cont, label: 'First name', class: 'flex-1' %>
+      <%= f.text_field :last_name_cont, label: 'Last name', class: 'flex-1' %>
+      <%= f.text_field :email_cont, label: 'Email', class: 'flex-1' %>
+      <%= f.text_field :suv_application_team_name_cont, label: 'Team name', class: 'flex-1' %>
+    <% end %>
+
+    <%= f.submit 'Search', class: 'mb-5 mt-5 btn-secondary' %>
+  <% end %>
+  <%= render_table @users do %>
+    <%= table_head do %>
+      <%= table_header 'First name' %>
+      <%= table_header 'Last name' %>
+      <%= table_header 'Email' %>
+      <%= table_header 'Role' %>
+      <%= table_header 'Team' %>
+      <%= table_header 'Account active' %>
+      <%= table_header 'Actions', class: 'text-right' %>
+    <% end %>
+    <%= table_body do %>
+      <% @users.each do |user| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= user.first_name %>
+          <% end %>
+          <%= table_column do %>
+            <%= user.last_name %>
+          <% end %>
+          <%= table_column do %>
+            <%= user.email %>
+          <% end %>
+          <%= table_column do %>
+            <%= user.role %>
+          <% end %>
+          <%= table_column do %>
+            <%= user.team_name %>
+          <% end %>
+          <%= table_column do %>
+            <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium <%= class_for_status_badge(user.account_active? ? 'approved' : 'declined') %>">
+              <%= display_yes_no(user.account_active) %>
+            </span>
+          <% end %>
+          <%= table_column(class: 'text-right') do %>
+            <%= link_to "View", user, aria: { label: "View #{user.id}"}, class: 'btn-primary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,15 @@
+bobs_experience:
+  user: bob
+  company: Amazon
+  job_title: Manager
+  responsibilities: Lead, mentor, and manage a team of associates.
+  tenure: Two years
+  location: Washington
+
+bens_medical_research:
+  user: ben
+  company: National Institute for Medical Research
+  job_title: Manager
+  responsibilities: Lead, mentor, and manage a team of medical workers and researchers
+  tenure: Two years
+  location: Mumbai

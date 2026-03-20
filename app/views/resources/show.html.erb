@@ -1,0 +1,11 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: @resource.name do %>
+    <div class="flex">
+      <%= link_to "Edit", edit_resource_path(@resource), class: 'btn-primary mr-2' %>
+
+      <%= button_to 'Delete', resource_path(@resource), method: :delete, class: 'btn-danger' %>
+    </div>
+  <% end %>
+
+  <%= @resource.content %>
+<% end %>

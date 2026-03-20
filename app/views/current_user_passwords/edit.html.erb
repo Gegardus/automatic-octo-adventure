@@ -1,0 +1,13 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Edit Password' %>
+
+   <%= form_for @user, url: current_user_passwords_path, html: { method: :patch } do |f| %> 
+    <%= render_grid do %>
+      <%= f.password_field :password %>
+      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :current_password %>
+    <% end %>
+
+    <%= f.submit "Update Password" %>
+  <% end %>
+<% end %>

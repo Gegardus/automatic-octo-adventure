@@ -1,0 +1,91 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', registration_document_step_path(section: 'online_registration'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Register business' %>
+  <%= render_title title: "How to Register a Business in Canada", size: "base" %>
+  <% how_to_register_a_business_accordion_items = [
+    {
+      title: "1. Choose a Business Structure",
+      content: render_unordered_list(items: [content_tag(:strong, "Sole Proprietorship: ") + "Operated by one individual.", content_tag(:strong, "Partnership: ") + "Operated by two or more individuals or corporations.", content_tag(:strong, "Corporation: ") + "A separate legal entity. Can be either federal (Canada-wide) or provincial/territorial."]),
+      active: true
+    },
+    {
+      title: "2. Choose a Name",
+      content: render_unordered_list(items: ["The name should be unique and distinguishable from existing businesses.", "Some jurisdictions may require a name search and reservation (like a NUANS report for federal corporations)."])
+    },
+    {
+      title: "3. Register the Business",
+      content: render_unordered_list(items: [content_tag(:strong, "Federal Incorporation: ") + "Register with Corporations Canada. This allows you to operate across Canada, but you may still need to register or qualify to operate in individual provinces or territories.", content_tag(:strong, "Provincial/Territorial Incorporation: ") + "Register with the appropriate provincial or territorial corporate registry. This allows you to operate within that specific province or territory."])
+    },
+    {
+      title: "4. Apply for a Business Number (BN)",
+      content: render_unordered_list(items: ["If you incorporate federally, you'll get a BN as part of the process.", "If you incorporate provincially or territorially, you might need to apply for a BN separately through the Canada Revenue Agency (CRA) if you require one or more of the following accounts: GST/HST, payroll deductions, corporate income tax, or import/export."])
+    },
+    {
+      title: "5. Get Any Necessary Permits or Licenses",
+      content: render_unordered_list(items: ["These are usually administered by provinces, territories, and municipalities and vary depending on the nature of your business and where it's located."])
+    },
+    {
+      title: "6. Open a Business Bank Account",
+      content: render_unordered_list(items: ["Once registered, it's a good idea to open a separate business bank account. You'll typically need your business registration documents and other personal identification."])
+    },
+    {
+      title: "7. Set Up Your Books and Records",
+      content: render_unordered_list(items: ["Proper bookkeeping is essential for tax purposes. Consider using accounting software or hiring a professional to help."])
+    },
+    {
+      title: "8. Stay Compliant",
+      content: render_unordered_list(items: ["Regularly review and comply with all local, provincial, territorial, and federal regulations, including tax obligations, annual filings, and maintaining an active status."])
+    },
+    {
+      title: "9. Consider Other Registrations or Obligations",
+      content: render_unordered_list(items: ["If you're hiring employees, be aware of labor laws and obligations, including setting up a payroll system and remitting payroll taxes.", "Register for GST/HST if your company's revenue exceeds the small supplier threshold."])
+    },
+    {
+      title: "10. Maintain and Renew",
+      content: render_unordered_list(items: ["Regularly review your business registration, licenses, and permits, and renew them as required."])
+    }
+  ] %>
+  <%= render_accordion(how_to_register_a_business_accordion_items) %>
+  <%= render_title title: "Useful links", size: "lg pt-6" %>
+  <%= render_paragraph content: "For more information on how to incorporate a business federally in Canada, visit the " + content_tag(:a, 'link.', href: 'https://www.canada.ca/en/services/business/start/register-with-gov/register-corp/register-corp-fed.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+  <%= render_paragraph content: "For more information on incorporating your business provincially in any other province in Canada, you can visit any Provincial/territorial incorporation or follow the " + content_tag(:a, 'link.', href: 'https://www.canada.ca/en/services/business/start/register-with-gov/register-corp/register-corp-prov.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+  <%= render_paragraph content: "To incorporate your provincial business, go to the registrar of your provincial or territorial government:" %>
+
+  <%= render_grid columns: :four do %>
+    <%= link_to "Alberta", "https://www.alberta.ca/incorporate-company.aspx", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "British Columbia", "https://www2.gov.bc.ca/gov/content/employment-business/business/managing-a-business/permits-licences/businesses-incorporated-companies/incorporated-companies", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Manitoba", "https://companiesoffice.gov.mb.ca/", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "New Brunswick", "https://www2.snb.ca/content/snb/en/sites/corporate-registry.html", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Newfoundland and Labrador", "https://www.gov.nl.ca/dgsnl/registries/companies/", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Northwest Territories", "https://www.justice.gov.nt.ca/en/business-registrations/", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Nova Scotia", "https://novascotia.ca/sns/access/business/ready-register-business.asp", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Nunavut", "https://www.gov.nu.ca/en/business-and-entrepreneurship/step-4-make-it-official", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Ontario", "https://www.ontario.ca/page/business-and-economy#section-1", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Prince Edward Island", "https://www.princeedwardisland.ca/en/service/incorporate-your-business", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Quebec", "https://www.quebec.ca/en/businesses-and-self-employed-workers/start-entreprise", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Saskatchewan", "https://www.saskatchewan.ca/business/entrepreneurs-start-or-exit-a-business/start-a-business", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+    <%= link_to "Yukon", "https://yukon.ca/en/start-business", class: 'text-blue-600 block p-2 border border-gray-200 mb-2 rounded-md text-center', target: '_blank' %>
+  <% end %>
+
+  <%= render_paragraph content: "Extra-provincial and extra-territorial incorporation
+    If you are planning to operate in other provinces or territories, you will also need to register as an extra-provincial or extra-territorial corporation in those jurisdictions." %>
+  <%= render_paragraph content: "Extra-provincial and extra-territorial registration: " + content_tag(:a, 'link.', href: 'https://www.ic.gc.ca/eic/site/cd-dgc.nsf/eng/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') %>
+  <%= render_title title: "Sample Certificates", size: "lg pt-6" %>
+  <%= render_grid columns: :three do %>
+    <div>
+      <%= link_to "Federal Incorporation Certificate", asset_path("federal.jpeg"), download: "Federal_Incorporation_Certificate.jpeg", class: 'block mt-2 text-blue-600' %>
+      <%= image_tag asset_path("federal.jpeg"), alt: "Federal Incorporation Certificate", class: 'w-auto h-auto mt-4' %>
+    </div>
+    <div>
+      <%= link_to "Ontario Incorporation Certificate", asset_path("ontario.jpeg"), download: "Ontario_Incorporation_Certificate.jpeg", class: 'block mt-2 text-blue-600' %>
+      <%= image_tag asset_path("ontario.jpeg"), alt: "Ontario Incorporation Certificate", class: 'w-auto h-auto mt-4' %>
+    </div>
+    <div>
+      <%= link_to "British Columbia Incorporation Certificate", asset_path("columbia.jpeg"), download: "British_Columbia_Incorporation_Certificate.jpeg", class: 'block mt-2 text-blue-600' %>
+      <%= image_tag asset_path("columbia.jpeg"), alt: "British Columbia Incorporation Certificate", class: 'w-auto h-auto mt-4' %>
+    </div>
+  <% end %>
+<% end %>

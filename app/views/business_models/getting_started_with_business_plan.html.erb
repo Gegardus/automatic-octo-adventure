@@ -1,0 +1,25 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', business_models_path(section: 'building_business_plan'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Getting started with Business Plan' %>
+  <%= render_title title: "Points to keep in mind", size: "xl" %>
+
+  <%= render_ordered_list(items: [
+    content_tag(:strong, 'Your idea for a product or service is truly innovative.'),
+    content_tag(:strong, 'Specify how your start-up will generate work opportunities for Canadians:') + render_unordered_list(items: [
+      'What is your recruitment plan, your organogram for the next 3 years?'
+    ]),
+    content_tag(:strong, 'Potential training opportunities for Canadians:') + render_unordered_list(items: [
+      'This is a good to have additional benefit to strengthen your proposal.'
+    ]),
+    content_tag(:strong, 'Explanation of why Canada:') + render_unordered_list(items: [
+      'What interests you in starting a business in Canada? What are the benefits to establishing a business in Canada that excites you?'
+    ]),
+    content_tag(:strong, 'Explanation of what initial activities, research, networking, and fund-raising opportunities you will initiate once you receive your Letter of Support.'),
+    content_tag(:strong, 'What urgency does your business have for you to come to Canada with a Work Permit to get things rolling forward?') + render_unordered_list(items: [
+      'We advise that you or a member of your team apply for a permit to enter Canada ahead of the PR. This would facilitate early business setup and demonstrate genuine intention'
+    ])
+  ]) %>
+<% end %>

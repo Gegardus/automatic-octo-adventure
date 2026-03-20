@@ -1,0 +1,14 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Another applicant" %>
+  <%= form_with model: @user, url: inquiry_steps_other_applicants_path do |f| %>
+    <%= render 'partials/form_errors', resource: @user %>
+    <%= render_grid columns: :three do %>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.text_field :email %>
+      <%= f.hidden_field :suv_application_id, value: @inquiry.suv_application.id %>
+    <% end %>
+
+    <%= f.submit 'Invite applicant' %>
+  <% end %>
+<% end %>

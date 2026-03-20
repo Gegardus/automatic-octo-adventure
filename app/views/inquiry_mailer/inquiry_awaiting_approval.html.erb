@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry awaiting approval</title>
+  </head>
+  <body>
+    <div style="font-family: Arial, sans-serif;">
+      <p>Hi <%= @admin.full_name %>,</p>
+      <p><%= @inquiry.team_name %> inquiry has been submitted and is awaiting approval.</p>
+      <%= link_to 'View inquiry', suv_application_url(@inquiry.suv_application_id), target: '_blank' %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Final quiz' %>
+  <%= form_with model: @immigration_quiz, url: immigration_quizzes_path, method: :post do |f| %>
+
+    <%= render 'partials/form_errors', resource: @immigration_quiz %>
+
+    <% questions = Rails.env.test? ? ImmigrationQuiz::QUESTIONS : ImmigrationQuiz::QUESTIONS.sample(10) %>
+    <% questions.each do |question| %>
+      <%=  f.collection_radio_buttons question, ImmigrationQuiz.send(question.to_s.pluralize).sort.map { |key, value| [key, ImmigrationQuiz::LABELS[question][key.to_sym]] }, :first, :last, label: ImmigrationQuiz::LABELS[question][:label] %>
+    <% end %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

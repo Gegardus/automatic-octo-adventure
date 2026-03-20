@@ -1,0 +1,17 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Application Progress" do %>
+    <%= button_tag 'Print', type: 'button', onclick: 'window.print();', class: 'btn-secondary print:hidden' %>
+  <% end %>
+
+  <%= render 'application_progress/progress_percentage_bar', progress_percentage: @application_modules.progress_percentage %>
+
+  <%= render 'application_progress/applicant_info', applicant: current_user %>
+
+  <% ApplicationModules::MODULES.map do |mod| %>
+    <% next unless @application_modules.send("#{mod}_steps").completed? %>
+    <section class="mb-10">
+      <h2 class="text-lg font-bold mb-4"><%= @application_modules.send("#{mod}_steps").title %></h2>
+      <%= render mod.to_s, applicant: current_user, suv_application: @suv_application %>
+    </section>
+  <% end %>
+<% end %>

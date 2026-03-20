@@ -1,0 +1,56 @@
+# frozen_string_literal: true
+
+<% module_namespacing do -%>
+class <%= controller_class_name %>Controller < ApplicationController
+
+  def index
+    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
+  end
+
+  def show
+    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+  end
+
+  def new
+    @<%= singular_table_name %> = <%= orm_class.build(class_name) %>
+  end
+
+  def edit
+    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+  end
+
+  def create
+    @<%= singular_table_name %> = <%= orm_class.build(class_name, "#{singular_table_name}_params") %>
+
+    @<%= orm_instance.save %>
+
+    respond_with @<%= singular_table_name %>
+  end
+
+  def update
+    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+
+    @<%= orm_instance.update("#{singular_table_name}_params") %>
+
+    respond_with @<%= singular_table_name %>
+  end
+
+  def destroy
+    @<%= singular_table_name %> = <%= orm_class.find(class_name, "params[:id]") %>
+
+    @<%= orm_instance.destroy %>
+
+    respond_with @<%= singular_table_name %>, location: <%= index_helper %>_path
+  end
+
+  private
+
+  def <%= "#{singular_table_name}_params" %>
+    <%- if attributes_names.empty? -%>
+    params.fetch(:<%= singular_table_name %>, {})
+    <%- else -%>
+    params.require(:<%= singular_table_name %>).permit(<%= permitted_params %>)
+    <%- end -%>
+  end
+end
+<% end -%>

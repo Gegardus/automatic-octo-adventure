@@ -1,0 +1,11 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Applicant education record' do %>
+    <div class="flex">
+      <%= link_to 'Edit', [:edit, :inquiry_steps, @applicant_education_record], class: 'btn-secondary mr-2' %>
+
+      <%= button_to 'Delete', inquiry_steps_applicant_education_record_path(@applicant_education_record), method: :delete, class: 'btn-danger' %>
+    </div>
+  <% end %>
+
+  <%= render_details_list list: @applicant_education_record.attributes.except('id', 'created_at', 'updated_at', 'user_id').map {|key, _| [key.humanize, @applicant_education_record.send(key)]} %>
+<% end %>

@@ -1,0 +1,32 @@
+<%%= render_page_container do %>
+  <%%= render_page_header heading: '<%= plural_table_name.humanize %>' do %>
+    <%%= link_to 'New <%= human_name %>', <%= new_helper(type: :path) %>, class: 'btn-primary' %>
+  <%% end %>
+
+  <%%= render_table @<%= plural_table_name %> do %>
+    <%%= table_head do %>
+    <% attributes.each do |attribute| -%>
+  <%%= table_header '<%= attribute.human_name %>' %>
+    <% end -%>
+  <%%= table_header 'Updated' %>
+      <%%= table_header 'Actions', class: 'text-right' %>
+    <%% end %>
+    <%%= table_body do %>
+      <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+        <%%= table_row do %>
+        <% attributes.each do |attribute| -%>
+  <%%= table_column do %>
+            <%%= <%= singular_table_name %>.<%= attribute.column_name %> %>
+          <%% end %>
+        <% end -%>
+  <%%= table_column do %>
+            <%%= time_ago_in_words(<%= singular_table_name %>.updated_at) %> ago
+          <%% end %>
+          <%%= table_column(class: 'text-right') do %>
+            <%%= link_to 'View', <%= model_resource_name(singular_table_name) %>, aria: { label: "View #{<%= singular_table_name %>.name}"}, class: 'btn-primary' %>
+          <%% end %>
+        <%% end %>
+      <%% end %>
+    <%% end %>
+  <%% end %>
+<%% end %>

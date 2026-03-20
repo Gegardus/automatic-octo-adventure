@@ -1,0 +1,5 @@
+bobs_immigration_module:
+  current_immigration_quiz: bobs_immigration_quiz
+
+bens_immigration_module:
+  current_immigration_quiz: bens_immigration_quiz

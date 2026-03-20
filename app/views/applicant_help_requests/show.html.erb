@@ -1,0 +1,5 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: @help_request.details %>
+  
+  <turbo-frame id="comments" src="<%= conversation_comment_path(@help_request.conversation) %>"/>
+<% end %>

@@ -1,0 +1,54 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': refining_your_idea_module_path(section: 'goals') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_title title: "Goals", size: "xl pt-6" %>
+  <%= render_paragraph content: "Setting goals as an entrepreneur in the early stages of a venture is crucial for giving direction, maintaining motivation, and attracting potential partners and investors." %>
+
+  <%= form_with(model: @refining_your_idea_module, url: refining_your_idea_module_path(section: 'goals'), method: :patch) do |form| %>
+    <turbo-frame id="goals">
+      <%= render_title title: "Stage Identification", size: "lg pt-4" %>
+
+      <%= render_grid do %>
+        <div>
+          <%= form.select :stage, ["Idea", "Prototype", "Minimum Viable Product", "Pilot", "Launch", "Growth", "Maturity", "Other (Please specify)"], { include_blank: "Select Stage", required: true }, { class: "ml-2 js-reload-turbo-frame-on-change" } %>
+        </div>
+        <% if @refining_your_idea_module.stage == 'Other (Please specify)' %>
+          <%= form.text_field :other_stage, required: true %>
+        <% end %>
+      <% end %>
+
+      <%= render_title title: "Guidelines to setting goals", size: "lg pt-4" %>
+      <%= render_unordered_list(items: [
+        content_tag(:strong, 'SMART Goals') + ': Ensure that your goals are Specific, Measurable, Achievable, Relevant, & Time-bound.',
+        content_tag(:strong, 'Break Down Large Goals') + ': If you have a significant goal in mind, break it down into smaller, more manageable steps or milestones.',
+        content_tag(:strong, 'Focus on Key Metrics') + ': In the early stages, it\'s essential to identify which metrics matter most for your venture. This could be user sign-ups, website traffic, customer feedback, or prototype iterations.',
+        content_tag(:strong, 'Flexibility') + ': Be ready to adapt your goals based on market feedback, test results, or unforeseen circumstances.',
+        content_tag(:strong, 'Commit to a Timeline') + ': It\'s crucial to commit to a specific timeline for each goal. This creates a sense of urgency and focus.',
+        content_tag(:strong, 'Document and Review Regularly') + ': Write down your goals and regularly review them to ensure you\'re on track and celebrate small wins along the way.'
+      ]) %>
+
+
+      <%= render_title title: "Short Term Goals (Next 6 Months)", size: "lg pt-4" %>
+      <ol class="pl-7 mt-4">
+        <%= render_grid do %>
+          <% (1..10).each do |i| %>
+            <li><%= form.text_field "short_term_goal_#{i}".to_sym, required: i <= 5 %></li>
+          <% end %>
+        <% end %>
+      </ol>
+
+      <%= render_title title: "Long Term Goals (1-3 Years)", size: "lg pt-4" %>
+      <ol class="pl-7 mt-4">
+        <%= render_grid do %>
+          <% (1..5).each do |i| %>
+            <li><%= form.text_field "long_term_goal_#{i}".to_sym, required: true %></li>
+          <% end %>
+        <% end %>
+      </ol>
+
+      <%= form.submit 'Save' %>
+    </turbo-frame>
+  <% end %>
+<% end %>

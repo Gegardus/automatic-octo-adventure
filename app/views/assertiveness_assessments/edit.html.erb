@@ -1,0 +1,26 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': assertiveness_assessments_path }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Assertiveness assessment' %>
+  <%= form_with model: @assertiveness_assessment, url: assertiveness_assessments_path, method: :patch  do |f| %>
+    <%= render 'partials/form_errors', resource: @assertiveness_assessment %>
+    <%= render_grid do %>
+      <p>Are you more</p>
+      <p>Or more</p>
+    <% end %>
+    <%= f.collection_radio_buttons :is_competitive, [[true, 'Competitive'], [false, 'Cooperative']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_decisive, [[true, 'Decisive'], [false, 'Studied']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_to_the_point, [[true, 'To the point'], [false, 'Indirect']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_impatient, [[true, 'Impatient'], [false, 'Patient']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_bold, [[true, 'Bold'], [false, 'Cautious']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_confronting, [[true, 'Confronting'], [false, 'Receptive']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_challenging, [[true, 'Challenging'], [false, 'Accepting']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_forthright, [[true, 'Forthright'], [false, 'Hesitant']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_fast_paced, [[true, 'Fast-paced'], [false, 'Slow-paced']], :first, :last, label: '' %>
+    <%= f.collection_radio_buttons :is_outspoken, [[true, 'Outspoken'], [false, 'Reflective']], :first, :last, label: '' %>
+
+    <%= f.submit 'Save', class: "hidden" %>
+  <% end %>
+<% end %>

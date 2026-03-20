@@ -1,0 +1,36 @@
+
+bob_grad_degree:
+  degree_type: Graduate
+  institution_name: Oxford
+  concentration: Economics - Mathematics
+  start_date: '2015-09-01'
+  end_date: '2017-09-01'
+  graduated: false
+  user: bob
+
+bob_undergrad_degree:
+  degree_type: Undergraduate
+  institution_name: Cambridge
+  concentration: Economics
+  start_date: '2010-09-01'
+  end_date: '2014-09-01'
+  graduated: true
+  user: bob
+
+ben_grad_degree:
+  degree_type: Graduate
+  institution_name: Trinity College Dublin
+  concentration: Human Health and Disease
+  start_date: '2010-09-01'
+  end_date: '2014-09-01'
+  graduated: true
+  user: ben
+
+ben_undergrad_degree:
+  degree_type: Undergraduate
+  institution_name: UCD School of Medicine
+  concentration: Medicine
+  start_date: '1998-09-01'
+  end_date: '2006-09-01'
+  graduated: true
+  user: ben  

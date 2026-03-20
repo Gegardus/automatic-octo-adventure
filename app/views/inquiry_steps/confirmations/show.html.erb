@@ -1,0 +1,19 @@
+<%= render_page_container do %>
+  <div class="flex flex-col items-center">
+
+    <h2 class="py-12 font-bold">Step successfully submitted!</h2>
+
+    <div class="group relative flex justify-center rounded">
+      <%= render_svg 'ellipse' %>
+      <div class="absolute top-1/2 -translate-y-1/2">
+        <%= render_svg 'check-circle' %>
+      </div>
+    </div>
+
+    <p class="py-12">
+      Thank you for your submission. Our team will reach out to you after reviewing your submission within 3-5 business day.
+    </p>
+
+    <%= link_to 'Back to modules', modules_url, class: 'btn-primary' %>
+  </div>
+<% end %>

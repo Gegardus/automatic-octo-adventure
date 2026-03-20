@@ -1,0 +1,30 @@
+<ol class="flex flex-wrap justify-center sm:justify-start items-center gap-2 text-xs font-medium text-gray-500 sm:gap-4">
+  <% steps.each_with_index do |step, index| %>
+    <% current_step_index = steps.map(&:step_name).index(current_step&.step_name) || steps.count %>
+    <% show_link = (index.zero? || steps[0...index].all?(&:completed?)) && !disabled %>
+    <% if show_link %>
+      <a href="<%= step_links[index] %>" class="completed-step-link">
+    <% end %>
+    <li class="flex items-center justify-center gap-2 <%= 'justify-end' if index > 1 %>">
+      <% if step.completed? && current_step_index > index %>
+        <div class="rounded bg-green-50 p-1.5 text-green-600">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </div>
+      <% else %>
+        <span class="h-6 w-6 rounded bg-<%= index == current_step_index ? 'blue' : 'gray' %>-50 text-center text-[10px]/6 font-bold <%= 'text-green-600' if index == current_step_index %> <%= 'text-gray-600' if index > current_step_index %>">
+          <%= index + 1 %>
+        </span>
+      <% end %>
+      <span class="<%= 'text-green-600' if index == current_step_index %>"> <%= step.step_name.to_s.humanize %> </span>
+      <% if step.skipped? %>
+        <span class="inline-flex items-center gap-x-2.5 py-1.5 px-3 rounded-full text-xs font-medium
+                 bg-orange-100 text-orange-800 dark:bg-orange-800/30 dark:text-orange-500">Skipped</span>
+      <% end %>
+    </li>
+    <% if show_link %>
+      </a>
+    <% end %>
+  <% end %>
+</ol>

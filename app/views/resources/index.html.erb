@@ -1,0 +1,32 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Resources' do %>
+    <%= link_to 'New Resource', new_resource_path, class: 'btn-primary' %>
+  <% end %>
+
+  <%= render_table @resources do %>
+    <%= table_head do %>
+      <%= table_header "Name" %>
+      <%= table_header "Module" %>
+      <%= table_header "Updated", class: 'print:hidden' %>
+      <%= table_header "Actions", class: 'text-right' %>
+    <% end %>
+    <%= table_body do %>
+      <% @resources.each do |resource| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= resource.name %>
+          <% end %>
+          <%= table_column do %>
+            <%= resource.application_module.humanize %>
+          <% end %>
+          <%= table_column(class: 'print:hidden') do %>
+            <%= time_ago_in_words(resource.updated_at) %> ago
+          <% end %>
+          <%= table_column(class: 'text-right') do %>
+            <%= link_to "View", resource, aria: { label: "View #{resource.name}"}, class: 'btn-primary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

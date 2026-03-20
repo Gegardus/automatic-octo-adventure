@@ -1,0 +1,92 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', new_immigration_quizzes_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Some Useful Tips' %>
+
+  <%= render_paragraph content: "Transitioning to a new country comes with its challenges, but a little preparation can make the journey smoother. Here are some tips for newcomers to Canada:" %>
+  <%= render_title title: "1. Research Beforehand", size: "base" %>
+  <%= render_unordered_list items: [
+    "Familiarize yourself with the city or town you're moving to, local customs, and cultural nuances."
+  ] %>
+  <%= render_title title: "2. Weather Preparedness", size: "base" %>
+  <%= render_unordered_list items: [
+    "Invest in appropriate clothing for Canada's diverse climates, especially the cold winters."
+  ] %>
+  <%= render_title title: "3. Secure Health Insurance", size: "base" %>
+  <%= render_unordered_list items: [
+    "Obtain interim health insurance until you're eligible for provincial health coverage. There are insurance companies offering health insurance specifically designed for new immigrants during the waiting period for provincial coverage, such as Blue Cross, Manulife, and Sun Life."
+  ] %>
+  <%= render_title title: "4. Open a Bank Account", size: "base" %>
+  <%= render_unordered_list items: [
+    "Seek banks offering newcomer packages or benefits."
+  ] %>
+  <%= render_title title: "5. Apply for a Social Insurance Number (SIN)", size: "base" %>
+  <%= render_unordered_list items: [
+    "Essential for employment and accessing government benefits. Newcomers can obtain their Social Insurance Number (SIN) shortly after arriving in Canada at certain international airports, including Toronto Pearson International Airport. Look for the Service Canada booth to facilitate this process."
+  ] %>
+  <%= render_title title: "6. Familiarize with Public Transit", size: "base" %>
+  <%= render_unordered_list items: [
+    "Learn local transit routes and consider buying a monthly pass if commuting regularly."
+  ] %>
+  <%= render_title title: "7. Secure Housing", size: "base" %>
+  <%= render_unordered_list items: [
+    "Initially consider temporary housing; then explore longer-term options matching your budget and needs. Keep in mind that hotels, Airbnbs, and similar options can be quite expensive. Try reaching out to relatives or friends for assistance during this process."
+  ] %>
+  <%= render_title title: "8. Prepare for Employment", size: "base" %>
+  <p class="text-base mb-4">Get your credentials assessed, tailor your resume to the Canadian format, and prepare for potential 'Canadian experience' queries. Check out our video on 'Finding a Job'</p>
+  <%= render_grid do %>
+    <div>
+      <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: 'T1IEDxVmwVg') %>
+    </div>
+  <% end %>
+  <%= render_title title: "9. Network", size: "base" %>
+  <%= render_unordered_list items: [
+    "Join community groups, attend local events, or participate in newcomer integration programs."
+  ] %>
+  <%= render_title title: "10. Learn Official Languages", size: "base" %>
+  <%= render_unordered_list items: [
+    "Consider taking English or French classes if necessary, as they're vital for communication and employment."
+  ] %>
+  <%= render_title title: "11. Educate Yourself on Canadian Laws", size: "base" %>
+  <%= render_unordered_list items: [
+    "Familiarize yourself with local laws, which might differ from your home country."
+  ] %>
+  <%= render_title title: "12. Explore Settlement Services", size: "base" %>
+  <%= render_unordered_list items: [
+    "Many organizations offer free services to assist newcomers with settlement, job search, language training, and more."
+  ] %>
+  <%= render_title title: "13. Stay Connected with Home", size: "base" %>
+  <%= render_unordered_list items: [
+    "Combat homesickness by keeping in touch with loved ones and finding local communities from your home country."
+  ] %>
+  <%= render_title title: "14. Budget Wisely", size: "base" %>
+  <%= render_unordered_list items: [
+    "Cost of living varies across cities; prepare a monthly budget factoring in unforeseen expenses."
+  ] %>
+  <%= render_title title: "15. Get a Local Driver's License", size: "base" %>
+  <%= render_unordered_list items: [
+    "If you plan to drive, transfer your foreign license or take a local driving test."
+  ] %>
+  <%= render_title title: "16. Understand Taxes", size: "base" %>
+  <%= render_unordered_list items: [
+    "Learn about the Canadian tax system and file your taxes—even if you've earned no income, as there might be benefits and credits available."
+  ] %>
+  <%= render_title title: "17. Seek Education Information", size: "base" %>
+  <%= render_unordered_list items: [
+    "If you have children, research school options and understand the enrollment process."
+  ] %>
+  <%= render_title title: "18. Stay Updated with Local News", size: "base" %>
+  <%= render_unordered_list items: [
+    "Helps you integrate, understand local issues, and can be a conversation starter."
+  ] %>
+  <%= render_title title: "19. Be Open to Adapt", size: "base" %>
+  <%= render_unordered_list items: [
+    "Cultures, work environments, and lifestyles might differ. Be open to new experiences and adaptable to different ways of doing things."
+  ] %>
+  <%= render_title title: "20. Stay Positive", size: "base" %>
+  <%= render_unordered_list items: [
+    "Every immigrant faces challenges. Remember the reasons you moved, and keep a positive outlook as you build your new life in Canada."
+  ] %>
+<% end %>

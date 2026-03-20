@@ -1,0 +1,63 @@
+government_guidelines:
+  name: Canadian Government Guidelines
+  application_module: general
+
+regulations:
+  name: New on Regulations.gov
+  application_module: quick_assessment
+
+assertiveness_training:
+  name: How to Perform Assertiveness Training
+  application_module: pre_incubation
+
+immigration_statistics:
+  name: Statistics & facts about Immigration to Canada
+  application_module: immigration_module
+
+additional_guidelines_1:
+  name: Canadian Health and Safety Regulations
+  application_module: general
+
+additional_guidelines_2:
+  name: Canadian Environmental Guidelines
+  application_module: quick_assessment
+
+additional_guidelines_3:
+  name: Canadian Employment Standards
+  application_module: general
+
+additional_regulations_1:
+  name: Canadian Tax Code Updates
+  application_module: quick_assessment
+
+additional_regulations_2:
+  name: Canadian Trade Policies
+  application_module: quick_assessment
+
+additional_regulations_3:
+  name: Canadian Import and Export Regulations
+  application_module: quick_assessment
+
+additional_assertiveness_training_1:
+  name: Assertiveness in Canadian Workplace Culture
+  application_module: pre_incubation
+
+additional_assertiveness_training_2:
+  name: Canadian Leadership Assertiveness Strategies
+  application_module: pre_incubation
+
+additional_assertiveness_training_3:
+  name: Assertiveness for Canadian Entrepreneurs
+  application_module: pre_incubation
+
+additional_immigration_statistics_1:
+  name: Immigration Trends in Canadian Provinces
+  application_module: immigration_module
+
+additional_immigration_statistics_2:
+  name: Canadian Immigration Policy Updates
+  application_module: immigration_module
+
+additional_immigration_statistics_3:
+  name: Demographic Changes in Canadian Immigration
+  application_module: immigration_module

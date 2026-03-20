@@ -1,0 +1,42 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': refining_your_idea_module_path(section: 'values') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_title title: "Values", size: "xl pt-6" %>
+  <%= render_paragraph content: "Values for a company are the core principles and beliefs that guide the behavior, decisions, and actions of its members. They serve as the foundational ethos of the organization, helping to shape its culture, establish its identity, and align its operations and strategies with its overarching mission and vision. In essence, company values articulate what the organization stands for and believes in, and they set the standard for how it interacts with its stakeholders, including employees, customers, partners, and shareholders." %>
+
+  <%= render_title title: "How to create values for your company?", size: "xl pt-6" %>
+  <%= render_ordered_list(items: [
+    content_tag(:strong, 'Self-Reflection') + ': Start by asking what beliefs and principles are most important to you, the founder or leader. Your personal values can be a solid foundation for your company\'s values, especially early on.',
+    content_tag(:strong, 'Analyze Your Company\'s Strengths') + ': What are the inherent strengths of your company that set you apart from competitors? Often, these strengths are a manifestation of underlying values.',
+    content_tag(:strong, 'Align with Mission and Vision') + ': Your values should align and support your mission (what you do) and vision (where you want to go). If there\'s a mismatch, it might create confusion or misalignment down the road.',
+    content_tag(:strong, 'Engage Key Stakeholders') + ': Bring together key team members, co-founders, or even early employees. Their perspectives and beliefs can provide rich insights, ensuring the values resonate with the team.',
+    content_tag(:strong, 'Make Them Actionable') + ': Rather than vague or broad terms, choose values that are clear and can guide behavior. For example, instead of saying \'Integrity,\' you might say \'Honesty in all our transactions.\''
+  ]) %>
+
+  <% items = [
+      "Integrity: Upholding honesty and transparency in every action and decision. Intel emphasizes 'Unwavering Integrity' as a foundation of its operations.",
+      "Customer-Centricity: Placing the needs and desires of customers at the center of all decisions. Amazon's leadership principle of 'Customer Obsession' reflects its commitment to starting with the customer and working backwards.",
+      "Innovation: Continuously seeking improvement, fostering creativity, and being open to change. Apple's commitment to 'Think Different' underscores its focus on innovation and breaking the status quo.",
+      "Respect for Individuals: Treating every individual – whether it's an employee, customer, or partner – with dignity and respect. Johnson & Johnson's credo emphasizes respect for employees, recognizing that they must be treated with fairness and dignity.",
+      "Sustainability and Environmental Responsibility: Acting with long-term ecological health in mind, ensuring a balanced relationship with the environment. Patagonia centers its mission around building the best product, causing no unnecessary harm, and using business to inspire solutions to environmental crises."
+    ]
+  %>
+
+  <%= render_title title: "Examples", size: "xl pt-6" %>
+  <%= render_unordered_list(items: items) %>
+
+  <%= render_title title: "Some additional tips", size: "xl pt-6" %>
+  <%= render_ordered_list(items: [
+    content_tag(:strong, 'Live by the values you preach.'),
+    content_tag(:strong, 'Communicate and embed your values within your team at every turn.')
+  ]) %>
+
+  <%= render_title title: "Write 3-7 key values for your organization", size: "text-base pt-6" %>
+  <%= form_with model: @refining_your_idea_module, url: refining_your_idea_module_path(section: 'values'), method: :patch, class: 'pl-7 mt-6' do |f| %>
+    <%= f.text_area :values, required: true, maxlength: 600 %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

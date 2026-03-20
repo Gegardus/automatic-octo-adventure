@@ -1,0 +1,13 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', edit_inquiry_steps_your_interest_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Additional information' do %>
+    <div class="flex">
+      <%= link_to 'Edit', edit_inquiry_steps_additional_informations_path, class: 'btn-primary mr-2' %>
+    </div>
+  <% end %>
+
+  <%= render_details_list list: %w[reason_for_interest where_did_you_hear_about_us startup_location].map {|key, _| [key.humanize, @inquiry.send(key)]} %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'New Applicant skill' %>
+
+  <%= form_with(model: @applicant_skill, url: [:inquiry_steps, :applicant_skills]) do |f| %>
+    <%= render 'partials/form_errors', resource: @applicant_skill %>
+    <%= render 'fields', f: f %>
+  <% end %>
+<% end %>

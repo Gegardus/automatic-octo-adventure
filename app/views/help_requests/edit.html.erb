@@ -1,0 +1,9 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Help request: Edit #{@help_request.details}" %>
+  <%= form_with model: @help_request do |f| %>
+    <%= render 'partials/form_errors', resource: @help_request %>
+    <%= f.select :admin_id, @admins.map { |admin| [admin.full_name, admin.id] }, prompt: true, required: true %>
+
+    <%= f.submit %>
+  <% end %>
+<% end %>

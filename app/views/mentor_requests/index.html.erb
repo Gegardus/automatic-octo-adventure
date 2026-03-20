@@ -1,0 +1,28 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Mentor requests' do %>
+    <%= link_to 'New mentor request', new_mentor_request_path, class: 'btn-primary mr-2' %>
+  <% end %>
+
+  <%= render_table @mentor_requests do %>
+    <%= table_head do %>
+      <%= table_header "Team name" %>
+      <%= table_header "Created at" %>
+      <%= table_header "Mentors" %>
+    <% end %>
+    <%= table_body do %>
+      <% @mentor_requests.each do |mentor_request| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= link_to mentor_request.team_name, mentor_request_path(mentor_request), class: 'text-blue-600' %>
+          <% end %>
+          <%= table_column(class: 'print:hidden') do %>
+            <%= time_ago_in_words(mentor_request.created_at) %> ago
+          <% end %>
+          <%= table_column do %>
+            <%= mentor_request.mentors.map(&:full_name).join(', ') %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

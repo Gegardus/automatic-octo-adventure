@@ -1,0 +1,19 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "New mentor request" %>
+  <%= form_with model: @mentor_request, url: mentor_requests_path do |f| %>
+    <%= render 'partials/form_errors', resource: @mentor_request %>
+    
+    <%= f.select :suv_application_id,
+    @suv_applications.map { |suv_application| [suv_application.team_name, suv_application.id] },
+    { prompt: true, required: true, label: 'Teams' }
+    %>
+
+    <%= f.select :mentor_ids,
+      @mentors.map { |mentor| [mentor.full_name, mentor.id] },
+      { prompt: true, required: true, label: 'Mentors' },
+      { multiple: true }
+    %>
+    
+    <%= f.submit %>
+  <% end %>
+<% end %>

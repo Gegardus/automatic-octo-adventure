@@ -1,0 +1,17 @@
+<%= render_centered_content heading: 'Accept Invitation' do %>
+  <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= f.hidden_field :invitation_token, readonly: true %>
+
+    <% if resource.applicant? %>
+      <%= f.text_field :phone %>
+      <%= f.text_field :date_of_birth %>
+    <% end %>
+
+    <%= f.password_field :password, required: true %>
+    <%= f.password_field :password_confirmation, required: true %>
+
+    <%= f.submit 'Accept Invitation', class: 'btn-primary' %>
+  <% end %>
+<% end %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AlignedSuv</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_pack_tag "application" %>
+  </head>
+
+  <body>
+    <header class="bg-white">
+      <div class="mx-auto flex h-16 max-w-screen-xl justify-between items-center px-4 sm:px-6 lg:px-8">
+        <a href="/" class="block text-teal-600">
+          <span class="sr-only">Home</span>
+          <%= image_tag '/logo.png', class: 'h-9 md:h-12 w-auto' %>
+        </a>
+
+        <div class="flex items-center">
+          <%= link_to 'Sign in', new_user_session_path, class: 'btn-primary' %>
+          <%= link_to 'Inquire', new_suv_application_team_name_path, class: 'ml-4 btn-secondary' %>
+        </div>
+      </div>
+    </header>
+    <main class="mx-auto">
+      <%= render 'partials/flash_message' %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

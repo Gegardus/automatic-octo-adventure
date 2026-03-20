@@ -1,0 +1,3 @@
+<% flash.each do |key, message| %>
+  <%= render_alert(variant: key.to_sym, title: key.capitalize, description: message) %>
+<% end %>

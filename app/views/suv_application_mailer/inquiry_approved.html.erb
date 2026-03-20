@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry approved</title>
+  </head>
+  <body>
+    <div style="font-family: Arial, sans-serif;">
+      <p>Hi <%= @applicant.full_name %>,</p>
+      <p><%= @suv_application.team_name %> inquiry has been approved. You can now proceed to the next module.</p>
+      <%= link_to 'View modules', modules_url, target: '_blank' %>
+    </div>
+  </body>
+</html>

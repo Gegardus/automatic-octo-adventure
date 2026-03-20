@@ -1,0 +1,112 @@
+fitpal:
+  business_idea: Fitness AI app that monitors exercises
+  suv_application: fitpal_application
+  reason_for_interest: i want to move to Canada
+  where_did_you_hear_about_us: Google
+  startup_location: Toronto
+  status: submitted
+  area_of_expertise:
+    - AI
+  which_industries_excite_you:
+    - Tech
+  strengths: Problem solving
+  weaknesses: Perfectionist
+  problem_to_solve: Heart deseases
+  position: Founder
+  company_founder: true
+  founders_count: 5
+  founders_connection: Childhood friends
+  team_members_info: Too lazy to list all of them
+  business_industry: Tech
+  idea_description: Fitness AI app that monitors exercises
+  unique_selling_proposition: Getting in physical shape like never before
+  problem_solved: Health problems
+  solution_users: Everyone who has health problems
+  target_customers: Everyone who has health problems
+  business_stage: prototype
+  product_description: Fitness AI app that monitors exercises
+  main_features: Motion recorder and few others
+  money_to_invest: 2 millions
+  innovation_description: Involves AI
+  partner_investment: Stocks
+  competitors: Other fitness content creators
+  revenue_source: App downloads
+  submission_confirmed: true
+  existing_business_idea: false
+  submission_date: <%= Time.zone.today %>
+  submission_full_name: Bobby
+
+medical_diagnostic_clinic:
+  business_idea: Medical Diagnostic Clinic
+  suv_application: medical_diagnostic_clinic_application
+  reason_for_interest: "create a prosperous and life-improving business"
+  where_did_you_hear_about_us: "YouTube"
+  startup_location: "Montreal"
+  status: approved
+  area_of_expertise:
+    - Medical Administration
+  which_industries_excite_you:
+    - Health Service
+  strengths: Business organization
+  weaknesses: Exposure to empathy
+  problem_to_solve: Excessive activity
+  position: Founder
+  company_founder: true
+  founders_count: 3
+  founders_connection: Fellow students
+  team_members_info: dedicated people
+  business_industry: Medicine
+  idea_description: Clinic providing comprehensive diagnosis of human health
+  unique_selling_proposition: Free the patient from worrying about his physical and mental current and further state
+  problem_solved: Health and performance problems
+  solution_users: Everyone who needs healthcare
+  target_customers: Everyone suffering from health concerns
+  business_stage: pilot
+  product_description: Complete and accurate diagnosis of any disease, including asymptomatic ones
+  main_features: Equipped with ultra-modern medical diagnostic equipment and highly qualified specialists
+  money_to_invest: 4 millions
+  innovation_description: Includes scientific and technical laboratories for improving existing and creating new medical diagnostic equipment
+  partner_investment: Pirple Cross
+  competitors: Other diagnostical centers
+  revenue_source: App downloads
+  submission_confirmed: true
+  submission_date: <%= Time.zone.today %>
+  submission_full_name: Ben Gross
+  existing_business_idea: true
+
+off_boundaries_travel:
+  business_idea: Orgonize travel routes around the World
+  suv_application: off_boundaries_travel_application
+  reason_for_interest: "humanize the globalization of the world through travel"
+  where_did_you_hear_about_us: "Medium"
+  startup_location: "Quebeck"
+  status: approved
+  area_of_expertise:
+    - Administration
+  which_industries_excite_you:
+    - Tourism Business
+  strengths: Wide-ranging horizons
+  weaknesses: Exposure to empathy
+  problem_to_solve: Restlessness
+  position: Founder
+  company_founder: true
+  founders_count: 7
+  founders_connection: Acquainted while traveling
+  team_members_info: enthusiastic people
+  business_industry: Tourism
+  idea_description: A company offering a variety of travel routes around the World
+  unique_selling_proposition: Wide coverage of tourist routes for every taste
+  problem_solved: Strengthening peace through communication, active lifestyle
+  solution_users: For passionate people
+  target_customers: Everyone who wants to meet the world
+  product_description: Carefully selected touristic route based on the needs and psychological characteristics of the client
+  main_features: High level of psychological comfort on a personal basis
+  money_to_invest: 1.5 millions
+  innovation_description: Includes medical and psychological services
+  partner_investment: Red Carpet Tours “Lord of the Rings” set-jetting specialists
+  competitors: Tourism Business Agencies
+  revenue_source: Food delivery
+  submission_confirmed: true
+  submission_date: <%= Time.zone.today %>
+  submission_full_name: Jim Crage
+  existing_business_idea: true

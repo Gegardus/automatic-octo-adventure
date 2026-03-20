@@ -1,0 +1,24 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', edit_inquiry_steps_confirmations_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Your interest' do %>
+    <div class="flex">
+      <%= link_to 'Edit', edit_inquiry_steps_your_interest_path, class: 'btn-primary mr-2' %>
+    </div>
+  <% end %>
+  <% if @inquiry.existing_business_idea? %>
+    <%= render_details_list list: %w[existing_business_idea position company_founder founders_count founders_connection team_members_info
+                                    business_industry idea_description unique_selling_proposition problem_solved solution_users target_customers
+                                    business_stage product_description main_features money_to_invest innovation_description partner_investment
+                                    competitors revenue_source].map {|key, _| [key.humanize, if %w[existing_business_idea company_founder].include?(key)
+            display_yes_no(@inquiry.send(key))
+          else
+            @inquiry.send(key)
+          end]} %>
+  <% else %>
+    <%= render_details_list list: %w[existing_business_idea area_of_expertise which_industries_excite_you strengths weaknesses business_idea
+                                     problem_to_solve].map {|key, _| [key.humanize, %w[area_of_expertise which_industries_excite_you].include?(key) ? @inquiry.send(key).compact_blank.join(', ') : @inquiry.send(key)]} %>
+  <% end %>
+<% end %>

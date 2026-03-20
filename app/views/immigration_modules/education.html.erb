@@ -1,0 +1,65 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', immigration_modules_path(section: 'helpful_tips'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Education' %>
+  <%= render_title title: "High School Education", size: "xl" %>
+  <%= render_title title: "Curriculum and Structure", size: "sm" %>
+  <%= render_unordered_list items: [
+    "High school education in Canada typically starts in Grade 9 and goes up to Grade 12.",
+    "The curriculum includes a mix of mandatory courses (e.g., English, Mathematics, Sciences) and elective options that students can choose based on their interests (e.g., arts, physical education, additional languages).",
+    "While specifics may vary from one province or territory to another, in most regions, students are required to accumulate a certain number of credits to graduate."
+  ] %>
+  <%= render_title title: "Diploma", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Upon successful completion of high school requirements, students earn a diploma, which is often necessary for entry into post-secondary institutions. The naming might differ, such as “High School Diploma,” “Secondary School Diploma,” or “Dogwood Diploma” (specific to British Columbia)."
+  ] %>
+  <%= render_title title: "Extracurricular Activities", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Canadian high schools often emphasize a holistic educational experience, including sports teams, clubs, arts programs, and community service opportunities."
+  ] %>
+  <%= render_title title: "GED (General Educational Development)", size: "sm" %>
+  <%= render_unordered_list(items: [
+    content_tag(:strong, 'Purpose') + ': GED is an alternative to a traditional high school diploma. It’s a suite of tests that, when passed, certifies the test-taker has North American high school-level academic skills.',
+    content_tag(:strong, 'Testing Areas') + ': The GED covers five main areas: Reading, Writing, Mathematics, Science, and Social Studies.',
+    content_tag(:strong, 'Benefits') + ': GED can be beneficial for those who did not complete high school and want to pursue higher education or seek better employment opportunities. It’s recognized by many employers and institutions as equivalent to a high school diploma.'
+  ]) %>
+
+  <%= render_title title: "University (Higher) Education", size: "lg" %>
+  <%= render_title title: "Undergraduate Programs", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Duration: Typically, Canadian undergraduate programs last four years. However, some programs, especially in Quebec or specific co-op programs, might differ in duration.",
+    "Co-op Programs: Many Canadian universities offer cooperative education programs, where students alternate between classroom studies and work terms related to their major. This provides real-world experience and often leads to better job prospects upon graduation.",
+    "Diversity of Programs: From traditional programs in the sciences and humanities to innovative interdisciplinary programs, Canadian universities provide a vast array of options for undergraduate students.",
+    "Tuition Fees: While tuition fees in Canada are generally lower than in countries like the U.S., they can vary significantly between provinces and for international students. Some provinces, like Quebec, offer reduced tuition for residents.",
+    "Scholarships: Numerous scholarships are available for both domestic and international students, reducing the financial burden."
+  ] %>
+  <%= render_title title: "Graduate Studies", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Canada offers a wide range of graduate programs, which can generally be divided into Master’s and Doctoral (PhD) programs."
+  ] %>
+  <%= render_title title: "Master’s Programs", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Duration can vary between one to three years, depending on the field and the specific program.",
+    "These are usually a combination of coursework and research. Some programs, especially in professional fields, might be coursework-only."
+  ] %>
+  <%= render_title title: "Doctoral (PhD) Programs", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Typically last between three to six years.",
+    "Emphasis is on original research, culminating in a dissertation or thesis that contributes new knowledge to the field."
+  ] %>
+  <%= render_title title: "Admission", size: "sm" %>
+  <%= render_unordered_list items: [
+    "Entry into graduate programs usually requires an undergraduate degree, letters of recommendation, a statement of purpose, and, in many cases, standardized test scores (like the GRE or GMAT) or subject-specific exams.",
+    "For non-native English speakers, English proficiency tests like IELTS or TOEFL are often required."
+  ] %>
+  <%= render_title title: "Institutions", size: "sm" %>
+  <%= render_paragraph content: "Canada is home to many globally recognized universities offering a variety of graduate programs, such as the " +
+                               "#{link_to('University of Toronto', 'https://www.utoronto.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}, " +
+                               "#{link_to('University of British Columbia', 'https://www.ubc.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}, " +
+                               "#{link_to('McGill University', 'https://www.mcgill.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}, and many more." %>
+  <%= render_paragraph content: "Canada’s education system is diverse and comprehensive, catering to a wide range of educational and career aspirations." %>
+</div>
+
+<% end %>

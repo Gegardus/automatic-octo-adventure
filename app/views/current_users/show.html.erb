@@ -1,0 +1,11 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Profile' do %>
+    <div class="flex">
+      <%= link_to "Edit", edit_user_registration_path, class: 'btn-primary mr-2' %>
+    </div>
+  <% end %>
+
+  <%= render_details_list list: %w[first_name last_name email phone date_of_birth].map { |attr| [attr.humanize, current_user.send(attr)] } %>
+
+  <%= link_to "Change password",  edit_current_user_passwords_path, class: 'btn-danger mt-6 inline-block' %>
+<% end %>

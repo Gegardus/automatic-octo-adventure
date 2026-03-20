@@ -1,0 +1,36 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': refining_your_idea_module_path(section: 'vision') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_title title: "Vision Statement", size: "xl pt-6" %>
+  <%= render_paragraph content: "The vision is a future-looking statement, depicting where the company aspires to be. It is an ideal future for the company and answers the question, 'Where does a company want to go?' A vision statement encourages the company to improve and grow." %>
+
+  <% items = [
+      "Microsoft: <em>'To empower every person and every organization on the planet to achieve more.'</em>",
+      "Amazon: <em>'To be Earth's most customer-centric company, where customers can find and discover anything they might want to buy online.'</em>",
+      "Google: <em>'To organize the world's information and make it universally accessible and useful.'</em>",
+      "McDonald's: <em>'To be the best quick service restaurant experience.'</em>",
+      "Tesla: <em>'To create the most compelling car company of the 21st century by driving the world’s transition to electric vehicles.'</em>",
+      "IKEA: <em>'To create a better everyday life for the many people.'</em>",
+      "Ford: <em>'People working together as a lean, global enterprise to make people’s lives better through automotive and mobility leadership.'</em>"
+    ]
+  %>
+
+  <%= render_title title: "Examples", size: "xl pt-6" %>
+  <%= render_unordered_list(items: items) %>
+
+  <%= render_title title: "Writing a Good Vision Statement", size: "xl pt-6" %>
+  <%= render_unordered_list(items: ["Future-Focused: A vision statement should look ahead, typically 5-10 years or even further. Visualize where you want your company to be and what you aspire to achieve.", "Be Inspirational: Your vision should inspire and motivate. It needs to evoke passion and give both employees and stakeholders something to aim for.", "Keep It Clear and Concise: Like a mission statement, your vision should be easily understood."]) %>
+
+  <%= render_title title: "Mission Statement vs Vision Statement", size: "xl pt-6" %>
+  <%= render_paragraph content: "The primary difference between a company's mission and vision is the focus time. While a mission statement focuses on the present, a vision statement visualizes the future." %>
+
+  <%= render_title title: "Writing a Vision Statement", size: "xl pt-6" %>
+  <%= render_unordered_list(items: ["Write a vision statement within 1-3 sentences (50 words or less)"]) %>
+  <%= form_with model: @refining_your_idea_module, url: refining_your_idea_module_path(section: 'vision'), method: :patch, class: 'pl-7 mt-6' do |f| %>
+    <%= f.text_area :vision_statement, required: true, maxlength: 300 %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

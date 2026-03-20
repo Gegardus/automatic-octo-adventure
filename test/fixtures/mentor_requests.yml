@@ -1,0 +1,3 @@
+fitpal_request:
+  suv_application: fitpal_application
+  conversation: fitpal_mentor_request_conversation

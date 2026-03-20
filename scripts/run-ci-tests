@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${YELLOW}Running model tests with coverage...${NC}"
+COVERAGE=models bundle exec rails test:models
+
+echo -e "${YELLOW}Running controller tests with coverage...${NC}"
+COVERAGE=controllers bundle exec rails test:controllers
+
+echo -e "${YELLOW}Running mailer tests...${NC}"
+rails test:mailers
+
+echo -e "${YELLOW}Running Rack system tests...${NC}"
+rails test:system
+
+echo -e "${YELLOW}Running JS system tests...${NC}"
+JS=1 rails test:system

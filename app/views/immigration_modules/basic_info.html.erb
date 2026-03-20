@@ -1,0 +1,165 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', immigration_modules_path(section: 'startup'), class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Basic Info about Canada' %>
+  <%= render_title title: "Geography & Climate", size: "xl" %>
+  <%= render_paragraph content: 'Size: At approximately 9.98 million square kilometers, Canada is the second-largest country globally, surpassed only by Russia.' %>
+  <%= render_paragraph content: 'Provinces & Territories: Canada consists of 10 provinces and 3 territories, each having its unique identity. For example, Alberta is known for its Rocky Mountains, while Prince Edward Island is famous for its red sandy beaches.' %>
+  <%= render_paragraph content: 'Climate: Coastal Vancouver enjoys a temperate maritime climate, rarely seeing snow, whereas Winnipeg in Manitoba is known as the &quot;Winterpeg&quot; because of its harsh winters with temperatures sometimes dipping below -30°C.' %>
+  <%= render_paragraph content: content_tag(:strong, "Bonus: ") + content_tag(:em, "Highlights about each province") %>
+  <%= render_title title: "Official Languages", size: "xl" %>
+  <%= render_paragraph content: 'Over 56% of Canadians speak English, while around 21% speak French, especially in Quebec, where French is the primary language. To improve Language Proficiency & understand the importance of knowing one of the two primary languages, view the following videos:' %>
+  <%= render_unordered_list(items: [{ text: "English proficiency", url: "https://youtu.be/H0nSq2ieS2g?si=8fCdF3gbfHbqvR0u" }, { text: "French proficiency", url: "https://youtu.be/s7O924191lk?si=BfWuI8bN2D7ev0o-" }]) %>
+  <%= render_title title: "Economy", size: "xl" %>
+  <%= render_paragraph content: "Canada's GDP was CAD 1.64 trillion in 2019. Its largest trading partner is the United States, accounting for over 75% of exports. Major industries include natural resources, manufacturing, and services. The Toronto Stock Exchange (TSX) is the ninth-largest stock exchange in the world by market capitalization." %>
+  <%= render_title title: "Healthcare", size: "xl" %>
+  <%= render_paragraph content: "Canada's healthcare system ranks among the top 30 worldwide. Publicly Funded: Healthcare in Canada is primarily a provincial responsibility, and each province and territory provides its residents with prepaid access to hospital and physician services without direct charges at the point of care." %>
+  <%= render_paragraph content: link_to('Canada Health Act', 'https://en.wikipedia.org/wiki/Canada_Health_Act', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + ": This federal legislation sets the standards for all provinces and territories, ensuring that all residents have access to medically necessary hospital and physician services without direct charges. Each province and territory in Canada has its own health insurance program for citizens & permanent residents to cover the cost of medically necessary hospital and doctors' services, without direct charges at the point of care." %>
+
+  <% collection = [
+    { province: 'Ontario', health_insurance_program: link_to('Ontario Health Insurance Plan (OHIP)', 'https://www.ontario.ca/page/apply-ohip-and-get-health-card', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'British Columbia', health_insurance_program: link_to('Medical Services Plan (MSP)', 'https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Alberta', health_insurance_program: link_to('Alberta Health Care Insurance Plan (AHCIP)', 'https://www.alberta.ca/ahcip', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Quebec', health_insurance_program: link_to('Régie de l\'assurance maladie du Québec (RAMQ)', 'https://www.ramq.gouv.qc.ca/en/citizens/health-insurance', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Manitoba', health_insurance_program: link_to('Manitoba Health, Seniors and Active Living', 'https://www.gov.mb.ca/health/mhsip/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Saskatchewan', health_insurance_program: link_to('Saskatchewan Health Card', 'https://www.ehealthsask.ca/residents/health-cards/Pages/Apply-for-a-Health-Card.aspx', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Newfoundland', health_insurance_program: link_to('Medical Care Plan (MCP)', 'https://www.gov.nl.ca/hcs/mcp/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Nova Scotia', health_insurance_program: link_to('Medical Services Insurance (MSI) Program', 'https://novascotia.ca/dhw/msi/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'New Brunswick', health_insurance_program: link_to('New Brunswick Medicare', 'https://www2.gnb.ca/content/gnb/en/departments/health/Medicare.html', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Prince Edward Isle', health_insurance_program: link_to('Health PEI', 'https://www.princeedwardisland.ca/en/information/health-pei/pei-health-card', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Yukon', health_insurance_program: link_to('Yukon Health Care Insurance Plan', 'https://yukon.ca/en/health-care-card', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Northwest Territories', health_insurance_program: link_to('Northwest Territories Health Care Plan', 'https://www.hss.gov.nt.ca/en/services/nwt-health-care-plan', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') },
+    { province: 'Nunavut', health_insurance_program: link_to('Nunavut Health Care Plan', 'https://www.gov.nu.ca/health/information/nunavut-health-care-plan', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') }
+
+  ] %>
+
+  <%= render_table collection do %>
+    <%= table_head do %>
+      <%= table_header 'Province / Territory' %>
+      <%= table_header 'Health Insurance Program' %>
+    <% end %>
+    <%= table_body do %>
+      <% collection.each do |item| %>
+      <%= table_row do %>
+        <%= table_column do %>
+          <%= item[:province] %>
+        <% end %>
+        <%= table_column do %>
+          <%= item[:health_insurance_program] %>
+        <% end %>
+      <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= render_title title: "Non-Resident Coverage", size: "xl" %>
+  <%= render_paragraph content: 'Non-residents or newcomers to Canada, including temporary workers, students, and even tourists, typically do not qualify for the provincial or territorial health insurance plans immediately upon arrival. As a result, they often need to seek private health insurance to cover medical expenses during their stay or until they become eligible for a provincial plan. There are several types of policies depending on your needs:' %>
+  <%= render_unordered_list(items: [
+    content_tag(:strong, 'Travel Medical Insurance') + ": Typically used by tourists and short-term visitors. Covers emergency medical services, including hospital stays, physician's fees, and sometimes prescription drugs and dental emergencies.",
+    content_tag(:strong, 'International Student Health Insurance') + ': Many educational institutions in Canada require international students to have health insurance. While some provinces provide health coverage for international students, others do not. Students can often purchase insurance through their educational institution, or they can opt for a private insurer.',
+    content_tag(:strong, 'Temporary Worker Health Insurance') + ": Temporary workers, such as those on a work permit, may need private health insurance if they don't qualify for provincial health coverage or until they meet the residency requirements."
+  ]) %>
+
+
+  <%= render_grid do %>
+    <div>
+      <p class="text-base mb-4 mt-4">For more details, see our video on Health Care in Canada</p>
+      <%= render 'embedded_youtubes/embedded_youtube', embedded_youtube: OpenStruct.new(id: '_xln4IlNejY') %>
+    </div>
+  <% end %>
+
+  <%= render_grid(class: 'mt-6') do %>
+    <div>
+      <%= render_title title: "Education", size: "xl" %>
+      <%= render_paragraph content: 'Canada consistently ranks in the top 10 countries in the ' + link_to('Global Education Index', 'http://ideaedu.org/global-education-index', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') + '. Universities like the University of Toronto, University of British Columbia, and McGill are recognized globally for academic excellence. More info coming soon...' %>
+    </div>
+    <div>
+      <%= render_title title: "Cultural Diversity", size: "xl" %>
+      <%= render_paragraph content: "Over 22% of Canada's population is foreign-born, one of the highest ratios for industrialized Western countries. Toronto, often dubbed 'the most multicultural city in the world,' is home to over 200 distinct ethnic origins." %>
+    </div>
+  <% end %>
+
+  <%= render_grid do %>
+    <div>
+      <%= render_title title: "Lifestyle & Recreation", size: "xl" %>
+      <%= render_paragraph content: 'Canada boasts 48 national parks and park reserves. Banff National Park in Alberta, established in 1885, is the oldest and attracts millions of visitors each year. Check out our video on ' +
+        link_to('Things to Do Before Arriving in Canada', 'https://youtu.be/FrOzthoRWko?si=QNDjSsowLtyukDxI', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') +
+        ' and ' +
+        link_to('First Two Weeks in Canada', 'https://youtu.be/T0YifJfl0-k?si=lxtwGE2d-V0ldZ3u', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') +
+        '.' %>
+    </div>
+    <div>
+      <%= render_title title: "Rights and Freedoms", size: "xl" %>
+      <%= render_paragraph content: 'The Canadian Charter of Rights and Freedoms, enacted in 1982, guarantees fundamental rights, from the freedom of expression to the right to a fair trial. See the full text of the charter ' +
+        link_to('here', 'https://www.canada.ca/content/dam/pch/documents/services/download-order-charter-bill/canadian-charter-rights-freedoms-eng.pdf', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer') +
+        '.' %>
+    </div>
+  <% end %>
+
+
+  <%= render_title title: "Provincial Highlight Links", size: "xl" %>
+  <%= render_paragraph content: "These are general overviews, but there's so much more depth and nuance to each province and territory. Delve into the distinct histories, cultural experiences, and natural wonders they offer." %>
+
+  <% provincial_highlight_items = [
+    {
+      title: "Alberta",
+      content: render_paragraph(content: "#{content_tag(:em, 'Banff National Park')}: Nestled in the Rockies, Banff is one of the most renowned tourist destinations in Canada, known for its breathtaking landscapes, hot springs, and winter sports. Explore Lake Louise, Moraine Lake, and Johnston Canyon while taking in the fresh mountain air. #{link_to('More Info', 'https://www.pc.gc.ca/en/pn-np/ab/banff', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}"),
+      disabled: false
+    },
+    {
+      title: "British Columbia",
+      content: render_paragraph(content: "#{content_tag(:em, 'Natural Beauty & Vancouver')}: Whether it's the coastal rainforests, the interior wine country, or the vibrant city of Vancouver, BC is famed for its diverse and stunning landscapes. Enjoy Stanley Park, Granville Island, Capilano Suspension Bridge, and the various outdoor activities available throughout the region. #{link_to('More Info', 'https://www.hellobc.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Manitoba",
+      content: render_paragraph(content: "#{content_tag(:em, 'Polar Bears & Beluga Whales')}: Churchill, often called the 'Polar Bear Capital of the World,' is one of the few human settlements where polar bears can be observed in the wild. It's also a prime spot to watch beluga whales during their migration from July through August. Experience the unique thrill of Tundra Buggy tours and snorkeling with belugas. #{link_to('More Info', 'https://www.travelmanitoba.com/things-to-do/outdoor/wildlife/polar-bears/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "New Brunswick",
+      content: render_paragraph(content: "#{content_tag(:em, 'Bay of Fundy')}: Home to the highest tides in the world, where you can witness the breathtaking tidal bore phenomenon. Walk along the ocean floor at Hopewell Rocks, visit the charming seaside towns, and indulge in delicious seafood. #{link_to('More Info', 'https://www.bayoffundy.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Newfoundland and Labrador",
+      content: render_paragraph(content: "#{content_tag(:em, 'Icebergs & Viking History')}: Iceberg Alley is the best place to view massive ancient ice, and L'Anse aux Meadows is the only confirmed Viking site in North America. Learn about the indigenous cultures, including the Mi'kmaq, Innu, and Inuit, that have shaped the area's history. #{link_to('More Info', 'https://www.newfoundlandlabrador.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Nova Scotia",
+      content: render_paragraph(content: "#{content_tag(:em, 'Cabot Trail')}: One of the world's most scenic drives, the Cabot Trail showcases the sheer beauty of the highlands and oceanic vistas. Hike Cape Breton Highlands National Park, kayak the coastlines, and immerse yourself in Maritime traditions like Celtic music and Acadian cuisine. #{link_to('More Info', 'https://novascotia.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Ontario",
+      content: render_paragraph(content: "#{content_tag(:em, 'Niagara Falls')}: One of the most famous natural attractions globally, Niagara Falls is a majestic sight drawing millions of tourists. Take part in boat tours, observe the falls from above via helicopter rides, and experience nearby wineries and vineyards. #{link_to('More Info', 'https://www.niagaraparks.com/visit/niagara-falls/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Prince Edward Island",
+      content: render_paragraph(content: "#{content_tag(:em, 'Anne of Green Gables & Red Sand Beaches')}: PEI is synonymous with Lucy Maude Montgomery's novel and the distinctive red-hued sandy shores. Tour Green Gables Heritage Place, cycle around the island, and savor local delicacies such as mussels, lobster, and potato dishes. #{link_to('More Info', 'https://www.tourismpei.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Quebec",
+      content: render_paragraph(content: "#{content_tag(:em, 'French Heritage & Quebec City')}: Quebec is the heart of Francophone Canada. Quebec City, in particular, is famed for its UNESCO-listed Old Town and rich history. Stroll down cobblestone streets, taste regional specialties like poutine and tourtière, and practice your French! #{link_to('More Info', 'https://www.quebecoriginal.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Saskatchewan",
+      content: render_paragraph(content: "#{content_tag(:em, 'Flat Landscapes & Endless Sky')}: Known as the 'Land of the Living Skies' due to its vast horizons and dramatic cloudscapes, Saskatchewan makes sunsets a spectacle. Admire the prairie grasslands, discover First Nations artifacts at Wanuskewin Heritage Park, and stargaze at Cypress Hills Interprovincial Park Dark Sky Preserve. #{link_to('More Info', 'https://www.tourismsaskatchewan.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Yukon",
+      content: render_paragraph(content: "#{content_tag(:em, 'Klondike Gold Rush')}: The town of Dawson City was at the heart of the gold rush in the late 19th century, and Yukon's wild, rugged landscapes still tell tales of the prospectors who flocked here. Pan for gold, learn about Indigenous heritage, and marvel at the aurora borealis (Northern Lights) displays. #{link_to('More Info', 'https://www.travelyukon.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Northwest Territories",
+      content: render_paragraph(content: "#{content_tag(:em, 'Midnight Sun & Aurora Borealis')}: During summer, the sun doesn't set for several weeks, allowing endless daytime exploration. Meanwhile, winter brings some of the best opportunities to witness the mesmerizing aurora borealis. Embark on dog sledding expeditions, navigate the mighty Mackenzie River, and connect with Indigenous communities. #{link_to('More Info', 'https://spectacularnwt.com/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    },
+    {
+      title: "Nunavut",
+      content: render_paragraph(content: "#{content_tag(:em, 'Remote Arctic Beauty')}: As Canada's newest and northernmost territory, Nunavut boasts pristine Arctic landscapes, incredible wildlife, and a deep-rooted Inuit culture. Observe narwhals, muskoxen, and polar bears; attend traditional festivals like Nunavut Arts Festival; and admire the striking colors of the aurora borealis against the dark skies. #{link_to('More Info', 'https://travelnunavut.ca/', class: 'text-blue-600', target: '_blank', rel: 'noopener noreferrer')}")
+    }
+  ] %>
+
+  <%= render_accordion(provincial_highlight_items) %>
+
+  <%= render_title title: "Additional Resources", size: "xl" %>
+  <%= render_unordered_list(items: [{ text: "Canadian Citizenship Test Online", url: "https://citizentest.ca/" }, { text: "Immigrating to Canada Guide", url: "https://www.cic.gc.ca/english/helpcentre/guide-immigrate-to-canada.asp"  }]) %>
+<% end %>

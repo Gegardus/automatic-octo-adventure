@@ -1,0 +1,56 @@
+<section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
+      <% if @home_carousel %>
+        <div class="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full">
+          <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"autoplay": {"delay": 2500, "disableOnInteraction": false}, "pagination": {"el": ".swiper-pagination", "clickable": true}}'>
+            <div class="swiper-wrapper">
+              <% if @home_carousel.image_one.attached? %>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="flex flex-col items-center justify-center h-full">
+                    <%= image_tag @home_carousel.image_one, class: 'w-auto h-auto object-cover mx-auto' %>
+                  </div>
+                </div>
+              <% end %>
+
+              <% if @home_carousel.image_two.attached? %>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="flex flex-col items-center justify-center h-full">
+                    <%= image_tag @home_carousel.image_two, class: 'w-auto h-auto object-cover mx-auto' %>
+                  </div>
+                </div>
+              <% end %>
+
+              <% if @home_carousel.image_three.attached? %>
+                <div class="swiper-slide flex items-center justify-center">
+                  <div class="flex flex-col items-center justify-center h-full">
+                    <%= image_tag @home_carousel.image_three, class: 'w-auto h-auto object-cover mx-auto' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="lg:py-24">
+        <% if current_user %>
+          <p class="text-gray-600 text-xl mb-6">
+            Welcome <%= "#{current_user.full_name}" %>
+          </p>
+        <% end %>
+
+        <h1 class="text-3xl font-bold sm:text-4xl">Aligned SUV</h1>
+
+        <p class="mt-4 text-gray-600">
+          Are you an entrepreneur with a groundbreaking business idea? The Canada Startup Visa program might be your gateway to launching and growing your startup in one of the world's most innovative and welcoming ecosystems.
+        </p>
+        <% if current_user.nil? || current_user.applicant? %>
+          <%= link_to 'Get Started Today', new_suv_application_team_name_path, class: 'mt-8 inline-block rounded  px-12 py-3 btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+

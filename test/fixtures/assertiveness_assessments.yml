@@ -1,0 +1,23 @@
+bobs_drive:
+  is_competitive: true
+  is_decisive: true
+  is_to_the_point: true
+  is_impatient: true
+  is_bold: true
+  is_confronting: true
+  is_challenging: true
+  is_forthright: false
+  is_fast_paced: false
+  is_outspoken: false
+
+bens_drive:
+  is_competitive: true
+  is_decisive: true
+  is_to_the_point: true
+  is_impatient: true
+  is_bold: true
+  is_confronting: true
+  is_challenging: true
+  is_forthright: false
+  is_fast_paced: false
+  is_outspoken: false

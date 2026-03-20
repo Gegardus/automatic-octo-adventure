@@ -1,0 +1,87 @@
+# frozen_string_literal: true
+
+require 'test_helper'
+
+<% module_namespacing do -%>
+class <%= class_name %>ControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @<%= singular_table_name %> = <%= fixture_name %>(:one)
+  end
+
+<% if mountable_engine? -%>
+  include Engine.routes.url_helpers
+
+<% end -%>
+  test '#index' do
+    # given_signed_in_as
+
+    get <%= index_helper(type: :path) %>
+
+    assert_response :success
+
+    assert_page_header '<%= plural_table_name.humanize %>'
+  end
+
+  test '#new' do
+    # given_signed_in_as
+
+    get <%= new_helper(type: :path) %>
+
+    assert_response :success
+
+    assert_page_header 'New <%= human_name %>'
+
+    assert_form url: <%= new_helper(type: :path) %>
+  end
+
+  test '#create' do
+    # given_signed_in_as
+
+    assert_difference('<%= class_name %>.count') do
+      post <%= index_helper(type: :path) %>, params: {
+        <%= "#{singular_table_name}: #{attributes_hash}" %>
+      }
+    end
+
+    assert_response :redirect
+  end
+
+  test '#show' do
+    # given_signed_in_as
+
+    get <%= show_helper(type: :path) %>
+
+    assert_response :success
+  end
+
+  test '#edit' do
+    # given_signed_in_as
+
+    get <%= edit_helper(type: :path) %>
+
+    assert_response :success
+
+    assert_page_header 'Edit'
+
+    assert_form url: <%= new_helper(type: :path) %>
+  end
+
+  test '#update' do
+    # given_signed_in_as
+
+    put <%= show_helper(type: :path) %>, params: {
+      <%= "#{singular_table_name}: #{attributes_hash}" %>
+    }
+
+    assert_response :redirect
+  end
+
+  test '#destroy' do
+    # given_signed_in_as
+
+    assert_difference('<%= class_name %>.count', -1) do
+      delete <%= show_helper(type: :path) %>
+    end
+  end
+end
+<% end -%>

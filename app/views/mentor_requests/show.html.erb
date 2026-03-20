@@ -1,0 +1,19 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "#{@mentor_request.team_name} mentors" do %>
+    <%= link_to 'Edit', edit_mentor_request_path(@mentor_request), class: 'btn-primary mr-2' %>
+  <% end %>
+
+  <% if @mentor_request.mentors.any? %>
+    <p class="text-lg font-bold mb-2">Mentors</p>
+    <% @mentor_request.mentors.each do |mentor| %>
+      <%= render_details_list list: %w[full_name email phone date_of_birth].map { |key,| [key.humanize,  mentor.send(key)]}, class_names: 'border-b border-solid border-gray-200 p-4 mb-4 mt-4' %>
+    <% end %>
+  <% end %>
+
+  <p class="text-lg font-bold mb-2">Applicants</p>
+  <% @mentor_request.suv_application.applicants.each do |applicant| %>
+    <%= render_details_list list: %w[full_name email phone date_of_birth].map {|key, _| [key.humanize,  applicant.send(key)]}, class_names: 'border-b border-solid border-gray-200 p-4 mb-4 mt-4' %>
+  <% end %>
+
+  <turbo-frame id="comments" src="<%= conversation_comment_path(@mentor_request.conversation) %>"/>
+<% end %>

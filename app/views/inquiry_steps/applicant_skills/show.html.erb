@@ -1,0 +1,11 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Applicant skill' do %>
+    <div class="flex">
+      <%= link_to 'Edit', edit_inquiry_steps_applicant_skill_path(@applicant_skill), class: 'btn-secondary mr-2' %>
+
+      <%= button_to 'Delete', inquiry_steps_applicant_skill_path(@applicant_skill), method: :delete, class: 'btn-danger' %>
+    </div>
+  <% end %>
+
+  <%= render_details_list list: @applicant_skill.attributes.except('id', 'created_at', 'updated_at', 'user_id').map {|key, _| [key.titleize, @applicant_skill.send(key)]} %>
+<% end %>

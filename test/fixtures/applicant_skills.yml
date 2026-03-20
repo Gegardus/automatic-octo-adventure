@@ -1,0 +1,21 @@
+bob_writing:
+  description: Writing short novels and essays
+  proficiency_level: expert
+  skill_type: Hard skill
+  certification: Achievement in Creative Writing
+  user: bob
+
+bob_driving:
+  description: Driving different types of cars
+  proficiency_level: intermediate
+  skill_type: Hard skill
+  certification: Driving license
+  user: bob
+
+ben_tennis:
+  description: College Tennis Champion
+  proficiency_level: professional
+  skill_type: Hard skill
+  certification: Mumbai Tennis Cup
+  user: ben 
+  

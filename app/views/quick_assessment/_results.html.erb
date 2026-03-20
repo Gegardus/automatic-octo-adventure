@@ -1,0 +1,94 @@
+<p class="mb-4">Based on your replies we may suggest that the following social style better describes you:</p>
+
+<div class="quick-assessment-card-grid">
+  <%= render_assessment_card title: 'Analytical',
+                             description: 'The power of analyticals lies in their ability to transform massive amounts of details into unbelievable value',
+                             badges: ['Task oriented', 'Slower'],
+                             icon: 'pie-chart',
+                             active: quick_assessment.analytical?,
+                             opacity: !quick_assessment.analytical? %>
+  <%= render_assessment_card title: 'Driver',
+                             description: 'The power of drivers lies in their ability to quickly achieve massive results',
+                             badges: ['Task oriented', 'Faster'],
+                             icon: 'arrow-up',
+                             active: quick_assessment.driver?,
+                             opacity: !quick_assessment.driver? %>
+  <%= render_assessment_card title: 'Expressive',
+                             description: 'The power of expressives lies in their ability to think big and display enthusiasm',
+                             badges: ['People oriented', 'Faster'],
+                             icon: 'zap',
+                             active: quick_assessment.expressive?,
+                             opacity: !quick_assessment.expressive? %>
+  <%= render_assessment_card title: 'Amiable',
+                             description: 'The power of amiables lies in their ability to be friendly and pleasant and create warmth',
+                             badges: ['People oriented', 'Slower'],
+                             icon: 'sun',
+                             active: quick_assessment.amiable?,
+                             opacity: !quick_assessment.amiable? %>
+</div>
+
+<%= render_grid do %>
+  <% if quick_assessment.analytical? %>
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] mt-6">
+      <div class="flex justify-between items-center border-b rounded-t-xl py-3 px-4 md:px-5 dark:border-gray-700">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+          Analytical
+        </h3>
+      </div>
+      <div class="p-4 md:p-5">
+        <p class="mb-2"><span class="font-bold">Characteristics:</span> Detail- and fact-oriented, wants no mistakes, thinks before responding, “analysis paralysis,” risk-averse, threatened by negative feedback</p>
+        <p class="mb-2"><span class="font-bold">Needs:</span> Detail, clarity, time to think, safety, time to work on their own, written material, few pleasantries</p>
+        <p class="mb-2"><span class="font-bold">Measures value:</span> Accuracy</p>
+        <p class="mb-2"><span class="font-bold">Take time to be:</span> Precise</p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if quick_assessment.driver? %>
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] mt-6">
+      <div class="flex justify-between items-center border-b rounded-t-xl py-3 px-4 md:px-5 dark:border-gray-700">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+          Driver
+        </h3>
+      </div>
+      <div class="p-4 md:p-5">
+        <p class="mb-2"><span class="font-bold">Characteristics:</span> Focused on results, driving, fast-moving, makes decisions readily, clear on standing</p>
+        <p class="mb-2"><span class="font-bold">Needs:</span> Directness, speed & activity, detail they want, few pleasantries, efficient use of time</p>
+        <p class="mb-2"><span class="font-bold">Measures value:</span> Results</p>
+        <p class="mb-2"><span class="font-bold">Take time to be:</span> Efficient</p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if quick_assessment.expressive? %>
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] mt-6">
+      <div class="flex justify-between items-center border-b rounded-t-xl py-3 px-4 md:px-5 dark:border-gray-700">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+          Expressive
+        </h3>
+      </div>
+      <div class="p-4 md:p-5">
+        <p class="mb-2"><span class="font-bold">Characteristics:</span> Conceptual, big picture thinking, active, fast-moving, talkative, follow-through difficult, efficiency-oriented, not interested in details</p>
+        <p class="mb-2"><span class="font-bold">Needs:</span> Enthusiasm for their ideas, freedom from details, reality checks, a forum to share their work and plan</p>
+        <p class="mb-2"><span class="font-bold">Measures value:</span> Applause</p>
+        <p class="mb-2"><span class="font-bold">Take time to be:</span> Interested</p>
+      </div>
+    </div>
+  <% end %>
+
+  <% if quick_assessment.amiable? %>
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] mt-6">
+      <div class="flex justify-between items-center border-b rounded-t-xl py-3 px-4 md:px-5 dark:border-gray-700">
+        <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+          Amiable
+        </h3>
+      </div>
+      <div class="p-4 md:p-5">
+        <p class="mb-2"><span class="font-bold">Characteristics:</span> Friendly, pleasant, warm, good partner/ally, seek consensus, conflict-averse, suffer “buyer’s remorse,” needs handholding</p>
+        <p class="mb-2"><span class="font-bold">Needs:</span> Get to know you, you get to know them, pleasantness, politeness, peace, connection</p>
+        <p class="mb-2"><span class="font-bold">Measures value:</span> Attention</p>
+        <p class="mb-2"><span class="font-bold">Take time to be:</span> Agreeable</p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Invite User" %>
+  <%= form_with model: @user, url: invitations_path do |f| %>
+    <turbo-frame id="invitation_form">
+      <%= render "devise/shared/error_messages", resource: @user %>
+      <%= render_grid do %>
+        <%= f.text_field :first_name %>
+        <%= f.text_field :last_name %>
+        <%= f.text_field :email %>
+        <%= f.select :role, User.roles.map { |key, value| [key.humanize, key] }, class: 'js-reload-turbo-frame-on-change' %>
+
+        <% if @user.role == 'applicant' %>
+          <%= f.select :suv_application_id, SuvApplication.all.map { |suv_application| [suv_application.team_name, suv_application.id] }, label: 'Team', prompt: true %>
+        <% end %>
+      <% end %>
+      <%= f.submit t("devise.invitations.new.submit_button") %>
+    </turbo-frame>
+  <% end %>
+<% end %>

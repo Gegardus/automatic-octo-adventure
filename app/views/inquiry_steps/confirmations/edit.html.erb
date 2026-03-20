@@ -1,0 +1,24 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Confirmation' %>
+
+    <% if @inquiry.declined? %>
+      <div class="mb-6">
+        <%= render_status_badge(label: 'Inquiry Declined', type: :warning, class: 'mb-6') %>
+        <%= render_alert(variant: :info, title: "", description: 'Please submit the inquiry again after dealing with the decline reason') %>
+        <p class="text-lg mb-4 font-bold">Decline reason</p>
+        <p class="text-xs border-l-4 border-gray-300 pl-4 py-2 italic"> <%= @inquiry.decline_reason %> </p>
+      </div>
+    <% end %>
+    <%= form_with model: @inquiry, url: inquiry_steps_confirmations_path do |f| %>
+      <%= render "partials/form_errors", resource: @inquiry %>
+
+      <%= f.check_box :submission_confirmed, label: "By submitting this form, I confirm that information I have provided is true, accurate and complete to the best of my knowledge. I also agree to update Aligned SUV Consultancy / Think8 Global Institute promptly if any of information changes.", required: true, checked: false %>
+
+      <%= render_grid class: 'mt-10' do %>
+        <%= f.date_field :submission_date, label: 'Sign date', required: true, max: Date.today, min: Date.today, value: nil  %>
+        <%= f.text_field :submission_full_name, label: 'Full Name (as signature)', required: true, value: nil %>
+      <% end %>
+
+      <%= f.submit 'Submit Inquiry' %>
+    <% end %>
+<% end %>

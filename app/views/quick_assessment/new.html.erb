@@ -1,0 +1,38 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Introduction' %>
+
+  <% content_for :continue_button do %>
+    <%= link_to 'Continue', edit_assertiveness_assessments_path, class: "btn-primary" %>
+  <% end %>
+
+  <p class="mb-6">
+    Let's take a quick assessment to determine which social style you represent out of the following four options:
+  </p>
+
+  <div class="quick-assessment-card-grid">
+  <%= render_assessment_card title: 'Analytical',
+                             description: 'The power of analyticals lies in their ability to transform massive amounts of details into unbelievable value',
+                             badges: ['Task oriented', 'Slower'],
+                             icon: 'pie-chart' %>
+  <%= render_assessment_card title: 'Driver',
+                             description: 'The power of drivers lies in their ability to quickly achieve massive results',
+                             badges: ['Task oriented', 'Faster'],
+                             icon: 'arrow-up' %>
+  <%= render_assessment_card title: 'Expressive',
+                             description: 'The power of expressives lies in their ability to think big and display enthusiasm',
+                             badges: ['People oriented', 'Faster'],
+                             icon: 'zap'%>
+  <%= render_assessment_card title: 'Amiable',
+                             description: 'The power of amiables lies in their ability to be friendly and pleasant and create warmth',
+                             badges: ['People oriented', 'Slower'],
+                             icon: 'sun' %>
+  </div>
+
+  <p class="mb-6 mt-6">
+    Remember that no single social style is superior to another, as there is typically an equal distribution of approximately 25% of the population among all the social styles. Therefore, it is crucial to understand your own social style as a  professional.
+  </p>
+
+  <p class="mb-6">
+    In the subsequent sections, choose the option that most accurately reflects you.
+  </p>
+<% end %>

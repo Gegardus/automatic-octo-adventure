@@ -1,0 +1,111 @@
+dom:
+  first_name: Dom
+  last_name: Smith
+  email: dom@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: admin
+  account_active: true
+  invitations_count: 0
+
+charlie:
+  first_name: Charlie
+  last_name: Blake
+  email: charlie@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: applicant
+  phone: '1234567890'
+  date_of_birth: '1989-01-01'
+  account_active: true
+  invitations_count: 0
+
+bob:
+  first_name: Bob
+  last_name: Dole
+  email: bob@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: applicant
+  phone: '1234567890'
+  date_of_birth: '1990-01-01'
+  account_active: true
+  invitations_count: 0
+  suv_application: fitpal_application
+  assertiveness_assessment: bobs_drive
+  responsiveness_assessment: bobs_sensitivity
+  immigration_module: bobs_immigration_module
+
+john:
+  first_name: John
+  last_name: James
+  email: john@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: applicant
+  phone: '0987654321'
+  date_of_birth: '1973-01-01'
+  account_active: false
+  invitations_count: 0
+
+kali:
+  first_name: Kali
+  last_name: Bull
+  email: kali@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: mentor
+  account_active: true
+  invitations_count: 0
+
+bill:
+  first_name: Bill
+  last_name: Bole
+  email: bill@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: applicant
+  phone: '1234567891'
+  date_of_birth: '1990-02-01'
+  account_active: true
+  invitations_count: 0
+
+ben:
+  first_name: Ben
+  last_name: Gross
+  email: ben@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: applicant
+  phone: '5555555555'
+  date_of_birth: '1988-07-29'
+  account_active: true
+  invitations_count: 0
+  suv_application: medical_diagnostic_clinic_application
+  assertiveness_assessment: bens_drive
+  responsiveness_assessment: bens_sensitivity
+  immigration_module: bens_immigration_module
+  refining_your_idea_module: bens_refining_your_idea_module
+
+jim:
+  first_name: Jim
+  last_name: Crage
+  email: jim@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: applicant
+  phone: '9999999999'
+  date_of_birth: '2004-01-01'
+  account_active: true
+  invitations_count: 0
+  suv_application: off_boundaries_travel_application
+
+alec:
+  first_name: Alec
+  last_name: Bank
+  email: alec@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: mentor
+  account_active: true
+  invitations_count: 0
+
+lily:
+  first_name: Lily
+  last_name: Brown
+  email: lily@test.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password123') %>
+  role: admin
+  account_active: true
+  invitations_count: 0

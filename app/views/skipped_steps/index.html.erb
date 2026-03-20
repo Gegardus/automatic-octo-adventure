@@ -1,0 +1,32 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Skipped steps' do %>
+    <%= link_to 'New skipped step', new_skipped_step_path, class: 'btn-primary' %>
+  <% end %>
+
+  <%= render_table @skipped_steps do %>
+    <%= table_head do %>
+      <%= table_header 'Step' %>
+      <%= table_header 'Skipped for applicant' %>
+      <%= table_header 'Skipped for team' %>
+      <%= table_header 'Actions', class: 'text-right' %>
+    <% end %>
+    <%= table_body do %>
+      <% @skipped_steps.each do |skipped_step| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= skipped_step.step_name.humanize %>
+          <% end %>
+          <%= table_column do %>
+            <%= skipped_step.user&.full_name %>
+          <% end %>
+          <%= table_column do %>
+            <%= skipped_step.suv_application&.team_name %>
+          <% end %>
+          <%= table_column(class: 'text-right') do %>
+            <%= button_to 'Delete', skipped_step_path(skipped_step), method: :delete, class: 'btn-danger' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

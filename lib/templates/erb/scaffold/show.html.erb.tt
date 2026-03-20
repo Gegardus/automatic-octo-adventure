@@ -1,0 +1,11 @@
+<%%= render_page_container do %>
+  <%%= render_page_header heading: '<%= human_name %>' do %>
+    <div class="flex">
+      <%%= link_to 'Edit', <%= edit_helper(type: :path) %>, class: 'btn-primary mr-2' %>
+
+      <%%= button_to 'Delete', <%= model_resource_name(prefix: "@") %>, method: :delete, class: 'btn-danger' %>
+    </div>
+  <%% end %>
+
+  <%%= render_details_list list: @<%= singular_table_name %>.attributes.except('id', 'created_at', 'updated_at').reject { |key, _| key.ends_with?('_id') }.map {|key, _| [key.humanize, @<%= singular_table_name %>.send(key)]} %>
+<%% end %>

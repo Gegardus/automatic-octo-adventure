@@ -1,0 +1,23 @@
+bobs_sensitivity:
+  is_open: true
+  is_approachable: true
+  is_outgoing: true
+  is_intuitive: true
+  is_informal: true
+  is_warm: false
+  is_casual: false
+  is_animated: false
+  is_random: false
+  is_unstructured: false
+
+bens_sensitivity:
+  is_open: true
+  is_approachable: true
+  is_outgoing: true
+  is_intuitive: true
+  is_informal: true
+  is_warm: false
+  is_casual: false
+  is_animated: false
+  is_random: false
+  is_unstructured: false

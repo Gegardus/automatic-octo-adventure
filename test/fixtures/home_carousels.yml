@@ -1,0 +1,2 @@
+first_carousel:
+  created_at: <%= Time.now %>

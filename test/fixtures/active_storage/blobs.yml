@@ -1,0 +1,9 @@
+carousel_image_one_blob: <%= ActiveStorage::FixtureSet.blob filename: "home_carousel_image_one.png", service_name: "test" %>
+
+carousel_image_two_blob: <%= ActiveStorage::FixtureSet.blob filename: "home_carousel_image_two.png", service_name: "test" %>
+
+carousel_image_three_blob: <%= ActiveStorage::FixtureSet.blob filename: "home_carousel_image_three.png", service_name: "test" %>
+
+bens_bank_account_document_blob: <%= ActiveStorage::FixtureSet.blob filename: "bens_bank_account_document.pdf", service_name: "test" %>
+
+bens_online_registration_document_blob: <%= ActiveStorage::FixtureSet.blob filename: "bens_online_registration_document.pdf", service_name: "test" %>

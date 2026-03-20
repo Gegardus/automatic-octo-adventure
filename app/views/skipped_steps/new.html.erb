@@ -1,0 +1,22 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'New skipped step' %>
+  <p class="mb-2">You can skip a step for a team or a single applicant</p>
+
+  <%= form_with model: @multiple_skipped_steps, url: skipped_steps_path do |f| %>
+    <turbo-frame id="skip_step">
+        <%= render 'partials/form_errors', resource: @multiple_skipped_steps %>
+        <%= f.collection_radio_buttons :skip_for_team, [[true, 'Yes'], [false, 'No']], :first, :last, class: 'js-reload-turbo-frame-on-change mt-0.5', label: 'Skip for a team' %>
+          <% if @multiple_skipped_steps.skip_for_team %>
+            <%= f.select :suv_application_id, SuvApplication.all.map { |suv_application| [suv_application.team_name, suv_application.id] }, label: 'Team', prompt: true, required: true %>
+          <% else %>
+            <%= f.select :user_id, User.active_applicant.map { |user| [user.full_name, user.id] }, label: 'Applicant', prompt: true, required: true %>
+          <% end %>
+
+          <%= f.select :module_name, ApplicationModules::MODULES.map { |key, value| [key.to_s.humanize, key] }, class: 'js-reload-turbo-frame-on-change', prompt: true, required: true %>
+          <% if @multiple_skipped_steps.module_name.present? %>
+            <%= f.select :steps_to_skip, ApplicationModules.steps_for_module(@multiple_skipped_steps.module_name).all_steps.map(&:step_name).map { |key, value| [key.to_s.humanize, key] }, { label: 'Step to skip', prompt: true, required: true }, { multiple: true } %>
+          <% end %>
+        <%= f.submit 'Save' %>
+      </turbo-frame>
+    <% end %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "Decline #{@inquiry.team_name} inquiry" %>
+
+  <%= form_with model: @inquiry, url: decline_inquiry_path do |f| %>
+    <%= render 'partials/form_errors', resource: @inquiry %>
+    <%= f.text_area :decline_reason, required: true, maxlength: 300 %>
+    <%= f.submit 'Decline' %>
+  <% end %>
+<% end %>

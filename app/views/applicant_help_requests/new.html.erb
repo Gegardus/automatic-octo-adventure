@@ -1,0 +1,18 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "New help request" %>
+  <%= form_with model: @help_request, url: applicant_help_requests_path do |f| %>
+    <turbo-frame id="help_request_form">
+    <%= render 'partials/form_errors', resource: @help_request %>
+    <%= f.text_area :details, rows: 6, placeholder: "What can we help you with?" %>
+
+    <%= f.select :module_name, ApplicationModules::MODULES.map { |key, value| [key.to_s.humanize, key] }, prompt: true, required: true, class: 'js-reload-turbo-frame-on-change' %>
+    
+    <% if @help_request.module_name.present? %>
+      <%= f.select :module_section, @application_modules.send("#{@help_request.module_name}_steps").all_steps.map { |step| step.step_name.to_s.humanize }, { prompt: true, required: true } %>
+    <% end %>
+
+    <%= f.submit %>
+    </turbo-frame>
+  <% end %>
+<% end %>
+

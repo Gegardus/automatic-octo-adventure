@@ -1,0 +1,18 @@
+<div class="flow-root <%= class_names %>">
+  <dl class="divide-y divide-gray-100 text-sm">
+    <% list.each do |detail|  %>
+      <div class="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
+        <dt class="font-medium text-gray-900"><%= detail.first %></dt>
+        <dd class="text-gray-700 sm:col-span-2">
+          <% if detail.first == 'Status' %>
+            <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium <%= class_for_status_badge(detail.last) %>">
+              <%= detail.last.humanize %>
+            </span>
+          <% else %>
+            <%= (detail.last.present? || detail.last == false || detail.last == true) ? detail.last : 'N/A' %>
+          <% end %>
+        </dd>
+      </div>
+    <% end %>
+  </dl>
+</div>

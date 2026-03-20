@@ -1,0 +1,8 @@
+<%%= form_with(model: <%= model_resource_name %>) do |f| %>
+  <%%= render 'partials/form_errors', resource: <%= model_resource_name %> %>
+  <%- attributes.each do |attribute| -%>
+  <%%= f.text_field :<%= attribute.name %> %>
+  <%- end -%>
+
+  <%%= f.submit %>
+<%% end %>

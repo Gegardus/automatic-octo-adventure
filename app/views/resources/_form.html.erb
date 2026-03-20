@@ -1,0 +1,10 @@
+<%= form_with model: resource do |f| %>
+  <%= render 'partials/form_errors', resource: resource %>
+  <%= f.text_field :name %>
+  <%= f.label :content  %>
+  <%= f.rich_text_area :content %>
+  <br/>
+  <%= f.select :application_module, options_for_select(Resource.application_modules.map { |key, value| [key.humanize, key] }, resource.application_module), label: 'Module', required: true %>
+
+  <%= f.submit %>
+<% end %>

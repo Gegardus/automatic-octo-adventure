@@ -1,0 +1,24 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Resources' %>
+
+  <% if Resource.general.any? %>
+    <h3 class="text-xl mb-6 font-bold">
+      General
+    </h3>
+    <% Resource.general.each do |general| %>
+      <%= render_resource_card title: general.name, content: general.content %>
+    <% end %>
+  <% end %>
+
+  <% ApplicationModules::MODULES.each do |module_name| %>
+    <% next if Resource.send(module_name).none? %>
+    <% steps = ApplicationModules.new(applicant: current_user).send("#{module_name}_steps") %>
+
+    <h3 class="text-xl mb-6 font-bold">
+      <%= steps.title %>
+    </h3>
+    <% Resource.send(module_name).each do |resource_for_module| %>
+      <%= render_resource_card title: resource_for_module.name, content: resource_for_module.content %>
+    <% end %>
+  <% end %>
+<% end %>

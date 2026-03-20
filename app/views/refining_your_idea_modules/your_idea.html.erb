@@ -1,0 +1,25 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': refining_your_idea_module_path(section: 'your_idea') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Your Idea' %>
+  <%= form_with model: @refining_your_idea_module, url: refining_your_idea_module_path(section: 'your_idea'), method: :patch do |f| %>
+    <%= render 'partials/form_errors', resource: @refining_your_idea_module %>
+
+    <%= f.text_area :idea_description, required: true, label: 'Please state your idea in the below box in no more than 100 words:', maxlength: 600  %>
+
+    <%= render_title title: "Questionnaire", size: "xl" %>
+
+    <%= f.text_area :personal_passion, required: true, label: 'Why are you pursuing this idea? What personal passion or problem are you trying to solve?', maxlength: 70 %>
+    <%= f.text_area :target_audience, required: true, label: 'Who is your target audience? Who faces the problem your idea seeks to solve?', maxlength: 70  %>
+    <%= f.text_area :product_service_address, required: true, label: 'How will your product/service address the needs of your audience?', maxlength: 70  %>
+    <%= f.text_area :market_gaps, required: true, label: 'Identify existing gaps in the market & list them down. (Hint: What are competitors missing?)', maxlength: 70  %>
+    <%= f.text_area :potential_user_feedback, required: true, label: 'Talk to one/more potential user. List down their feedback.', maxlength: 70  %>
+    <%= f.text_area :technical_financial_feasibility, required: true, label: 'Is the idea technically and financially feasible? List some technological barriers if any. Estimate the amount of money you will need to take the product to market.', maxlength: 70  %>
+    <%= f.text_area :scalability, required: true, label: 'Is your idea scalable? (Hint: What will you need to scale from 10 to 1000 clients/grow a 100X)?', maxlength: 70  %>
+    <%= f.text_area :flexibility, required: true, label: 'Is your idea flexible? Can you pivot strategies quickly at any point of development?', maxlength: 70  %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

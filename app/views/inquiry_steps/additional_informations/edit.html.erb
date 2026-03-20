@@ -1,0 +1,15 @@
+<% content_for :continue_button do %>
+  <%= link_to('Continue', edit_inquiry_steps_your_interest_path, class: "btn-primary") %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Additional information' %>
+  <%= form_with model: @inquiry, url: inquiry_steps_additional_informations_path do |f| %>
+    <%= render 'partials/form_errors', resource: @inquiry %>
+    <%= f.text_area :reason_for_interest, label: 'Why are you interested in Canadian Startup Program?' %>
+    <%= f.text_area :where_did_you_hear_about_us, label: 'Where did you hear about Aligned SUV Consultancy / Think8 Global Institute?' %>
+    <%= f.text_area :startup_location, label: 'Where in Canada do you wish to locate your Start-Up?' %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

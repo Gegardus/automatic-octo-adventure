@@ -1,0 +1,30 @@
+ <%= render_table @help_requests do %>
+    <%= table_head do %>
+      <%= table_header "Team name" %>
+      <%= table_header "Module name" %>
+      <%= table_header "Module section" %>
+      <%= table_header "Details" %>
+      <%= table_header "Created at" %>
+    <% end %>
+    <%= table_body do %>
+      <% @help_requests.each do |help_request| %>
+        <%= table_row do %>
+          <%= table_column do %>
+            <%= help_request.team_name %>
+          <% end %>
+          <%= table_column do %>
+            <%= help_request.module_name.humanize %>
+          <% end %>
+          <%= table_column do %>
+            <%= help_request.module_section.humanize %>
+          <% end %>
+          <%= table_column do %>
+            <%= link_to help_request.details, applicant_help_request_path(help_request), class: 'text-blue-600' %>
+          <% end %>
+          <%= table_column(class: 'print:hidden') do %>
+            <%= time_ago_in_words(help_request.created_at) %> ago
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>

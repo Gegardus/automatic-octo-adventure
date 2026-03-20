@@ -1,0 +1,124 @@
+require:
+  - rubocop-rails
+  - rubocop-minitest
+  - rubocop-capybara
+  - ./lib/rubo_cop/cop/custom_cops/no_schema_defaults
+  - ./lib/rubo_cop/cop/custom_cops/schema_null_false_booleans
+  - ./lib/rubo_cop/cop/custom_cops/system_test_comments
+
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - node_modules/**/*
+    - tmp/**/*
+    - local/**/*
+    - vendor/**/*
+    - storage/**/*
+    - bin/**
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - config/**/*
+    - db/**
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: false
+
+Layout/FirstHashElementIndentation:
+  Enabled: false
+
+Minitest/UnspecifiedException:
+  Enabled: false
+
+Minitest/MultipleAssertions:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/FetchEnvVar:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - db/**/*
+    - app/controllers/**/*
+    - test/**/*
+    - app/helpers/**/*
+    - app/mailers/*
+    - app/models/application_record.rb
+    - config/application.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+
+Metrics/BlockLength:
+  Exclude:
+    - db/migrate/*
+    - config/environments/*
+    - config/routes.rb
+    - lib/tasks/*.rake
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+
+Metrics/ClassLength:
+  Exclude:
+    - db/migrate/*
+    - test/controllers/**/*
+    - test/helpers/**/*
+    - test/mailers/**/*
+    - test/models/**/*
+    - test/system/**/*
+
+Rails/BulkChangeTable:
+  Exclude:
+    - db/migrate/*
+
+Rails/ThreeStateBooleanColumn:
+  Enabled: false
+
+CustomCops/NoSchemaDefaults:
+  Enabled: false
+  Exclude:
+    - lib/rails/generators/erb/scaffold/scaffold_generator.rb
+
+CustomCops/SchemaNullFalseBooleans:
+  Enabled: false
+
+CustomCops/SystemTestComments:
+  Enabled: true
+  Include:
+    - test/system/**/*
+
+Rails/SkipsModelValidations:
+  Enabled: true
+  Exclude:
+    - test/**/**/*
+
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - staging
+    - production

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Mentor Request</title>
+  </head>
+  <body>
+    <div style="font-family: Arial, sans-serif;">
+      <p>Hi <%= @staff_user.full_name %>,</p>
+      <p>A new mentor request has been submitted.</p>
+      <%= link_to 'View mentor request', mentor_request_url(@mentor_request), target: '_blank' %>
+    </div>
+  </body>
+</html>

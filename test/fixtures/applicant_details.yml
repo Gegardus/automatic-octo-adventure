@@ -1,0 +1,21 @@
+bobs_details:
+  user: bob
+  pronouns: They/Them
+  country_of_origin: Georgia
+  country_of_application: USA
+  native_language: Georgian
+  linkedin_url: https://www.linkedin.com/in/bob-dole/
+  tell_us_about_yourself: I am great bussinesman
+  current_address: '5A, Apartment 9, New-York, New Jersey, ZIP 11111'
+  marital_status: 'single'
+
+bens_details:
+  user: ben
+  pronouns: He/Him
+  country_of_origin: Pakistan
+  country_of_application: India
+  native_language: Punjabi
+  linkedin_url: https://www.linkedin.com/in/ben-gross/
+  tell_us_about_yourself: I am great organizer
+  current_address: 'SK Tower, Hariniwas, Mumbai, Maharashtra, ZIP 7799'
+  marital_status: 'married'

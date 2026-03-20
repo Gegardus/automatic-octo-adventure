@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AlignedSuv</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_pack_tag "application" %>
+  </head>
+
+  <body class="flex">
+    <div class="fixed">
+      <%= render 'partials/nav' %>
+    </div>
+
+    <main class="flex-grow print:pl-4 pl-16 flex flex-col">
+      <% flash.each do |key, message| %>
+        <%= render_alert(variant: key.to_sym, title: key.capitalize, description: message) %>
+      <% end %>
+      <% if content_for?(:steps_layout) %>
+        <%= yield :steps_layout %>
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </main>
+  </body>
+</html>

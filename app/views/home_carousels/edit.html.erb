@@ -1,0 +1,28 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Carousel' %>
+    
+    <%= render_alert(variant: :warning, title: "", description: 'Please ensure all images have the same dimensions for optimal results.') %>
+    
+    <%= form_for(@home_carousel, url: home_carousel_path, method: :patch) do |f| %>
+      <%= render 'partials/form_errors', resource: @home_carousel %>
+      <%= f.file_field :image_one %>
+      <%= f.file_field :image_two %>
+      <%= f.file_field :image_three %>
+      <%= f.submit(class: 'btn-primary') %>
+    <% end %>
+   
+  <%= render_grid columns: :three, class: 'mt-10' do %>
+    <% %i[image_one image_two image_three].each do |image_name| %>
+      <div>
+        <h2 class="mb-4">Current <%= image_name.to_s.humanize %></h2>
+        <% if @home_carousel.send(image_name).attached? %>
+          <%= image_tag @home_carousel.send(image_name), class: 'max-h-[200px]' %>
+          <%= button_to 'Remove', home_carousel_path(image: image_name), method: :delete, class: 'mt-4 text-red-600 text-xs' %>
+        <% else %>
+          <p class="mt-6"></p>
+          <%= render_alert(variant: :warning, title: "", description: 'No Image') %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

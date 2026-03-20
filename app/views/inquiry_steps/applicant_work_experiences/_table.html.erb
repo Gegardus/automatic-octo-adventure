@@ -1,0 +1,38 @@
+<%= render_table applicant_work_experiences do %>
+  <%= table_head do %>
+    <%= table_header 'Company' %>
+    <%= table_header 'Job title' %>
+    <%= table_header 'Responsibilities' %>
+    <%= table_header 'Tenure' %>
+    <%= table_header 'Location' %>
+    <% if show_actions %>
+      <%= table_header 'Actions', class: 'text-right' %>
+    <% end %>
+  <% end %>
+  <%= table_body do %>
+    <% applicant_work_experiences.each do |applicant_work_experience| %>
+      <%= table_row do %>
+        <%= table_column do %>
+          <%= applicant_work_experience.company %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_work_experience.job_title %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_work_experience.responsibilities %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_work_experience.tenure %>
+        <% end %>
+        <%= table_column do %>
+          <%= applicant_work_experience.location %>
+        <% end %>
+        <% if show_actions %>
+          <%= table_column(class: 'text-right') do %>
+            <%= link_to 'View', inquiry_steps_applicant_work_experience_path(applicant_work_experience), class: 'btn-secondary' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

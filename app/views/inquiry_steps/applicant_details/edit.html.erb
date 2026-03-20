@@ -1,0 +1,10 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Edit Applicant Detail' %>
+  <div class="space-y-6">
+    <%= form_with model: @applicant_detail, url: [:inquiry_steps, :applicant_detail], method: :put do |f| %>
+      <%= render 'partials/form_errors', resource: @applicant_detail %>
+      <%= render 'fields', f: f %>
+      <%= f.submit 'Save', class: "btn-primary" %>
+    <% end %>
+  </div>
+<% end %>

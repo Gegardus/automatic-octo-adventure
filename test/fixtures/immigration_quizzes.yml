@@ -1,0 +1,23 @@
+bobs_immigration_quiz:
+  tech_hub_city: toronto
+  primary_purpose_for_sin: securing_employment
+  responsible_for_driving_license: drive_test
+  ahcip_health_coverage: alberta_coverage
+  waiting_period_for_health_coverage: three_months
+  renowned_blue_nose_marathon: nova_scotia
+  known_university_for_stem_program: university_of_toronto
+  vancouver_city_province: british_columbia_province
+  responsible_for_monetary_policy: bank_of_canada
+  income_tax_filing_deadline: april_30th
+
+bens_immigration_quiz:
+  tech_hub_city: toronto
+  primary_purpose_for_sin: securing_employment
+  responsible_for_driving_license: drive_test
+  ahcip_health_coverage: alberta_coverage
+  waiting_period_for_health_coverage: three_months
+  renowned_blue_nose_marathon: nova_scotia
+  known_university_for_stem_program: university_of_toronto
+  vancouver_city_province: british_columbia_province
+  responsible_for_monetary_policy: bank_of_canada
+  income_tax_filing_deadline: april_30th

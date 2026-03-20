@@ -1,0 +1,38 @@
+<% content_for :always_show_continue_button do %>
+  <%= link_to('Continue', '#', class: "btn-primary js-click-submit-button", data: { 'form-action': refining_your_idea_module_path(section: 'mission') }) %>
+<% end %>
+
+<%= render_page_container do %>
+  <%= render_title title: "Mission Statement", size: "xl pt-6" %>
+  <%= render_paragraph content: "A good mission statement tells what a company stands for and what it does. It says who benefits from the company's products or services. A good mission statement gets the team on the same page, helping them answer the question, 'Why does a company exist?'" %>
+
+  <% items = [
+      "<strong>Nike:</strong> 'To bring inspiration and innovation to every athlete in the world. If you have a body, you are an athlete.'",
+      "<strong>Disney:</strong> 'To entertain, inform, and inspire people around the globe through the power of unparalleled storytelling.'",
+      "<strong>Tesla:</strong> 'To accelerate the world's transition to sustainable energy.'",
+      "<strong>Starbucks:</strong> 'To inspire and nurture the human spirit – one person, one cup, and one neighborhood at a time.'",
+      "<strong>LinkedIn:</strong> 'To connect the world's professionals to make them more productive and successful.'",
+      "<strong>Slack:</strong> 'To make work life simpler, more pleasant, and more productive.'",
+      "<strong>Spotify:</strong> 'To unlock the potential of human creativity—by giving a million creative artists the opportunity to live off their art and billions of fans the opportunity to enjoy and be inspired by it.'"
+  ]
+  %>
+
+  <%= render_title title: "Examples", size: "xl" %>
+  <%= render_unordered_list(items: items) %>
+
+  <%= render_title title: "Five Tips to Guide You", size: "xl " %>
+  <%= render_ordered_list(items: [
+    content_tag(:strong, 'Simplicity is Key') + ': Use clear and concise language. Avoid jargon and complicated words. Your mission statement should be easily understood by anyone, regardless of their familiarity with your industry.',
+    content_tag(:strong, 'Reflect Your Core') + ': Focus on the company\'s core purpose, values, and beliefs. What truly differentiates you from competitors? The mission should resonate with the essence of your business.',
+    content_tag(:strong, 'Be Authentic') + ': Ensure that your mission statement is genuine and isn\'t just a generic statement that any company in your industry could claim. It should be a true reflection of your company\'s intentions and not just what you think people want to hear.',
+    content_tag(:strong, 'Inspire Action') + ': A good mission statement should motivate and inspire your team and stakeholders. It should evoke a sense of purpose and direction.',
+    content_tag(:strong, 'Involve Stakeholders') + ': Consider getting input from different stakeholders such as employees, customers, and partners. Their perspectives can provide insights that you might not have considered and can make the mission more inclusive.'
+  ]) %>
+  <%= render_title title: "Creating Your Mission Statement", size: "xl" %>
+  <%= render_unordered_list(items: ["Reflect on the core reason for your business's existence. What gap does it fill, or problem does it solve?", "Write a mission statement within 1-3 sentences (50 words or less)"]) %>
+  <%= form_with model: @refining_your_idea_module, url: refining_your_idea_module_path(section: 'mission'), method: :patch, class: 'pl-7 mt-6' do |f| %>
+    <%= f.text_area :mission_statement, required: true, maxlength: 300 %>
+
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

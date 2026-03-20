@@ -1,0 +1,55 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: "#{@suv_application.team_name} application" do %>
+    <%= button_tag 'Print', type: 'button', onclick: 'window.print();', class: 'btn-secondary print:hidden' %>
+  <% end %>
+
+  <section class="mb-10">
+    <div class="u-sideBySide">
+      <h2 class="text-xl font-bold mb-4">Inquiry</h2>
+      <% if current_user.admin? %>
+        <div class="u-sideBySide">
+          <% if @suv_application.inquiry.submitted? %>
+            <%= link_to 'Decline', edit_decline_inquiry_path(@suv_application.inquiry), class: 'btn-danger print:hidden mr-6' %>
+            <%= button_to 'Approve', approve_inquiry_path(@suv_application.inquiry), method: :put, class: 'btn-primary print:hidden' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @suv_application.inquiry.declined? %>
+      <%= render_status_badge(label: 'Inquiry Declined', type: :warning, class: 'mb-6') %>
+      <p class="text-lg mb-4 font-bold">Decline reason</p>
+      <p class="text-xs border-l-4 border-gray-300 pl-4 py-2 italic mb-6"> <%= @suv_application.inquiry.decline_reason %> </p>
+    <% end %>
+
+    <%= render 'application_progress/pre_incubation', suv_application: @suv_application %>
+  </section>
+
+  <div class="hs-accordion-group">
+    <h2 class="text-xl font-bold mb-4">Applicants</h2>
+    <% @suv_application.applicants.each_with_index do |applicant, index| %>
+      <div class="hs-accordion print:border-none bg-white border -mt-px first:rounded-t-lg last:rounded-b-lg dark:bg-gray-800 dark:border-gray-700" id="hs-applicant-accordion-<%= index %>">
+        <button class="hs-accordion-toggle print:hidden hs-accordion-active:text-blue-600 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 py-4 px-5 hover:text-gray-500 disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:text-gray-400" aria-controls="hs-applicant-content-<%= index %>">
+          <svg class="hs-accordion-active:hidden print:hidden block w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <svg class="hs-accordion-active:block hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          <%= applicant.full_name %>
+        </button>
+        <div id="hs-applicant-content-<%= index %>" class="print:p-0 print:m-0 container print:block mx-auto gap-3 max-w-screen-xl pb-10 hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="hs-applicant-accordion-<%= index %>">
+          <div class="p-3 sm:p-0">
+            <% application_modules = ApplicationModules.new(applicant: applicant) %>
+            <%= render 'application_progress/progress_percentage_bar', progress_percentage: application_modules.progress_percentage %>
+
+            <%= render 'application_progress/applicant_info', applicant: applicant %>
+            <% (ApplicationModules::MODULES - [:pre_incubation]).map do |mod| %>
+              <% next unless application_modules.send("#{mod}_steps").completed? %>
+              <section class="mb-10">
+                <h2 class="text-lg font-bold mb-4"><%= application_modules.send("#{mod}_steps").title %></h2>
+                <%= render "application_progress/#{mod}", suv_application: @suv_application, applicant: applicant %>
+              </section>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

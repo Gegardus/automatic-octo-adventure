@@ -1,0 +1,30 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Bank account' %>
+  <%= render_title title: "Open a Bank Account in Canada", size: "xl" %>
+  <%= render_title title: "Choose a Bank or Financial Institution", size: "lg pt-6" %>
+  <%= render_paragraph content: "Canada has several major banks such as RBC, TD Bank, Scotiabank, BMO, and CIBC. There are also credit unions and some smaller banks that offer business banking services." %>
+  <%= render_title title: "Prepare Necessary Documentation", size: "lg pt-6" %>
+  <%= render_paragraph content: "You'll need to gather specific documentation to open your business account. While the exact requirements can vary between banks, typically, you'll need the following:" %>
+  <%= render_unordered_list(items: ["Business Registration or Incorporation Documents", "Partnership Agreement (if you're operating as a partnership)", "Personal Identification (government-issued identification for all major stakeholders in the business)", "Business Number (BN)", "Additional Information (business plan, financial statements, or projected financial figures, especially if you're seeking banking services beyond just a basic checking account)"]) %>
+  <%= render_title title: "Visit the Bank in Person", size: "lg pt-6" %>
+  <%= render_paragraph content: "While some banks might allow online applications, many require business owners to visit a branch in person to open a business account. During your visit, discuss with a banking representative about the various services they offer for businesses, including loans, credit cards, merchant services, etc. Ensure the account you choose is suited to your business's size and transaction volume." %>
+  <%= render_title title: "Review and Understand the Fees", size: "lg pt-6" %>
+  <%= render_paragraph content: "Business bank accounts often come with various fees, including monthly fees, transaction fees, and others. Some banks offer introductory promotions for new business accounts, such as a few months without fees. Ensure you understand all associated costs and how they might change as your business grows." %>
+  <%= render_title title: "Complete the Application Process", size: "lg pt-6" %>
+  <%= render_paragraph content: "Once you have all your documents ready and have chosen the right bank and account type, you'll fill out an application form. After reviewing your application and documents, the bank will either open your account immediately or might take a few days to process your application." %>
+  <%= render_title title: "Set Up Online and Mobile Banking", size: "lg pt-6" %>
+  <%= render_paragraph content: "After your account is active, set up online and mobile banking services to manage your business finances conveniently. Ensure you follow best practices for cybersecurity, including strong, unique passwords and regular monitoring of your accounts." %>
+  <%= render_paragraph content: "The exact requirements and process might vary based on the bank and the province you are in. Our team will guide you through the process of opening a bank account and registering your company." %>
+  <%= form_with(model: @suv_application, url: registration_document_step_path(section: 'bank_account'), method: :patch) do |f| %>
+    <%= render_grid do %>
+      <%= f.file_field :bank_account_document, required: !@suv_application.bank_account_document.attached? %>
+      <% if @suv_application.bank_account_document.attached? %>
+        <div class="max-w-sm">
+          <h3 class="mb-2 block text-sm font-medium leading-6 text-gray-900 text-base mb-4 4">Current upload</h3>
+          <%= render 'active_storage/blobs/blob', blob: @suv_application.bank_account_document.blob %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= f.submit 'Save' %>
+  <% end %>
+<% end %>

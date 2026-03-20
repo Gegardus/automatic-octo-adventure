@@ -1,0 +1,10 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'Results' %>
+
+  <% content_for :continue_button do %>
+    <%= link_to 'Back to modules', modules_path, class: "btn-primary" %>
+  <% end %>
+  
+  <p class="mb-4">Based on your replies we may suggest that the following social style better describes you:</p>
+  <% render 'quick_assessment/results', quick_assessment: @quick_assessment %>
+<% end %>

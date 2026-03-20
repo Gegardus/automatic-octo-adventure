@@ -1,0 +1,8 @@
+<%= render_grid do %>
+  <%= f.text_field :description %>
+  <%= f.select :proficiency_level, ApplicantSkill.proficiency_levels.sort.map { |key, value| [key.humanize, key] }, prompt: true %>
+  <%= f.text_field :skill_type%>
+  <%= f.text_field :certification %>
+<% end %>
+
+<%= f.submit %>

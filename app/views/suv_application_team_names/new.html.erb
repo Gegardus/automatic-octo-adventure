@@ -1,0 +1,10 @@
+<%= render_page_container do %>
+  <%= render_page_header heading: 'New Inquiry' %>
+  <p class="mb-2">We will need to collect some info before submitting the inquiry</p>
+  <%= form_with model: @suv_application, url: suv_application_team_names_path do |f| %>
+    <%= render 'partials/form_errors', resource: @suv_application %>
+    <%= f.text_field :team_name %>
+    <p class="mb-6 text-sm text-gray-600">Note: This name will be the unique identifier for your group throughout the incubation process. This does not have to be the name of your business. The name of the business can evolve as you refine your idea.</p>
+    <%= f.submit 'Start Inquiry' %>
+  <% end %>
+<% end %>
